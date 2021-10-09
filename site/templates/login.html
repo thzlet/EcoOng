@@ -7,13 +7,15 @@
   </head>
 
   <body>
-    <form class="box">
+    {% block conteudo %}
+    <form class="box" action="/entrar" method="post">
       <h1>Login</h1>
       <input id="email" type="email" name="email" placeholder="Email">
       <input id="senha" type="password" name="senha" placeholder="Senha">
       <a style="color: white" href="{{ url_for('cadastro_page') }}">Cadastre-se aqui!</a>
       <input id="enviar" type="submit" placeholder="Entrar">
     </form>
+    {% endblock %}
   </body>
 
 </html>

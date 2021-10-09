@@ -8,16 +8,18 @@
   </head>
 
   <body>
-    <form class="box">
+    {% block conteudo %}
+    <form class="box" action="/novocadastro" method="post">
       <h1>Cadastro</h1>
-      <input id="nome" type="text" name"nome" placeholder="Nome">
+      <input id="nome" type="text" name="nome" placeholder="Nome">
       <input id="email" type="email" name="email" placeholder="Email">
       <input id="senha" type="password" name="senha" placeholder="Senha">
-      <input id="tel" type="tel" name="tel" placeholder="Telefone">
+      <input id="tel" type="text" name="tel" placeholder="Telefone">
       <input id="idade" type="number" name="idade" placeholder="Idade">
       <a style="color: white" href="{{ url_for('login_page') }}">Já tem cadastro? Faça login aqui!</a>
       <input id="enviar" type="submit" placeholder="Entrar">
     </form>
+    {% endblock %}
   </body>
 
 </html>
