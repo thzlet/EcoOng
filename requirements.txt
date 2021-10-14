@@ -1,0 +1,6 @@
+flask
+dynaconf
+toml
+flaskstarter
+flask-sqlalchemy
+flask-migrate
