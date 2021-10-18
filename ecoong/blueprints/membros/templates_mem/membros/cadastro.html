@@ -8,18 +8,20 @@
 </head>
 
 <body>
-  <form class="box">
+{% block conteudo %}
+  <form class="box" action="{{url_for('membros.cadastrar_page')}}" method="post">
     <h1>Cadastro</h1>
-    <input id="nome" type="text" name"nome" placeholder="Nome" required>
+    <input id="nome" type="text" name="nome" placeholder="Nome" required>
     <input id="email" type="email" name="email" placeholder="Email" required>
     <input id="senha" type="password" name="senha" placeholder="Senha" required>
-    <input id="tel" type="tel" name="tel" placeholder="Telefone" required>
-    <input id="idade" type="number" name="idade" placeholder="Idade" required>
+    <input id="tel" type="number" name="tel" placeholder="Telefone" required>
+    <input id="idade" type="tel" name="idade" placeholder="Idade" required>
     <a style="color: white" href="{{url_for('membros.login_page')}}">
       <h4>Já tem cadastro? Faça login aqui!</h4>
     </a>
     <input id="enviar" type="submit" placeholder="Entrar">
   </form>
+{% endblock %}
 </body>
 
 </html>
