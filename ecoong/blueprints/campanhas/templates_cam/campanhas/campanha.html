@@ -1,0 +1,7 @@
+CAMPANHAS
+
+{% for campanha in campanhas %}
+    <h3> titulo: {{campanha.titulo}}</h3>
+    <img src="{{campanha.imagem}}">
+    <p> descriçao: {{campanha.descricao}}</p>
+{% endfor %}
