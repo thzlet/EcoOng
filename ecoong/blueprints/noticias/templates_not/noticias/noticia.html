@@ -1,0 +1,11 @@
+NOTICIAS
+
+{% for noticia in noticias %}
+    <h3> titulo: {{noticia.titulo}}</h3>
+    <img src="{{noticia.imagem}}">
+    <p> autor: {{noticia.autor}}</p>
+    <p> data: {{noticia.data}}</p>
+    <p> descriçao: {{noticia.descricao}}</p>
+    <p> categoria: {{noticia.categoria}}</p>
+    <p> tag: {{noticia.tag}}</p>
+{% endfor %}
