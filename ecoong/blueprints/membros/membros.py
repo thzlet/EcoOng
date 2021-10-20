@@ -48,6 +48,11 @@ def form_login():
         else:
             return 'algo deu errado'
 
+#visualizar perfil
+@bp.route('/perfil')
+def perfil_page():
+    return render_template('membros/perfil.html')
+
 #atualizar dados
 
 #remover membro
