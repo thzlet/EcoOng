@@ -2,4 +2,263 @@
 {% block titulo %}Home{% endblock %}
 {% block conteudo %}
 
+ <!-- CARROSEL -->
+  <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img height="500" src="/static/imgs/img_home_carousel_1.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img height="500" src="/static/imgs/img_home_carousel_2.jpg" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img height="500" src="/static/imgs/img_home_carousel_3.jpg" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+  </div>
+
+  <!-- CARD 1 -->
+  <div align="center" class="container">
+    <div class="row">
+      <div class="col">
+        <hr class="featurette-divider">
+
+        <div class="row featurette">
+          <div class="col-md-7">
+            <h2 align="left" class="featurette-heading">Quem somos ?</h2>
+            <p align="left" class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus massa, elementum sed aliquam ac, rutrum vel mauris. Etiam est tellus, eleifend sit amet mauris sit amet, semper rutrum metus. Suspendisse tincidunt diam quam, sed vestibulum ligula imperdiet eget. Phasellus et libero dui. Morbi molestie leo ipsum, at ultricies nulla semper sed. Consectetur adipiscing elit, elementum sed aliquam ac, rutrum vel mauris.</p>
+          </div>
+          <div class="col-md-5">
+            <a href="#"><img class="featurette-image img-fluid mx-auto" width="400" src="/static/imgs/img_home_quem_somos.jpg" alt="..."></a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+  <!-- INFORMÇÃO -->
+  <div align="center" class="container">
+    <div class="row">
+      <div class="col">
+        <h2 align="left">Loewqwh wuyagf gt hopes</h2>
+        <p align="left"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus massa, elementum sed aliquam ac, rutrum vel mauris. Etiam est tellus, eleifend sit amet mauris sit amet, semper rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus massa, elementum sed aliquam ac, rutrum vel mauris. Etiam est tellus, eleifend sit amet mauris sit amet, semper rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus massa, elementum sed aliquam ac, rutrum vel mauris. Etiam est tellus, eleifend sit amet mauris sit amet, semper rutrum metus.</p>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+  <!-- IMAGENS -->
+  <div align="center" class="container">
+    <div class="row">
+      <div class="coll">
+        <div class="box">
+          <img src="/static/imgs/img_home_tigre_1.jpg">
+          <span>Natureza</span>
+        </div>
+        <div class="box">
+          <img src="/static/imgs/img_home_golfinho_2.jpg">
+          <span>Natureza</span>
+        </div>
+        <div class="box">
+          <img src="/static/imgs/img_home_arara_3.jpg">
+          <span>Natureza</span>
+        </div>
+        <div class="box">
+          <img src="/static/imgs/img_home_cobra_4.jpg">
+          <span>Natureza</span>
+        </div>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+  <!-- NOTICIAS -->
+  <div align="center" class="container">
+    <div class="row">
+      <div class="col">
+        <h2>Notícias</h2><br>
+        <div class="card mb-3" style="max-width: 1000px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <a href="#"><img src="/static/imgs/img_home_noticias_1.jpg" class="img-fluid rounded-start" alt="..."></a>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <h5 align="left" class="card-title">Desmatamento na Amazônia em agosto é o maior para o mês em dez anos, diz Imazon</h5>
+                <p align="left" class="card-text">Segundo o relatório, área desmatada em agosto de 2021 é 7% maior do que a registrada no mesmo mês em 2020. Acumulado desde janeiro também ficou como o pior em 10 anos.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-3" style="max-width: 1000px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <a href="#"><img src="/static/imgs/img_home_noticias_2.jpg" class="img-fluid rounded-start" alt="..."></a>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 align="left" class="card-title">Flagrados com 229 filhotes de papagaios e araras no carro, casal é preso e multado em R$ 2,519 milhões</h5>
+                  <p align="left" class="card-text">Flagrante ocorreu na manhã desta segunda-feira (20), na BR-487, em Naviraí. As aves foram levadas para o CRAS da fazenda Green Farm.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-3" style="max-width: 1000px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <a href="#"><img src="/static/imgs/img_home_noticias_3.jpg" class="img-fluid rounded-start" alt="..."></a>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 align="left" class="card-title">SP: fumaça de queimadas tem potencial cancerígeno, diz estudo</h5>
+                  <p align="left" class="card-text">Pesquisa em Ribeirão Preto, no interior de São Paulo, apontou elevada concentração de compostos que causam morte de células.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+          <div class="card mb-3" style="max-width: 1000px;">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <a href="#"><img src="/static/imgs/img_home_noticias_4.jpg" class="img-fluid rounded-start" alt="..."></a>
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 align="left" class="card-title">Cientistas da UFU ajudam a avaliar riscos de extinção de espécies na Bacia do Rio Doce</h5>
+                  <p align="left" class="card-text">Estudos feitos após rompimento de barragem em Mariana resultou em livro.</p><br>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="#" role="button">Veja mais</a>
+    <hr>
+  </div>
+
+  <!-- INFORMÇÃO -->
+  <div align="center" class="container">
+    <div class="row">
+      <div class="col">
+        <h2 align="left">Loewqwh wuyagf gt hopes</h2>
+        <p align="left"> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus massa, elementum sed aliquam ac, rutrum vel mauris. Etiam est tellus, eleifend sit amet mauris sit amet, semper rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus massa, elementum sed aliquam ac, rutrum vel mauris. Etiam est tellus, eleifend sit amet mauris sit amet, semper rutrum metus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus massa, elementum sed aliquam ac, rutrum vel mauris. Etiam est tellus, eleifend sit amet mauris sit amet, semper rutrum metus.</p>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+  <!-- CAMPANHAS -->
+  <div align="center" class="container">
+    <h2>Campanhas</h2><br>
+    <div class="row">
+      <div class="col">
+        <div class="wrapper">
+          <div class="cards">
+            <img height="360" src="/static/imgs/img_home_campanhas_1.jpg">
+            <div class="info">
+              <h3>Salve a Amazônia</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus massa, elementum sed aliquam ac, rutrum vel mauris.</p>
+              <a type="button" class="btn" href="#" role="button">Doar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="wrapper">
+          <div class="cards">
+            <img height="360" src="/static/imgs/img_home_campanhas_2.jpg">
+            <div class="info">
+              <h4>Preservação da biodiversidade marinha</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus massa, elementum sed aliquam ac, rutrum vel mauris.</p>
+              <a type="button" class="btn" href="#" role="button">Doar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="wrapper">
+          <div class="cards">
+            <img height="360" src="/static/imgs/img_home_campanhas_3.jpg">
+            <div class="info">
+              <h4>Por um Mundo Verde e Pacífico</h4>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus massa, elementum sed aliquam ac, rutrum vel mauris.</p>
+              <a type="button" class="btn" href="#" role="button">Doar</a><br>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <br><br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="#" role="button">Veja mais</a>
+    <hr>
+  </div>
+
+  <!-- ULTIMO CARD -->
+  <div align="center" class="container">
+    <div class="row">
+      <h3>Principais animais da fauna ameaçada de extinção</h3><br><br><br>
+      <div class="col">
+        <div class="card" style="width: 20rem;">
+          <img height="200" width="200" src="/static/imgs/img_home_ultimo_card_1.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p align="left" class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus massa, elementum sed aliquam ac, rutrum vel mauris. Etiam est tellus, eleifend sit amet mauris sit amet, semper rutrum metus. Suspendisse tincidunt diam quam, sed vestibulum ligula imperdiet eget.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="width: 20rem;">
+          <img height="200" width="200" src="/static/imgs/img_home_ultimo_card_2.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p align="left" class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus massa, elementum sed aliquam ac, rutrum vel mauris. Etiam est tellus, eleifend sit amet mauris sit amet, semper rutrum metus. Suspendisse tincidunt diam quam, sed vestibulum ligula imperdiet eget.
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card" style="width: 20rem;">
+          <img height="200" width="200" src="/static/imgs/img_home_ultimo_card_3.jpg" class="card-img-top" alt="...">
+          <div class="card-body">
+            <p align="left" class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus massa, elementum sed aliquam ac, rutrum vel mauris. Etiam est tellus, eleifend sit amet mauris sit amet, semper rutrum metus. Suspendisse tincidunt diam quam, sed vestibulum ligula imperdiet eget.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <br><br><br>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="footer-content">
+      <h3>EcoOng</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer turpis sapien, mollis a aliquet eu, condimentum lobortis nisl. Mauris ut felis porta, sollicitudin massa eget, cursus est. Integer non est magna!</p>
+      <ul class="socials">
+        <li><a href="https://instagram.com/eco.ong?utm_medium=copy_link"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="https://twitter.com/eco_ong2?t=S38nC3Frb7m2zhYAbASpJA&s=09"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://github.com/leticiarosemberg/EcoOng"><i class="fa fa-github"></i></a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>copyright &copy;2021 EcoOng.</span></p>
+  </footer>
+
 {% endblock %}
