@@ -5,6 +5,10 @@ from ecoong.ext.database import db
 bp = Blueprint('membros', __name__,static_folder='static_mem', template_folder='templates_mem', url_prefix='/membros')
 
 
+@bp.route('/')
+def root():
+    return 'Hello from membros'
+
 #rota de cadastro
 @bp.route('/cadastro')
 def cadastro_page():
