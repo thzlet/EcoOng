@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   font-family: Times New Roman;
-  background: url("https://c.wallhere.com/photos/00/5c/landscape_trees_path_forest-283484.jpg!d");
+  background: url("/static_mem/membros/imgs/img_cad_log.jpg");
   background-repeat: no-repeat;
 }
 
@@ -10,7 +10,7 @@ body {
   width: 300px;
   padding: 40px;
   position: absolute;
-  top: 50%;
+  top: 60%;
   left: 50%;
   transform: translate(-50%, -50%);
   background: #191919;
