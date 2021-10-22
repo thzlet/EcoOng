@@ -5,17 +5,31 @@ bp = Blueprint('campanhas', __name__,static_folder='static_cam', template_folder
 
 
 campanha = [
-    {'id_campanha': 1,
-     'titulo': 'Lorem Ipsum',
-     'imagem': 'static_cam/campanhas/img/campanha.jpg',
-     'descricao': 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.'
-    }
+    {'id_campanha': 1, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_1.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
+    {'id_campanha': 2, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_2.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
+    {'id_campanha': 3, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_3.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
+    {'id_campanha': 4, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_4.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
+    {'id_campanha': 5, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_5.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
+    {'id_campanha': 6, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_6.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
+    {'id_campanha': 7, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_7.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
+    {'id_campanha': 8, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_8.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
+    {'id_campanha': 9, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_9.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
+    {'id_campanha': 10, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_10.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
+    {'id_campanha': 11, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_11.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
+    {'id_campanha': 12, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_12.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
     ]
 
 @bp.route('/campanhas')
 def campanha_page():
     return render_template('campanhas/campanha.html',campanhas=campanha)
 
+@bp.route('/detalhe_cam')
+def detalhe_cam_page():
+    return render_template('campanhas/detalhe_campanha.html')
+
+@bp.route('/doacao')
+def doacao_page():
+    return render_template('campanhas/doacoes.html')
 
 def init_app(app):
     app.register_blueprint(bp)
