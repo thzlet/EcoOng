@@ -42,7 +42,7 @@
             <p align="left" class="lead">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas risus massa, elementum sed aliquam ac, rutrum vel mauris. Etiam est tellus, eleifend sit amet mauris sit amet, semper rutrum metus. Suspendisse tincidunt diam quam, sed vestibulum ligula imperdiet eget. Phasellus et libero dui. Morbi molestie leo ipsum, at ultricies nulla semper sed. Consectetur adipiscing elit, elementum sed aliquam ac, rutrum vel mauris.</p>
           </div>
           <div class="col-md-5">
-            <a href="#"><img class="featurette-image img-fluid mx-auto" width="400" src="/static/imgs/img_home_quem_somos.jpg" alt="..."></a>
+            <img class="featurette-image img-fluid mx-auto" width="400" src="/static/imgs/img_home_quem_somos.jpg" alt="...">
           </div>
         </div>
       </div>
@@ -94,7 +94,7 @@
         <div class="card mb-3" style="max-width: 1000px;">
           <div class="row g-0">
             <div class="col-md-4">
-              <a href="#"><img src="/static/imgs/img_home_noticias_1.jpg" class="img-fluid rounded-start" alt="..."></a>
+              <a href="{{url_for('noticias.detalhe_not_page')}}"><img src="/static/imgs/img_home_noticias_1.jpg" class="img-fluid rounded-start" alt="..."></a>
             </div>
             <div class="col-md-8">
               <div class="card-body">
@@ -108,7 +108,7 @@
           <div class="card mb-3" style="max-width: 1000px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <a href="#"><img src="/static/imgs/img_home_noticias_2.jpg" class="img-fluid rounded-start" alt="..."></a>
+                <a href="{{url_for('noticias.detalhe_not_page')}}"><img src="/static/imgs/img_home_noticias_2.jpg" class="img-fluid rounded-start" alt="..."></a>
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -123,7 +123,7 @@
           <div class="card mb-3" style="max-width: 1000px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <a href="#"><img src="/static/imgs/img_home_noticias_3.jpg" class="img-fluid rounded-start" alt="..."></a>
+                <a href="{{url_for('noticias.detalhe_not_page')}}"><img src="/static/imgs/img_home_noticias_3.jpg" class="img-fluid rounded-start" alt="..."></a>
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -138,7 +138,7 @@
           <div class="card mb-3" style="max-width: 1000px;">
             <div class="row g-0">
               <div class="col-md-4">
-                <a href="#"><img src="/static/imgs/img_home_noticias_4.jpg" class="img-fluid rounded-start" alt="..."></a>
+                <a href="{{url_for('noticias.detalhe_not_page')}}"><img src="/static/imgs/img_home_noticias_4.jpg" class="img-fluid rounded-start" alt="..."></a>
               </div>
               <div class="col-md-8">
                 <div class="card-body">
@@ -151,7 +151,7 @@
         </div>
       </div>
     </div>
-    <a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="#" role="button">Veja mais</a>
+    <a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('noticias.noticias_page')}}" role="button">Veja mais</a>
     <hr>
   </div>
 
@@ -207,7 +207,7 @@
         </div>
       </div>
     </div>
-    <br><br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="#" role="button">Veja mais</a>
+    <br><br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('campanhas.campanha_page')}}" role="button">Veja mais</a>
     <hr>
   </div>
 

@@ -1,11 +1,241 @@
-NOTICIAS
+<!DOCTYPE html>
+<html lang="pt-br">
 
-{% for noticia in noticias %}
-    <h3> titulo: {{noticia.titulo}}</h3>
-    <img src="{{noticia.imagem}}">
-    <p> autor: {{noticia.autor}}</p>
-    <p> data: {{noticia.data}}</p>
-    <p> descriçao: {{noticia.descricao}}</p>
-    <p> categoria: {{noticia.categoria}}</p>
-    <p> tag: {{noticia.tag}}</p>
-{% endfor %}
+<head>
+  <title>Noticia</title>
+  <meta charset="utf-8">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="static_not/noticias/css/noticia.css" rel="stylesheet">
+  <link href="/static/css/bootstrap.min.css" rel="stylesheet">
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" style="color:#2F4F4F; font-family: Cooper Black" href="#">EcoOng</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="{{url_for('root')}}">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{url_for('noticias.noticias_page')}}">Notícias</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Ações</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{url_for('campanhas.campanha_page')}}">Doe Aqui!</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{url_for('membros.cadastro_page')}}">Junte-se a Nós!</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{url_for('membros.login_page')}}">Entrar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{url_for('membros.perfil_page')}}">Meu Perfil</a>
+          </li>
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="Pesquisar" placeholder="Pesquisar" aria-label="Pesquisar">
+          <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+<!-- PRIMEIRA PARTE DE NOTÍCIAS -->
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <hr>
+        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit.</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit. Praesent ut ante eu nunc dictum luctus et nec enim. Ut eleifend interdum accumsan.</p>
+        <hr>
+        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit.</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit. Praesent ut ante eu nunc dictum luctus et nec enim. Ut eleifend interdum accumsan consectetur adipiscing elit, fusce sollicitudin suscipit elit.</p>
+      </div>
+
+      <div class="col">
+        <hr>
+        <img height="300" width="480" src="static_not/noticias/img/araraprincipal.jpg">
+        <br>
+        <br>
+        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit.</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit. Praesent ut ante eu nunc dictum luctus et nec enim. Ut eleifend interdum accumsan.</p>
+      </div>
+
+      <div class="col">
+        <hr>
+        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit.</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit. Praesent ut ante eu nunc dictum luctus et nec enim. Ut eleifend interdum accumsan.</p>
+        <hr>
+        <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit.</h5>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit. Praesent ut ante eu nunc dictum luctus et nec enim. Ut eleifend interdum accumsan consectetur adipiscing elit, fusce sollicitudin suscipit elit.</p>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+<!-- SEGUNDA PARTE DE NOTÍCIAS-->
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card mb-3">
+          <a href="{{url_for('noticias.detalhe_not_page')}}"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_um.jpg'></a>
+          <div class="card-body">
+            <h5 class="card-title">Lorem ipsum 1.</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo.</p>
+            <p class="card-text"><small class="text-muted">EcoOng</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-3">
+          <a href="{{url_for('noticias.detalhe_not_page')}}"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_dois.jpg'></a>
+          <div class="card-body">
+            <h5 class="card-title">Lorem ipsum 2.</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo.</p>
+            <p class="card-text"><small class="text-muted">EcoOng</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-3">
+          <a href="{{url_for('noticias.detalhe_not_page')}}"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_tres.jpg'></a>
+
+          <div class="card-body">
+            <h5 class="card-title">Lorem ipsum 3.</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo.</p>
+            <p class="card-text"><small class="text-muted">EcoOng</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card mb-3">
+          <a href="{{url_for('noticias.detalhe_not_page')}}"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_quatro.jpg'></a>
+          <div class="card-body">
+            <h5 class="card-title">Lorem ipsum 4.</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo risus massa, elementum sed aliquam ac, rutrum vel mauris. Etiam est tellus, eleifend sit amet mauris sit amet, semper rutrum metus. Suspendisse tincidunt diam quam, sed vestibulum ligula imperdiet eget risus massa, elementum sed aliquam ac, rutrum vel mauris. Etiam est tellus, eleifend sit amet mauris sit amet, semper rutrum metus. Suspendisse tincidunt diam quam, sed vestibulum ligula imperdiet eget.</p>
+            <p class="card-text"><small class="text-muted">EcoOng</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card mb-3">
+          <a href="{{url_for('noticias.detalhe_not_page')}}"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_cinco.jpg'></a>
+          <div class="card-body">
+            <h5 class="card-title">Lorem ipsum 5.</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo.</p>
+            <p class="card-text"><small class="text-muted">EcoOng</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-3">
+          <a href="{{url_for('noticias.detalhe_not_page')}}"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_seis.jpg'></a>
+          <div class="card-body">
+            <h5 class="card-title">Lorem ipsum 6.</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo.</p>
+            <p class="card-text"><small class="text-muted">EcoOng</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-3">
+          <a href="{{url_for('noticias.detalhe_not_page')}}"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_sete.jpg'></a>
+
+          <div class="card-body">
+            <h5 class="card-title">Lorem ipsum 7.</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo.</p>
+            <p class="card-text"><small class="text-muted">EcoOng</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card mb-3">
+          <a href="{{url_for('noticias.detalhe_not_page')}}"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_oito.jpg'></a>
+          <div class="card-body">
+            <h5 class="card-title">Lorem ipsum 8.</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo.</p>
+            <p class="card-text"><small class="text-muted">EcoOng</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-3">
+          <a href="{{url_for('noticias.detalhe_not_page')}}"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_nove.jpg'></a>
+          <div class="card-body">
+            <h5 class="card-title">Lorem ipsum 9.</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo.</p>
+            <p class="card-text"><small class="text-muted">EcoOng</small></p>
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-3">
+          <a href="{{url_for('noticias.detalhe_not_page')}}"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_dez.jpg'></a>
+
+          <div class="card-body">
+            <h5 class="card-title">Lorem ipsum 10.</h5>
+            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo.</p>
+            <p class="card-text"><small class="text-muted">EcoOng</small></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <hr>
+  </div>
+
+<!-- TERCEIRA PARTE DE NOTÍCIAS-->
+  <div align="center" class="container">
+    <div class="row">
+    {% for noticia in noticias %}
+      <div class="col">
+        <a href="{{url_for('noticias.detalhe_not_page')}}"><img height="150" width="350" src="{{noticia.imagem}}"></a>
+        <h6>{{noticia.titulo}}</h6>
+        <p><b>{{noticia.descricao}}</b></p>
+      </div>
+    {% endfor %}
+    </div>
+  </div>
+  <br><br>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="footer-content">
+      <h3>EcoOng</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer turpis sapien, mollis a aliquet eu, condimentum lobortis nisl. Mauris ut felis porta, sollicitudin massa eget, cursus est. Integer non est magna!</p>
+      <ul class="socials">
+        <li><a href="https://instagram.com/eco.ong?utm_medium=copy_link"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="https://twitter.com/eco_ong2?t=S38nC3Frb7m2zhYAbASpJA&s=09"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://github.com/leticiarosemberg/EcoOng"><i class="fa fa-github"></i></a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p>copyright &copy;2021 EcoOng.</span></p>
+  </footer>
+  <script src="/static/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
