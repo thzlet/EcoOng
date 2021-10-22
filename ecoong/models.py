@@ -5,5 +5,5 @@ class Membro(db.Model):
     nome = db.Column(db.String(100), nullable=False)
     email = db.Column(db.String(100), nullable=False)
     senha = db.Column(db.String(100), nullable=False)
-    telefone = db.Column(db.Integer, default=0)
+    telefone = db.Column(db.String(20), nullable=False)
     idade = db.Column(db.Integer, default=0)
