@@ -30,10 +30,10 @@
             <a class="nav-link active" href="{{url_for('campanhas.doacao_page')}}">Doe Aqui!</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{{url_for('membros.cadastro_page')}}">Junte-se a Nós!</a>
+            <a class="nav-link active" href="{{url_for('auth.cadastro_page')}}">Junte-se a Nós!</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link active" href="{{url_for('membros.login_page')}}">Entrar</a>
+            <a class="nav-link active" href="{{url_for('auth.login_page')}}">Entrar</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" href="{{url_for('membros.perfil_page')}}">Meu Perfil</a>
@@ -47,6 +47,16 @@
     </div>
   </nav>
 
+  {% with mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+      <div class="alert alert-success text-center" role="alert">
+        {% for mensagem in mensagens %}
+          <h2>{{mensagem}}</h2>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
 <!-- PERFIL DO USUÁRIO -->
   <section class="user-profile">
     <div class="header">
@@ -54,16 +64,18 @@
       </div>
     </div>
     <div class="user-profile-body">
+      {% if current_user.is_authenticated %}
       <div class="user-profile-bio">
-        <h3 class="titulo">Matheus Monteiro do Vale</h3>
+        <h3 class="titulo">{{current_user.nome}}</h3>
       </div>
       <div class="user-profile-footer">
         <ul class="data-list">
-          <li> Emaill: matheus.monteiro.vale07@aluno.ifce.edu.br</li>
-          <li>Telefone: (88) 997073420</li>
-          <li>Idade: 16</li>
+          <li> Emaill: {{current_user.email}}</li>
+          <li>Telefone: {{current_user.telefone}}</li>
+          <li>Idade: {{current_user.idade}}</li>
         </ul>
       </div>
+      {% endif %}
       <div class="d-grid gap-2 d-md-block">
         <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="#" role="button">Editar Perfil</a>
         <a type="button" class="btn btn-outline-danger" class="btn btn-primary" href="#" role="button">Remover Perfil</a>

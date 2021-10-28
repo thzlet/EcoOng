@@ -2,6 +2,16 @@
 {% block titulo %}Home{% endblock %}
 {% block conteudo %}
 
+  {% with mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+      <div class="alert alert-success text-center" role="alert">
+        {% for mensagem in mensagens %}
+          <h2>{{mensagem}}</h2>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
  <!-- CARROSEL -->
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
     <div class="carousel-indicators">
