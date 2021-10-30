@@ -13,7 +13,8 @@ bp = Blueprint('auth', __name__,static_folder='static_auth', template_folder='te
 def cadastro_page():
     if request.method == 'POST':
         if Membro.query.filter_by(email=request.form['email']).first() is not None:
-            return 'ja existe'
+            flash('Esse email ja existe :(')
+            return redirect(url_for('auth.cadastro_page'))
 
         membro = Membro()
         membro.nome = request.form['nome']
@@ -63,6 +64,7 @@ def sair():
 
 
 login.login_view = '/auth/login'
+login.login_message = "Faça login para acessar essa página!"
 
 
 def init_app(app):

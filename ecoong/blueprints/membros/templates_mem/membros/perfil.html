@@ -64,6 +64,7 @@
       </div>
     </div>
     <div class="user-profile-body">
+
       {% if current_user.is_authenticated %}
       <div class="user-profile-bio">
         <h3 class="titulo">{{current_user.nome}}</h3>
@@ -76,9 +77,32 @@
         </ul>
       </div>
       {% endif %}
+
       <div class="d-grid gap-2 d-md-block">
-        <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="#" role="button">Editar Perfil</a>
-        <a type="button" class="btn btn-outline-danger" class="btn btn-primary" href="#" role="button">Remover Perfil</a>
+        <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('membros.atualizar_page')}}" role="button">Atualizar Perfil</a>
+
+        <!-- Button trigger modal -->
+        <button type="button" class="btn btn-outline-danger" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Remover Perfil</button>
+
+        <!-- Modal -->
+        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="staticBackdropLabel">Remover Perfil</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Tem certeza que deseja remover seu perfil?
+                você ira perder todos os seus dados armazenados ate o momento incluindo doações, noticias...
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Não</button>
+                <a type="button" class="btn btn-outline-danger" href="{{url_for('membros.remover_page')}}">Sim</a>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </section>
