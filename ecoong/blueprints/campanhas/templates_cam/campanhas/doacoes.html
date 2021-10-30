@@ -5,7 +5,7 @@
   <title>Doações</title>
   <meta charset="utf-8">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
-  <link href="#" rel="stylesheet">
+  <link href="static_cam/campanhas/css/doacoes.css" rel="stylesheet">
   <link href="/static/css/bootstrap.min.css" rel="stylesheet">
   <script src="/static/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -45,7 +45,92 @@
       </div>
     </div>
   </nav>
-Em breve essa pagina estará disponivel!!
+
+  <div class="planodefundo">
+    <h1>FAÇA UMA DOAÇÃO</h1>
+    <h4>Nos ajude a cuidar do Meio Ambiente!</h4>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="row justify-content-center my-5">
+          <div class="col-sm-12 col-md-10 col-lg-8 formulario ">
+            <form>
+              <div class="form-row row">
+                <h3 class="text-center fs-1 my-3">DOE</h3>
+                <div class="form-group col-sm-6">
+                  <label for="inputid_membro" class="form-label mt-2">Nome de usuário:</label>
+                  <input type="text" class="form-control" placeholder="Nome completo" name="id_membro" required>
+                </div>
+                <div class="form-group col-sm-6">
+                  <label for="inputCPF" class="form-label mt-2">CPF:</label>
+                  <input type="text" class="form-control" placeholder="000.000.000-00" name="CPF" required>
+                </div>
+                <div class="form-group col-sm-6">
+                  <label for="inputAgencia" class="form-label mt-2">Agência:</label>
+                  <input type="text" class="form-control" placeholder="0000-0" name="agencia" required>
+                </div>
+                <div class="form-group col-sm-6">
+                  <label for="inputConta" class="form-label mt-2">Conta:</label>
+                  <input type="text" class="form-control" placeholder="00000000-0" name="conta" required>
+                </div>
+                <div class="form-group col-sm-6">
+                  <label for="inputBanco" class="form-label mt-2">Banco:</label>
+                  <input type="text" class="form-control" placeholder="Poupança ou Corrente" name="banco" required>
+                </div>
+                <div class="form-group col-sm-6">
+                  <label for="inputPix" class="form-label mt-2">Pix:</label>
+                  <input type="text" class="form-control" placeholder="00 000000000" name="Pix" required>
+                </div>
+                <div class="form-check px-5 pt-2 mt-2">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                  <label class="form-check-label" for="flexCheckDefault">
+                    Eu li e concordo com o <a href="#" data-bs-toggle="modal" data-bs-target="#Termo">termo</a> de responsabilidade
+                </div>
+              </div>
+          </div>
+
+          <!-- Modal -->
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <div class="modal fade" id="Termo" tabindex="-1" aria-labelledby="TermoDeResponsabilidade" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="TermoDeResponsabilidade">Termo de Responsabilidade</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                      </div>
+                      <div class="modal-body">
+                        Ao clicar em aceitar o termo de responsabilidade, o usuário declara estar ciente através destes que a falsidade das informações configura crime previsto no Código Penal Brasileiro, passível de apuração na forma da Lei bem como pode ser enquadrada como Litigância de Má Fé.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                </label>
+              </div>
+              <div class="form-group col-12 text-center">
+                <button type="submit" class="btndoar btn"><span class="mx-5">DOAR</span></button>
+              </div>
+            </div>
+            </form>
+          </div>
+        </div>
+
+        <div class="row g-0 bg-light position-relative my-3 rounded">
+          <div class="col-md-6 mb-md-0 p-md-4">
+            <img src="https://cdn.pixabay.com/photo/2019/09/21/06/55/rare-blue-macaw-4493172_960_720.jpg" class="w-100 rounded" alt="...">
+          </div>
+          <div class="col-md-6 p-4 ps-md-0">
+            <h5 class="mt-0">Porque sua ajuda é tão importante?</h5>
+            <p>Nós da EcoOng além de cuidar e preservar o nosso Meio Ambiente, acolhemos diversas causas diferentes. Dando vozes diferentes e também tornando possível melhorias, com você! Cuide, preserve e nos ajude para vivermos em um mundo melhor.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script src="/static/js/bootstrap.bundle.min.js"></script>
 </body>
 
