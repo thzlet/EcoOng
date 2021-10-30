@@ -47,6 +47,16 @@
     </div>
   </nav>
 
+  {% with mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+      <div class="alert alert-success text-center" role="alert">
+        {% for mensagem in mensagens %}
+          <h2>{{mensagem}}</h2>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
 <!--FORMULARIO  DE CADASTRO-->
 {% block conteudo %}
   <form class="box" action="{{url_for('auth.cadastro_page')}}" method="post">

@@ -1,4 +1,4 @@
-.data-list{
+.user-profile {
   font-weight: bold;
 }
 .user-profile .user-profile-body,
@@ -19,8 +19,8 @@
   display: block;
   position: relative;
   width: 90%;
-  height: 5rem;
-  background: linear-gradient(70deg, #32cd32, #00ff00);
+  height: 16rem;
+  background: linear-gradient(100deg, #32cd32, #00ff00);
   border-radius: 0 0 20px 20px;
 }
 .user-profile .user-profile-body {
@@ -59,4 +59,25 @@
 .user-profile .cover,
 .user-profile .user-profile-body {
   width: 95%;
+}
+.perfil-usuario-avatar {
+  display: flex;
+  width: 180px;
+  height: 180px;
+  align-items: center;
+  justify-content: center;
+  border: 7px solid #ffffff;
+  background-color: #dfe5f2;
+  border-radius: 50%;
+  box-shadow: 0 0 12px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  bottom: -40px;
+  left: calc(50% - 90px);
+  z-index: 1;
+}
+
+.perfil-usuario-avatar img {
+  width: 100%;
+  position: relative;
+  border-radius: 50%;
 }
