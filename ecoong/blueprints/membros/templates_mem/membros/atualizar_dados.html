@@ -50,10 +50,10 @@
 <!-- ATUALIZAÇÃO DOS DADOS DO USUÁRIO-->
   <form class="box" action="{{url_for('membros.atualizar_page')}}" method="post">
     <h1>Editar Dados</h1>
-    <input type="text" name="nv_nome" placeholder="Nome">
-    <input type="email" name="nv_email" placeholder="Email">
-    <input type="text" name="nv_tel" placeholder="Telefone">
-    <input type="number" name="nv_idade" placeholder="Idade">
+    <input type="text" name="nv_nome" placeholder="Nome" value="{{current_user.nome}}">
+    <input type="email" name="nv_email" placeholder="Email" value="{{current_user.email}}">
+    <input type="text" name="nv_tel" placeholder="Telefone" value="{{current_user.telefone}}">
+    <input type="number" name="nv_idade" placeholder="Idade" value="{{current_user.idade}}">
     <input type="submit" value="Atualizar">
   </form>
 </body>
