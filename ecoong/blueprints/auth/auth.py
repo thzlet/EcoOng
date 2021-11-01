@@ -4,6 +4,7 @@ from flask_login import login_required, login_user, logout_user
 from ecoong.models import Membro
 from ecoong.ext.database import db
 from ecoong.ext.login import login
+from ecoong.ext.bcrypt import bcrypt
 
 
 bp = Blueprint('auth', __name__,static_folder='static_auth', template_folder='templates_auth', url_prefix='/auth')
@@ -19,7 +20,7 @@ def cadastro_page():
         membro = Membro()
         membro.nome = request.form['nome']
         membro.email = request.form['email']
-        membro.senha  = request.form['senha']
+        membro.senha  = bcrypt.generate_password_hash(request.form['senha'])
         membro.telefone = request.form['tel']
         membro.idade = int(request.form['idade'])
 
@@ -41,7 +42,7 @@ def login_page():
 
         membro = Membro.query.filter_by(email=verif_email).first()
         if membro:
-            if verif_senha == membro.senha:
+            if bcrypt.check_password_hash(membro.senha,verif_senha):
                 login_user(membro)
                 flash('Já pode aproveitar as nossas ferramentas ;)')
                 return redirect(url_for('membros.perfil_page'))
