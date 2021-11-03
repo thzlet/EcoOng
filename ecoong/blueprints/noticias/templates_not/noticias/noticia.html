@@ -34,9 +34,14 @@
           <li class="nav-item">
             <a class="nav-link active" href="{{url_for('auth.login_page')}}">Entrar</a>
           </li>
+          {% if current_user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link active" href="{{url_for('membros.perfil_page')}}">Meu Perfil</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{url_for('auth.sair')}}">Logout</a>
+          </li>
+          {% endif %}
         </ul>
         <form class="d-flex">
           <input class="form-control me-2" type="Pesquisar" placeholder="Pesquisar" aria-label="Pesquisar">
