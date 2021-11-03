@@ -57,25 +57,29 @@
       <p>A preservação do meio ambiente é fundamental pra saúde do planeta em que vivemos e inclusive a nossa, não é raro vermos danos gigantescos causados nos rios, florestas, cidades, em nosso bairro e até na nossa própria casa... Coisas que para nós parecem simples e nem imaginamos o perigo que pode acontecer, mas com mudanças, por menores que sejam, nossas atitudes fazem a diferença!</p>
       <p>Esse é o principal objetivo das nossas campanhas, denunciar tudo o que acontece de ruim atualmente e junto com você dar voz e vez ao chamado do meio ambiente! A sua contribuição vai diretamente pra causa escolhida, e essa é a nossa principal missão!</p>
     </div>
+  <br><br><br>
 
   <!--CAMPANHAS-->
   <div align="center" class="container">
     <div class="row">
     {% for campanha in campanhas %}
       <div class="col-lg-4 col-sm-6 col-xs-12">
-        <div class="card" style="width: 18rem;">
-          <img class="card-img-top" src="{{campanha.imagem}}" alt="Imagem de capa do card">
-          <div class="card-body">
-            <h5 class="card-title">{{campanha.titulo}}</h5>
-            <p class="card-text">{{campanha.descricao}}</p>
-            <a href="{{url_for('campanhas.detalhe_cam_page')}}" class="btn btn-primary">Doar</a>
+        <div class="wrapper">
+          <div class="cards">
+            <img height="300" src="{{campanha.imagem}}">
+            <div class="info">
+              <h3>{{campanha.titulo}}</h3>
+              <p>{{campanha.descricao}}</p>
+              <a type="button" class="btn" href="{{url_for('campanhas.doacao_page')}}" role="button">Doar</a>
+            </div>
           </div>
         </div>
         </p>
+        <br><br><br>
       </div>
-      {% endfor %}
+   {% endfor %}
     </div>
-  </div>
+  </div></p>
 
   <!--RODAPÉ-->
   <footer>

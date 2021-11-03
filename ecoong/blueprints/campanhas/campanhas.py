@@ -5,18 +5,12 @@ bp = Blueprint('campanhas', __name__,static_folder='static_cam', template_folder
 
 
 campanha = [
-    {'id_campanha': 1, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_1.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
-    {'id_campanha': 2, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_2.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
-    {'id_campanha': 3, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_3.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
-    {'id_campanha': 4, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_4.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
-    {'id_campanha': 5, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_5.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
-    {'id_campanha': 6, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_6.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
-    {'id_campanha': 7, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_7.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
-    {'id_campanha': 8, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_8.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
-    {'id_campanha': 9, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_9.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
-    {'id_campanha': 10, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_10.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
-    {'id_campanha': 11, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_11.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
-    {'id_campanha': 12, 'titulo': 'Lorem Ipsum', 'imagem': 'static_cam/campanhas/img/Campanhas_12.jpg', 'descricao': 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec eu libero lacus. Morbi consequat egestas lacus.'},
+    {'id_campanha': 1, 'titulo': 'A AMAZÔNIA É O BRASIL', 'imagem': 'static_cam/campanhas/img/Campanhas_1.jpg', 'descricao': 'O desmatamento destrói ecossistemas e coloca milhões de vidas em risco. Nos ajude a combatê-lo!'},
+    {'id_campanha': 2, 'titulo': 'PROTEJA O OCEANO', 'imagem': 'static_cam/campanhas/img/Campanhas_2.jpg', 'descricao': 'Nossos oceanos estão sob ameaça! Temos a chance de mudar esse caminho que parece sem volta.'},
+    {'id_campanha': 3, 'titulo': 'SOS MATA ATLÂNTICA', 'imagem': 'static_cam/campanhas/img/Campanhas_3.jpg', 'descricao': 'Precisamos recuperar a floresta, além de fortalecer a legislação que a protege.'},
+    {'id_campanha': 4, 'titulo': 'ÁGUA PARA TODOS', 'imagem': 'static_cam/campanhas/img/Campanhas_4.jpg', 'descricao': 'A escassez de água é um problema que afeta 35 milhões de brasileiros. Nos ajude a combatê-la!'},
+    {'id_campanha': 5, 'titulo': 'TRÁFICO DE ANIMAIS', 'imagem': 'static_cam/campanhas/img/Campanhas_5.jpg', 'descricao': 'A sua doação nos ajudará a salvar milhares de animais silvestres do comércio ilegal.'},
+    {'id_campanha': 6, 'titulo': 'FIM DOS LIXÕES', 'imagem': 'static_cam/campanhas/img/Campanhas_6.jpg', 'descricao': 'Além da poluição, a má gestão dos resíduos tem efeitos prejudiciais à saúde pública.'},
     ]
 
 @bp.route('/campanhas')
