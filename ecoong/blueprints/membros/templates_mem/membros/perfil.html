@@ -35,9 +35,14 @@
           <li class="nav-item">
             <a class="nav-link active" href="{{url_for('auth.login_page')}}">Entrar</a>
           </li>
+          {% if current_user.is_authenticated %}
           <li class="nav-item">
             <a class="nav-link active" href="{{url_for('membros.perfil_page')}}">Meu Perfil</a>
           </li>
+          <li class="nav-item">
+            <a class="nav-link active" href="{{url_for('auth.sair')}}">Logout</a>
+          </li>
+          {% endif %}
         </ul>
         <form class="d-flex">
           <input class="form-control me-2" type="Pesquisar" placeholder="Pesquisar" aria-label="Pesquisar">
@@ -82,10 +87,10 @@
       {% endif %}
 
       <div align="center" class="d-grid gap-2 d-md-block">
-        <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('membros.atualizar_page')}}" role="button">Atualizar Perfil</a>
+        <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('membros.atualizar_page')}}" role="button">Editar Perfil</a>
 
       <div class="d-grid gap-2 d-md-block">
-        <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('auth.sair')}}" role="button">Sair</a>
+        <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('auth.sair')}}" role="button">Logout</a>
 
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-outline-danger" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Remover Perfil</button>
