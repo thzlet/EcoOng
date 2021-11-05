@@ -1,4 +1,5 @@
 from flask import Blueprint, render_template
+from ..campanhas.entidades import Campanha
 
 
 bp = Blueprint('campanhas', __name__,static_folder='static_cam', template_folder='templates_cam', url_prefix='/campanhas')

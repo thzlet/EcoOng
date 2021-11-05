@@ -13,6 +13,10 @@ class Membro(db.Model, UserMixin):
     telefone = db.Column(db.String(20), nullable=False)
     idade = db.Column(db.Integer, default=0)
 
+    img_perfil = db.Column(db.String(100), default='img_padrao.png')
+    img_capa = db.Column(db.String(100), default='img_padrao.png')
+
+
 @login.user_loader
 def load_membros(id):
     return Membro.query.get(id)
