@@ -1,5 +1,7 @@
 from flask import Blueprint, render_template
 
+from ..noticias.entidades import Noticia
+
 
 bp = Blueprint('noticias', __name__, static_folder='static_not', template_folder='templates_not', url_prefix='/noticias')
 
