@@ -8,4 +8,4 @@ class Noticia(db.Model):
     data = db.Column(db.String(15), nullable=False)
     descricao = db.Column(db.String(300), nullable=False)
 
-    img_not = db.Column(db.String(100), default='img_cam_padrao.png')
+    img_not = db.Column(db.String(100), default='img_not_padrao.png')

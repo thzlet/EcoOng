@@ -118,7 +118,7 @@ def plug_database():
     elif os.name == 'nt':
         cmd = f'call .venv/Scripts/activate; set FLASK_APP=ecoong; set FLASK_ENV=development; flask db init'
     subprocess.run(cmd, shell=True)
-    
+
     click.echo("Everything is setted up. Please, before doing migrations, remember your models isn't connected to any entrypoint of your app.")
 
 
