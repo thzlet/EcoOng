@@ -51,6 +51,16 @@
     </div>
   </nav>
 
+  {% with mensagens = get_flashed_messages() %}
+    {% if mensagens %}
+      <div class="alert alert-success text-center" role="alert">
+        {% for mensagem in mensagens %}
+          <h2>{{mensagem}}</h2>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
   <!-- PRIMEIRA PARTE DE NOTÍCIAS -->
   <div class="container">
     <div class="row">
@@ -317,6 +327,9 @@
      {% endfor %}
    </div>
  </div>
+ <br><br>
+
+ <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('noticias.cadastro_not')}}" role="button">Cadastrar Notícia</a>
  <br><br>
 
   <!-- RODAPÉ -->
