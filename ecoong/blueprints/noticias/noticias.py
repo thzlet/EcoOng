@@ -1,10 +1,21 @@
+import os
 from flask import Blueprint, render_template, request, redirect, flash, url_for
 
 from ..noticias.entidades import Noticia
 
 from ecoong.ext.database import db
 
+from ... import create_app
+
 bp = Blueprint('noticias', __name__, static_folder='static_not', template_folder='templates_not', url_prefix='/noticias')
+
+
+FORMATOS_PERMITIDOS = {'png', 'jpg', 'jpeg'}
+
+
+def allowed_file(filename):
+    return '.' in filename and \
+           filename.rsplit('.', 1)[1].lower() in FORMATOS_PERMITIDOS
 
 
 noticia = [
@@ -32,6 +43,16 @@ def cadastro_not():
         noticia.autor = request.form['autor']
         noticia.data  = request.form['data']
         noticia.descricao = request.form['des']
+
+        if 'img' not in request.files:
+            return "Sai daí! Tá errado!"
+        foto = request.files['img']
+        if foto and allowed_file(foto.filename):
+            noticia.img_not = foto.filename
+
+        app = create_app()
+        foto.save(os.path.join(app.config['UPLOAD_FOLDER'], foto.filename))
+
 
         db.session.add(noticia)
         db.session.commit()

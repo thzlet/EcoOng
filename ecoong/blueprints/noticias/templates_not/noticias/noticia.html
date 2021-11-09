@@ -329,9 +329,10 @@
  </div>
  <br><br>
 
+{% if current_user.is_authenticated %}
  <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('noticias.cadastro_not')}}" role="button">Cadastrar Notícia</a>
  <br><br>
-
+{% endif %}
   <!-- RODAPÉ -->
   <footer>
     <div class="footer-content">

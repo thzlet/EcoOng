@@ -52,15 +52,15 @@
     </div>
   </nav>
 
-<!--FORMULARIO CADASTRO NOTICIAS   enctype="multipart/form-data"-->
+<!--FORMULARIO CADASTRO NOTICIAS-->
 {% block conteudo %}
-  <form class="" action="{{url_for('noticias.cadastro_not')}}" method="post">
+  <form class="" action="{{url_for('noticias.cadastro_not')}}" method="post" enctype="multipart/form-data">
     <h1>Nova Noticia</h1>
     <input id="" type="text" name="titulo" placeholder="Título" required> <br>
     <input id="" type="text" name="autor" placeholder="Autor" required> <br>
     <input id="" type="text" name="data" placeholder="Data" required> <br>
     <textarea id="" name="des" rows="5" cols="50" placeholder="Descrição da noticia"></textarea> <br>
-    <!--<input id="" type="file" name="img" required> <br> <br>-->
+    <input id="" type="file" name="img" required> <br> <br>
     <input id="enviar" type="submit" placeholder="Enviar">
   </form>
 {% endblock %}
