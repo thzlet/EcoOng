@@ -1,16 +1,10 @@
-{% extends 'base.html' %}
-{% block titulo %}EcoOng{% endblock %}
-{% block conteudo %}
+{% extends 'base_rodape.html' %}
 
-  {% with mensagens = get_flashed_messages() %}
-    {% if mensagens %}
-      <div class="alert alert-success text-center" role="alert">
-        {% for mensagem in mensagens %}
-          <h2>{{mensagem}}</h2>
-        {% endfor %}
-      </div>
-    {% endif %}
-  {% endwith %}
+{% block titulo %}EcoOng{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="/static/css/landing.css">{% endblock %}
+
+{% block conteudo %}
 
  <!-- CARROSEL -->
   <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
@@ -258,23 +252,5 @@
     </div>
   </div>
   <br><br><br>
-
-  <!-- RODAPÉ -->
-  <footer>
-    <div class="footer-content">
-      <h3> EcoOng</h3>
-      <p>Somos uma ONG que busca ajudar a preservar o Meio Ambiente! <br>Nos encontre também nas redes sociais:</p>
-      <ul class="socials" align="center">
-        <li><a href="https://instagram.com/eco.ong?utm_medium=copy_link"><i class="fa fa-instagram"></i></a></li>
-        <li><a href="https://twitter.com/eco_ong2?t=S38nC3Frb7m2zhYAbASpJA&s=09"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="https://github.com/leticiarosemberg/EcoOng"><i class="fa fa-github"></i></a></li>
-      </ul>
-    </div>
-    <div class="footer-bottom">
-      <p>copyright &copy;2021 EcoOng.</span></p>
-  </footer>
-</body>
-
-</html>
 
 {% endblock %}

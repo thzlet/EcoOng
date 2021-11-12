@@ -5,6 +5,7 @@
   <title>{% block titulo %}{% endblock %}</title>
   <meta charset="utf-8">
   <link rel="icon" href="/static/imgs/site.ico">
+  <link rel="stylesheet" href="/static/css/rodape.css">
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="/static/css/bootstrap.min.css">
   {% block css %}{% endblock %}
@@ -12,7 +13,7 @@
 </head>
 
 <body>
-  <!--BARRA DE NAVEGAÇÃO-->
+  <!-- BARRA DE NAVEGAÇÃO -->
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" style="color:#2F4F4F; font-family: Cooper Black" href="{{url_for('root')}}">EcoOng</a>
@@ -51,7 +52,7 @@
     </div>
   </nav>
 
-  <!--MENSAGENS FLASH-->
+  <!-- MENSAGENS FLASH -->
   {% with mensagens = get_flashed_messages() %}
     {% if mensagens %}
       <div class="alert alert-success text-center" role="alert">
@@ -62,6 +63,23 @@
     {% endif %}
   {% endwith %}
   {% block conteudo %}{% endblock %}
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="footer-content">
+      <h3> EcoOng</h3>
+      <p>Somos uma ONG que busca ajudar a preservar o Meio Ambiente! <br>Nos encontre também nas redes sociais:</p>
+      <ul class="socials" align="center">
+        <li><a href="https://instagram.com/eco.ong?utm_medium=copy_link"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="https://twitter.com/eco_ong2?t=S38nC3Frb7m2zhYAbASpJA&s=09"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://github.com/leticiarosemberg/EcoOng"><i class="fa fa-github"></i></a></li>
+      </ul>
+    </div>
+    <div class="footer-bottom">
+      <p><span>copyright &copy;2021 EcoOng.</span></p>
+    </div>
+  </footer>
+
   <script src="/static/js/bootstrap.bundle.min.js"></script>
 </body>
 
