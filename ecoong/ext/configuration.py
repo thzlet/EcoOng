@@ -14,4 +14,4 @@ def init_app(app: Flask) -> NoReturn:
     FlaskDynaconf(app, instance_relative_config=True, SETTINGS_FILE=[os.path.join(app.instance_path, 'settings.toml')])
     app.config.load_extensions()
     app.config['UPLOAD_FOLDER'] = os.path.join(app.instance_path,'uploads')
-    app.config['UPLOAD_NOTICIA'] = os.path.join(app.instance_path,'uploads','noticia')
+    app.config['UPLOAD_NOTICIA'] = os.path.join(app.instance_path,'uploads','img_noticia')
