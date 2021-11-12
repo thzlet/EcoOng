@@ -16,6 +16,7 @@ class Membro(db.Model, UserMixin):
     img_perfil = db.Column(db.String(100), default='img_padrao.png')
     img_capa = db.Column(db.String(100), default='img_padrao.png')
 
+    noticia = db.relationship('Noticia', backref='membro', lazy=True)
 
 @login.user_loader
 def load_membros(id):

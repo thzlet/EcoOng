@@ -311,7 +311,7 @@
     <hr>
   </div>
 
-<!-- TERCEIRA PARTE DE NOTÍCIAS-->
+<!-- TERCEIRA PARTE DE NOTÍCIAS COM DADOS MOCADOS-->
  <div class="container">
    <div class="row">
      {% for noticia in noticias %}
@@ -330,8 +330,27 @@
  </div>
  <br><br>
 
+ <!-- QUARTA PARTE DE NOTÍCIAS COM TABELA NOTICIAS-->
+ <div class="container">
+   <div class="row">
+     {% for noticia in noticiass %}
+     <div class="col">
+       <a><img height="150" width="350" src="/noticias/imagem/{{noticia.img_not}}"></a>
+       <p>
+         <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page')}}">
+           <h6>{{noticia.titulo}}</h6>
+         </a>
+         <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page')}}">
+           <p>{{noticia.descricao}}</p>
+         </a>
+     </div>
+     {% endfor %}
+   </div>
+ </div>
+ <br><br>
+
 {% if current_user.is_authenticated %}
- <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('noticias.cadastro_not')}}" role="button">Cadastrar Notícia</a>
+ <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('noticias.cadastrar_not')}}" role="button">Cadastrar Notícia</a>
  <br><br>
 {% endif %}
   <!-- RODAPÉ -->

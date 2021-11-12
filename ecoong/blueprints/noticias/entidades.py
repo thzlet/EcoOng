@@ -1,5 +1,6 @@
 from ecoong.ext.database import db
 
+
 class Noticia(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
@@ -9,3 +10,5 @@ class Noticia(db.Model):
     descricao = db.Column(db.String(300), nullable=False)
 
     img_not = db.Column(db.String(100), default='img_not_padrao.png')
+
+    membro_id = db.Column(db.Integer, db.ForeignKey('membro.id'))
