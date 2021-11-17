@@ -2,10 +2,21 @@
 
 {% block titulo %}Detalhe da Campanha{% endblock %}
 
-{% block css %}<link rel="stylesheet" href="#">{% endblock %}
+{% block css %}<link rel="stylesheet" href="static_cam/campanhas/css/detalhes_campanhas.css">{% endblock %}
 
 {% block conteudo %}
 
-  Em breve essa pagina estará disponivel!!
+  <div class="container">
+    <div class="row">
+      <div class="card-news">
+        <div class="col p-4 ps-md-6">
+          <h3>A AMAZÔNIA É O BRASIL</h3>
+          <p>No âmbito governamental podem ser adotadas medidas para zerar o desmatamento, tais como: o fim de subsídio aos desmatadores, aumento da fiscalização, repressão da grilagem e criação de Unidades de Conservação. O desmatamento destrói ecossistemas e coloca vidas em risco. Com a sua doação, podemos combatê-lo!</p>
+             <a type="button" class="btn" href="{{url_for('campanhas.doacao_page')}}" role="button">Doar</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
 {% endblock %}

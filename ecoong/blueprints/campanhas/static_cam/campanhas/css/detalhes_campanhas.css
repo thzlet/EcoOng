@@ -1,0 +1,44 @@
+body {
+  margin: 0;
+  padding: 0;
+  background: url("/static_cam/campanhas/img/Campanhas_1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+}
+
+.card-news {
+  font-family: Times New Roman;
+  width: 400px;
+  padding: 30px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
+}
+
+.card-news h3 {
+  color: white;
+  font-weight: 500;
+}
+
+.card-news p {
+  color: white;
+  font-size: 17px;
+}
+.btn{
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.4s ease-in-out;
+}
+.btn:hover {
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
+}
