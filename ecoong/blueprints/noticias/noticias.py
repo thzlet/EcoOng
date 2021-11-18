@@ -5,6 +5,7 @@ from ecoong.models import Membro
 from flask_login import current_user
 from ecoong.ext.database import db
 from ... import create_app
+from werkzeug.utils import secure_filename
 
 
 bp = Blueprint('noticias', __name__, static_folder='static_not', template_folder='templates_not', url_prefix='/noticias')
@@ -47,12 +48,17 @@ def cadastrar_not():
         foto = request.files['img']
         noticia.membro_id = Membro.query.get(current_user.id)
 
+        current_user.noticia.append(noticia)
+        db.session.commit()
+
         if foto and allowed_file(foto.filename):
-            noticia.img_not = foto.filename
+            filename =  secure_filename(foto.filename)
+            filename = filename.split('.')
+            filename = f'noticia_{noticia.id}.{filename[1]}'
+            noticia.img_not = filename
 
             app = create_app()
-            foto.save(os.path.join(app.config['UPLOAD_NOTICIA'], foto.filename))
-
+            foto.save(os.path.join(app.config['UPLOAD_NOTICIA'], filename))
 
             current_user.noticia.append(noticia)
             db.session.commit()
