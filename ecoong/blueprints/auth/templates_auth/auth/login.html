@@ -1,19 +1,43 @@
-{% extends 'base.html' %}
+{% extends 'base_auth.html' %}
 
 {% block titulo %}Login{% endblock %}
 
-{% block css %}<link rel="stylesheet" href="static_auth/auth/css/cad_log.css">{% endblock %}
+{% block css %}<link rel="stylesheet" href="static_auth/auth/css/log.css">{% endblock %}
 
 {% block conteudo %}
 
-<!--FORMULARIO  DE LOGIN-->
-
-  <form class="box" action="{{url_for('auth.login_page')}}" method="post">
-    <h1>Login</h1>
-    <input id="email" type="email" name="email" placeholder="Email">
-    <input id="senha" type="password" name="senha" placeholder="Senha">
-    <a style="color: white" href="{{url_for('auth.cadastro_page')}}">Cadastre-se aqui!</a>
-    <input id="enviar" type="submit" placeholder="Entrar">
-  </form>
+<!--FORMULARIO DE LOGIN-->
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="login-content">
+          <form action="{{url_for('auth.login_page')}}" method="post"><br>
+            <img src='/static_auth/auth/imgs/log.svg'>
+            <h2 class="title">Login</h2>
+            <div class="input-div one">
+              <div class="i">
+                <i class="fas fa-envelope-open-text"></i>
+              </div>
+              <div class="div">
+                <h5>Emaill</h5>
+                <input id="email" type="email" name="email" class="input" required>
+              </div>
+            </div>
+            <div class="input-div pass">
+              <div class="i">
+                <i class="fas fa-lock"></i>
+              </div>
+              <div class="div">
+                <h5>Senha</h5>
+                <input id="senha" type="password" name="senha" class="input" required>
+              </div>
+            </div>
+            <a class="brilhaverde" href="{{url_for('auth.cadastro_page')}}">Cadastre-se aqui!</a>
+                <input id="enviar" type="submit" class="btnn" placeholder="Entrar">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 
 {% endblock %}
