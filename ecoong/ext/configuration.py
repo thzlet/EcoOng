@@ -16,3 +16,4 @@ def init_app(app: Flask) -> NoReturn:
     app.config['UPLOAD_FOLDER'] = os.path.join(app.instance_path,'uploads')
     app.config['UPLOAD_NOTICIA'] = os.path.join(app.instance_path,'uploads','img_noticia')
     app.config['UPLOAD_PERFIL'] = os.path.join(app.instance_path,'uploads','img_perfil')
+    app.config['UPLOAD_CAMPANHA'] = os.path.join(app.instance_path,'uploads','img_campanha')

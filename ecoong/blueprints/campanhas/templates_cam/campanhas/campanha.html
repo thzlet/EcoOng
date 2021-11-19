@@ -40,4 +40,31 @@
     </div>
   </div></p>
 
+  <div align="center" class="container">
+    <div class="row">
+    {% for campanha in campanhass %}
+      <div class="col-lg-4 col-sm-6 col-xs-12">
+        <div class="wrapper">
+          <div class="cards">
+            <img height="300" src="/campanhas/imagem/{{campanha.img_cam}}">
+            <div class="info">
+              <h3>{{campanha.titulo}}</h3>
+              <p>{{campanha.descricao}}</p>
+              <a type="button" class="btn" href="{{url_for('campanhas.detalhe_cam_page')}}" role="button">Veja Mais</a>
+            </div>
+          </div>
+        </div>
+        </p>
+        <br><br><br>
+      </div>
+   {% endfor %}
+    </div>
+  </div></p>
+
+  <!-- BOTÃO PARA CADASTRAR UMA NOVA CAMPANHA -->
+  {% if current_user.is_authenticated %}
+    <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('campanhas.cadastrar_cam')}}" role="button">Cadastrar Campanha</a>
+    <br><br>
+  {% endif %}
+
 {% endblock %}
