@@ -11,13 +11,12 @@
     <div class="header">
       <div class="cover">
         <div class="perfil-usuario-avatar">
-          <img src="http://www.coopernortetelecom.com.br/assets/images/author-1.png" alt="img-avatar">
+          <img src="/membros/imagem/{{current_user.img_perfil}}" alt="img-avatar">
         </div>
       </div>
     </div>
     </div>
     <div class="user-profile-body">
-      {% if current_user.is_authenticated %}
       <div class="user-profile-bio">
         <h3 class="titulo">{{current_user.nome}}</h3>
       </div>
@@ -28,7 +27,6 @@
           <li>Idade: {{current_user.idade}}</li>
         </ul>
       </div>
-      {% endif %}
 
       <div align="center" class="d-grid gap-2 d-md-block">
         <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('membros.atualizar_page')}}" role="button">Editar Perfil</a>
