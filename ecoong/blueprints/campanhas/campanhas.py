@@ -34,9 +34,10 @@ def campanha_page():
     return render_template('campanhas/campanha.html', campanhas=campanha, campanhass = camp)
 
 
-@bp.route('/detalhe_cam')
-def detalhe_cam_page():
-    return render_template('campanhas/detalhe_campanha.html')
+@bp.route('/detalhe_cam/<id>')
+def detalhe_cam_page(id):
+    cam = Campanha.query.get(id)
+    return render_template('campanhas/detalhe_campanha.html', campanha=cam)
 
 
 @bp.route('/doacao')

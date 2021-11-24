@@ -21,36 +21,15 @@
 <!--CAMPANHAS-->
   <div align="center" class="container">
     <div class="row">
-    {% for campanha in campanhas %}
-      <div class="col-lg-4 col-sm-6 col-xs-12">
-        <div class="wrapper">
-          <div class="cards">
-            <img height="300" src="{{campanha.imagem}}">
-            <div class="info">
-              <h3>{{campanha.titulo}}</h3>
-              <p>{{campanha.descricao}}</p>
-              <a type="button" class="btn" href="{{url_for('campanhas.detalhe_cam_page')}}" role="button">Veja Mais</a>
-            </div>
-          </div>
-        </div>
-        </p>
-        <br><br><br>
-      </div>
-   {% endfor %}
-    </div>
-  </div></p>
-
-  <div align="center" class="container">
-    <div class="row">
     {% for campanha in campanhass %}
       <div class="col-lg-4 col-sm-6 col-xs-12">
         <div class="wrapper">
           <div class="cards">
             <img height="300" src="/campanhas/imagem/{{campanha.img_cam}}">
             <div class="info">
-              <h3>{{campanha.titulo}}</h3>
-              <p>{{campanha.descricao}}</p>
-              <a type="button" class="btn" href="{{url_for('campanhas.detalhe_cam_page')}}" role="button">Veja Mais</a>
+              <h3 class="titulo">{{campanha.titulo}}</h3>
+              <p>{{campanha.descricao[:95] + "..."}}</p>
+              <a type="button" class="btn" href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}" role="button">Veja Mais</a>
             </div>
           </div>
         </div>

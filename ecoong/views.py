@@ -1,5 +1,7 @@
 from flask import render_template
-from .models import Membro
+#from .models import Membro
+from ecoong.blueprints.campanhas.entidades import Campanha
 
 def root():
-    return render_template('index.html')
+    camp = Campanha.query.all()
+    return render_template('index.html', campanhass = camp)

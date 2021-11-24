@@ -171,8 +171,8 @@
     <hr>
   </div>
 
-  <!-- CAMPANHAS -->
-    <div align="center" class="container">
+  <!-- CAMPANHAS
+  <div align="center" class="container">
    <div class="notcam">
      <h1>Nossas Campanhas</h1><br></div>
     <div class="row">
@@ -183,7 +183,7 @@
             <div class="info">
               <h3>A AMAZÔNIA É O BRASIL</h3>
               <p>O desmatamento destrói ecossistemas e coloca milhões de vidas em risco. Nos ajude a combatê-lo!</p>
-              <a type="button" class="btn" href="{{url_for('campanhas.detalhe_cam_page')}}" role="button">Veja Mais</a>
+              <a type="button" class="btn" href="#" role="button">Veja Mais</a>
             </div>
           </div>
         </div></br>
@@ -195,7 +195,7 @@
             <div class="info">
               <h3>PROTEJA O OCEANO</h3>
               <p>Nossos oceanos estão sob ameaça! Temos a chance de mudar esse caminho que parece sem volta.</p>
-              <a type="button" class="btn" href="{{url_for('campanhas.detalhe_cam_page')}}" role="button">Veja Mais</a>
+              <a type="button" class="btn" href="#" role="button">Veja Mais</a>
             </div>
           </div>
         </div></br>
@@ -207,11 +207,34 @@
             <div class="info">
               <h3>SOS MATA ATLÂNTICA</h3>
               <p>Precisamos recuperar a floresta, além de fortalecer a legislação que a protege.</p>
-              <a type="button" class="btn" href="{{url_for('campanhas.detalhe_cam_page')}}" role="button">Veja Mais</a><br>
+              <a type="button" class="btn" href="#" role="button">Veja Mais</a><br>
             </div>
           </div>
         </div>
       </div>
+    </div>
+    <br><br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('campanhas.campanha_page')}}" role="button">Veja mais</a>
+    <hr>
+  </div>-->
+
+  <div align="center" class="container">
+   <div class="notcam">
+     <h1>Nossas Campanhas</h1><br></div>
+    <div class="row">
+    {% for campanha in campanhass[:3] %}
+      <div class="col">
+        <div class="wrapper">
+          <div class="cards">
+            <img height="360" src="/campanhas/imagem/{{campanha.img_cam}}">
+            <div class="info">
+              <h3>{{campanha.titulo}}</h3>
+              <p>{{campanha.descricao[:95] + "..."}}</p>
+              <a type="button" class="btn" href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}" role="button">Veja Mais</a>
+            </div>
+          </div>
+        </div></br>
+      </div>
+    {% endfor %}
     </div>
     <br><br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('campanhas.campanha_page')}}" role="button">Veja mais</a>
     <hr>
