@@ -104,6 +104,10 @@ body, html {
   margin: 0;
 }
 
+.titulo{
+  text-transform: uppercase;
+}
+
 .cards .info p {
   letter-spacing: 1px;
   font-size: 15px;

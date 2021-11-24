@@ -2,7 +2,13 @@
 
 {% block titulo %}Detalhe da Campanha{% endblock %}
 
-{% block css %}<link rel="stylesheet" href="static_cam/campanhas/css/detalhes_campanhas.css">{% endblock %}
+{% block css %}<link rel="stylesheet" href="/static_cam/campanhas/css/detalhes_campanhas.css">{% endblock %}
+
+{% block cssProprio %}
+body{
+  background-image: url("http://cristinaprat.pythonanywhere.com/campanhas/imagem/{{campanha.img_cam}}");
+}
+{% endblock %}
 
 {% block conteudo %}
 
@@ -10,8 +16,8 @@
     <div class="row">
       <div class="card-news">
         <div class="col p-4 ps-md-6">
-          <h3>A AMAZÔNIA É O BRASIL</h3>
-          <p>No âmbito governamental podem ser adotadas medidas para zerar o desmatamento, tais como: o fim de subsídio aos desmatadores, aumento da fiscalização, repressão da grilagem e criação de Unidades de Conservação. O desmatamento destrói ecossistemas e coloca vidas em risco. Com a sua doação, podemos combatê-lo!</p>
+          <h3>{{campanha.titulo}}</h3>
+          <p>{{campanha.descricao}}</p>
              <a type="button" class="btn" href="{{url_for('campanhas.doacao_page')}}" role="button">Doar</a>
           </p>
         </div>

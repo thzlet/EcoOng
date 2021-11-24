@@ -1,7 +1,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: url("/static_cam/campanhas/img/Campanhas_1.jpg");
+  background-image: url("/static_cam/campanhas/img/Campanhas_1.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   width: 100vw;
@@ -23,6 +23,7 @@ body {
 .card-news h3 {
   color: white;
   font-weight: 500;
+  text-transform: uppercase;
 }
 
 .card-news p {
