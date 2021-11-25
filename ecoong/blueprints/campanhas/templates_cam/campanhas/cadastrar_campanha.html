@@ -2,17 +2,25 @@
 
 {% block titulo %}Cadastrar Campanha{% endblock %}
 
-{% block css %}<link rel="stylesheet" href="#">{% endblock %}
+{% block css %}<link rel="stylesheet" href="/static_cam/campanhas/css/cadastrar_campanhas.css">{% endblock %}
 
 {% block conteudo %}
 
   <!--FORMULARIO DE CADASTRO-->
-  <form class="" action="{{url_for('campanhas.cadastrar_cam')}}" method="post" enctype="multipart/form-data">
-    <h1>Cadastrar Campanha</h1>
-    <input id="" type="text" name="titulo" placeholder="Título" required> <br>
-    <textarea id="" name="des" rows="5" cols="50" placeholder="Descrição da noticia" required></textarea> <br>
-    <input id="" type="file" name="img" required> <br> <br>
-    <input id="enviar" type="submit" placeholder="Cadastrar">
-  </form>
+   <form class="cad" action="{{url_for('campanhas.cadastrar_cam')}}" method="post" enctype="multipart/form-data">
+  <div class="container">
+    <div class="contact-box">
+      <div class="left"></div>
+      <div class="right">
+        <h2>Cadastrar Campanhas</h2>
+        <input class="field" type="text" name="titulo" placeholder="Título" required>
+        <input class="field" type="text" name="autor" placeholder="Autor" required>
+        <textarea class="field" name="des" rows="5" cols="50" placeholder="Descrição da campanha" required></textarea>
+        <input class="field" type="file" name="img" required> <br> <br>
+        <input class="env" id="enviar" type="submit" value ="Cadastrar">
+      </div>
+    </div>
+  </div>
+</form>
 
 {% endblock %}
