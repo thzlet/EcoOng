@@ -4,4 +4,4 @@ from ecoong.blueprints.campanhas.entidades import Campanha
 
 def root():
     camp = Campanha.query.all()
-    return render_template('index.html', campanhass = camp)
+    return render_template('index.html', campanhas = camp)
