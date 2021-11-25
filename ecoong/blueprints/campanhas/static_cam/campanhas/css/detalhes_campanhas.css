@@ -1,114 +1,46 @@
-.cad{
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-  font-family: "Quicksand", sans-serif;
-}
-
 body {
+  margin: 0;
+  padding: 0;
+  background-image: url("/static_cam/campanhas/img/Campanhas_1.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100vw;
   height: 100vh;
-  width: 100%;
 }
 
-.container {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px 40px;
-}
-
-.contact-box {
-  max-width: 850px;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  background-color: #fff;
-  box-shadow: 0px 0px 19px 5px rgba(0, 0, 0, 0.19);
-}
-
-.left {
-  background: url('/static_cam/campanhas/img/Cadastro_cam_1.jpg');
-  no-repeat center;
-  background-size:cover;
-  height: 100%;
-}
-
-.right {
-  padding: 25px 40px;
-}
-
-h2 {
-  position: relative;
-  padding: 0 0 10px;
-  margin-bottom: 10px;
-}
-
-h2:after {
-  content: "";
+.card-news {
+  font-family: Times New Roman;
+  width: 400px;
+  padding: 30px;
   position: absolute;
+  top: 50%;
   left: 50%;
-  bottom: 0;
-  transform: translateX(-50%);
-  height: 4px;
-  width: 50px;
-  border-radius: 2px;
-  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+  transform: translate(-50%, -50%);
+  background: rgba(0, 0, 0, 0.5);
+  text-align: center;
 }
 
-.field {
-  border-radius: 15px;
-  width: 100%;
-  border: 2px solid rgba(0, 0, 0, 0);
-  outline: none;
-  background-color: rgba(230, 230, 230, 0.6);
-  padding: 0.5rem 1rem;
-  font-size: 1.1rem;
-  margin-bottom: 15px;
-  transition: 0.3s;
-}
-
-.field:hover {
-  background-color: rgba(0, 0, 0, 0.1);
-}
-
-textarea {
-  min-height: 150px;
-}
-
-.env {
-  display: block;
-  width: 100%;
-  height: 50px;
-  border-radius: 20px;
-  outline: none;
-  border: none;
-  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
-  background-size: 200%;
-  font-size: 1.2rem;
-  color: #ffffff;
-  font-family: "Quicksand", sans-serif;
+.card-news h3 {
+  color: white;
+  font-weight: 500;
   text-transform: uppercase;
-  margin: 1rem 0;
+}
+
+.card-news p {
+  color: white;
+  font-size: 17px;
+}
+.enviar {
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  background: #fff;
+  color: #000;
+  font-size: 14px;
+  font-weight: bold;
   cursor: pointer;
-  transition: 0.5s;
+  transition: 0.4s ease-in-out;
 }
 
-.env:hover {
-  background-position: right;
-}
-
-.field:focus {
-  border: 2px solid rgba(30, 85, 250, 0.47);
-  background-color: #fff;
-}
-
-@media screen and (max-width: 880px) {
-  .contact-box {
-    grid-template-columns: 1fr;
-  }
+.enviar:hover {
+  box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
 }
