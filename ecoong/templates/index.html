@@ -94,64 +94,21 @@
       <div class="col">
         <div class="notcam">
           <h1>Notícias</h1><br></div>
+        {% for noticia in noticias[:3] %}
         <div class="card mb-3" style="max-width: 1000px;">
           <div class="row g-0">
             <div class="col-md-4">
-              <a href="{{url_for('noticias.detalhe_not_page')}}"><img src="/static/imgs/img_home_noticias_1.jpg" class="img-fluid rounded-start" alt="..."></a>
+              <a href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}"><img src="/noticias/imagem/{{noticia.img_not}}" class="img-fluid rounded-start" alt="..."></a>
             </div>
             <div class="col-md-8">
               <div class="card-body">
-                <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page')}}"><h5 align="left" class="card-title">Desmatamento na Amazônia em agosto é o maior para o mês em dez anos, diz Imazon</h5>
-                <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page')}}"><p align="left" class="card-text">Segundo o relatório, área desmatada em agosto de 2021 é 7% maior do que a registrada no mesmo mês em 2020. Acumulado desde janeiro também ficou como o pior em 10 anos.</p>
+                <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}"><h5 align="left" class="card-title">{{noticia.titulo}}</h5>
+                <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}"><p align="left" class="card-text">{{noticia.descricao[:110] + "..."}}</p>
               </div>
             </div>
           </div>
         </div>
-        <div class="col">
-          <div class="card mb-3" style="max-width: 1000px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <a href="{{url_for('noticias.detalhe_not_page')}}"><img src="/static/imgs/img_home_noticias_2.jpg" class="img-fluid rounded-start" alt="..."></a>
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page')}}"><h5 align="left" class="card-title">Flagrados com 229 filhotes de papagaios e araras no carro, casal é preso e multado em R$ 2,519 milhões</h5>
-                  <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page')}}"><p align="left" class="card-text">Flagrante ocorreu na manhã desta segunda-feira (20), na BR-487, em Naviraí. As aves foram levadas para o CRAS da fazenda Green Farm.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card mb-3" style="max-width: 1000px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <a href="{{url_for('noticias.detalhe_not_page')}}"><img src="/static/imgs/img_home_noticias_3.jpg" class="img-fluid rounded-start" alt="..."></a>
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page')}}"><h5 align="left" class="card-title">SP: fumaça de queimadas tem potencial cancerígeno, diz estudo</h5>
-                  <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page')}}"><p align="left" class="card-text">Pesquisa em Ribeirão Preto, no interior de São Paulo, apontou elevada concentração de compostos que causam morte de células.</p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card mb-3" style="max-width: 1000px;">
-            <div class="row g-0">
-              <div class="col-md-4">
-                <a href="{{url_for('noticias.detalhe_not_page')}}"><img src="/static/imgs/img_home_noticias_4.jpg" class="img-fluid rounded-start" alt="..."></a>
-              </div>
-              <div class="col-md-8">
-                <div class="card-body">
-                  <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page')}}"><h5 align="left" class="card-title">Cientistas da UFU ajudam a avaliar riscos de extinção de espécies na Bacia do Rio Doce</h5>
-                  <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page')}}"><p align="left" class="card-text">Estudos feitos após rompimento de barragem em Mariana resultou em livro.</p><br>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        {% endfor %}
       </div>
     </div>
     <a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('noticias.noticias_page')}}" role="button">Veja mais</a>

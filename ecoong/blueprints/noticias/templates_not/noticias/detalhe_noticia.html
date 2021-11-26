@@ -6,6 +6,10 @@
 
 {% block conteudo %}
 
-  Em breve essa pagina estará disponivel!!
+  <h3>{{noticia.titulo}}</h3> <br>
+  <img height="200" width="300" src="/noticias/imagem/{{noticia.img_not}}"> <br>
+  <p>{{noticia.descricao}}</p>
+  Autor: {{noticia.autor}} <br>
+  Data: {{noticia.data}}
 
 {% endblock %}

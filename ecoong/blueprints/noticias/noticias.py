@@ -29,12 +29,13 @@ def allowed_file(filename):
 @bp.route('/noticias')
 def noticias_page():
     notc = Noticia.query.all()
-    return render_template('noticias/noticia.html', noticias=noticia, noticiass = notc)
+    return render_template('noticias/noticia.html', noticias = notc)
 
 
-@bp.route('/detalhe_not')
-def detalhe_not_page():
-    return render_template('noticias/detalhe_noticia.html')
+@bp.route('/detalhe_not/<id>')
+def detalhe_not_page(id):
+    notc = Noticia.query.get(id)
+    return render_template('noticias/detalhe_noticia.html', noticia = notc)
 
 
 @bp.route('/cad_noticia', methods=['GET', 'POST'])

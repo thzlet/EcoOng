@@ -39,8 +39,15 @@ def atualizar_page():
             membro.telefone = request.form['nv_tel']
             membro.idade = int(request.form['nv_idade'])
             foto = request.files['nv_img']
+            remover_foto = "nao_remover"
+            if "remover_foto" in request.form:
+                remover_foto = request.form['remover_foto']
 
             if foto and allowed_file(foto.filename):
+                if current_user.img_perfil != 'img_padrao.jpg':
+                    app = create_app()
+                    os.remove(os.path.join(app.config['UPLOAD_PERFIL'], membro.img_perfil))
+
                 filename =  secure_filename(foto.filename)
                 filename = filename.split('.')
                 filename = f'perfil_{membro.id}.{filename[1]}'
@@ -54,6 +61,18 @@ def atualizar_page():
 
                 flash('Atualização concluído :)')
 
+            if remover_foto == "remover":
+                if current_user.img_perfil != 'img_padrao.jpg':
+                    app = create_app()
+                    os.remove(os.path.join(app.config['UPLOAD_PERFIL'], membro.img_perfil))
+
+                    current_user.img_perfil = 'img_padrao.jpg'
+
+                    db.session.add(membro)
+                    db.session.commit()
+
+                    flash('Atualização concluído :)')
+
             else:
                 db.session.add(membro)
                 db.session.commit()
@@ -62,10 +81,13 @@ def atualizar_page():
 
     return render_template('membros/atualizar_dados.html')
 
+
+#exibir foto de perfil do usuario logado
 @bp.get('/imagem/<nome>')
 def imagens(nome):
     app = create_app()
     return send_from_directory(app.config['UPLOAD_PERFIL'], nome)
+
 
 #remover membro
 @bp.get('/remover')
@@ -78,6 +100,7 @@ def remover_page():
     flash('Sua conta foi apagada')
 
     return redirect('/')
+
 
 #buscar informação
 
