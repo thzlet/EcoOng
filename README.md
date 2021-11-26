@@ -8,7 +8,6 @@
 - Ângela Santiago
 - Matheus Monteiro
 - Maria Eduarda Victorino 
-- Francisco Anderson 
 
 ## Linguagens utilizadas
 <div style="display: inline_block"><br>
