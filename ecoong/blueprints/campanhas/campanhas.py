@@ -34,6 +34,10 @@ def detalhe_cam_page(id):
 def doacao_page():
     return render_template('campanhas/doacoes.html')
 
+@bp.route('/agradecimento')
+def agradecimento_page():
+    return render_template('campanhas/agradecimento.html')
+
 
 @bp.route('/cad_campanha', methods=['GET', 'POST'])
 def cadastrar_cam():
