@@ -1,10 +1,13 @@
 import os
 from flask import Blueprint, request, render_template, redirect, url_for, flash, send_from_directory
 from flask_login import login_required, current_user
+from ecoong.blueprints.campanhas.entidades import Campanha
+from ecoong.blueprints.noticias.entidades import Noticia
 from ecoong.models import Membro
 from ecoong.ext.database import db
 from ... import create_app
 from werkzeug.utils import secure_filename
+
 
 
 bp = Blueprint('membros', __name__,static_folder='static_mem', template_folder='templates_mem', url_prefix='/membros')
@@ -103,6 +106,12 @@ def remover_page():
 
 
 #buscar informação
+@bp.route('/busca')
+def buscar_info():
+    camp = Campanha.query.all()
+    notc = Noticia.query.all()
+    return render_template('membros/buscar_informacao.html', campanhas = camp, noticias = notc)
+
 
 
 #registrando o blueprint membros
