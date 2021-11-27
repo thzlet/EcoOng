@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Resultado da Busca{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="static_mem/membros/css/buscar_informacao.css">{% endblock %}
+
+{% block conteudo %}
+
+<!-- NOTICIAS -->
+<div class="container"><br><br>
+  <h1 class="notcam" align="center">Resultado da Busca </h1><br>
+  <hr>
+  <h3 align="center">Noticias</h3>
+  <hr>
+  <div class="row">
+    {% for noticia in noticias[:3] %}
+    <div class="col">
+      <div class="card mb-3">
+        <a href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}"><img class="card-img-top" height="200" width="200" src='/noticias/imagem/{{noticia.img_not}}'></a>
+        <div class="card-body">
+          <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+            <h5 class="card-title">{{noticia.titulo}}</h5>
+          </a>
+          <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+            <p class="card-text">{{noticia.descricao[:95] + "..."}}</p>
+          </a><br>
+          <p class="card-text"><small class="text-muted">{{noticia.data}} - {{noticia.autor}}</small></p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<br><br><br>
+
+<!-- CAMPANHAS -->
+<div class="container">
+  <hr>
+  <h3 align="center">Campanhas</h3>
+  <hr>
+  <div align="center" class="container">
+    <div class="row">
+      {% for campanha in campanhas[:3] %}
+      <div class="col">
+        <div class="card mb-3" style="max-width: 1000px;">
+          <div class="row g-0">
+            <div class="col-md-4">
+              <a href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}"><img id="imgcam" src="/campanhas/imagem/{{campanha.img_cam}}" class="img-fluid rounded-start" alt="..."></a>
+            </div>
+            <div class="col-md-8">
+              <div class="card-body">
+                <a style="text-decoration:none;color:black;" href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}">
+                  <h5 align="left" class="card-title">{{campanha.titulo}}</h5>
+                  <a style="text-decoration:none;color:black;" href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}">
+                    <p align="left" class="card-text">{{campanha.descricao[:95] + "..."}}</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}
