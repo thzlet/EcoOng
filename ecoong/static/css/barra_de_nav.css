@@ -1,0 +1,90 @@
+.header {
+  font-family: "Quicksand", sans-serif;
+  position: relative;
+  padding: 5px;
+  background: #fff;
+}
+.header .logo {
+  color: #0fab84;
+  font-size: 36px;
+  margin: 5px;
+  text-align: center;
+  box-sizing: border-box;
+  float: left;
+  font-weight: 700;
+  text-decoration: none;
+}
+.header nav {
+  float: right;
+}
+.header .clearfix {
+  clear: both;
+}
+.header nav .ul {
+  text-decoration: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+.header nav .ul {
+  list-style: none;
+}
+.header nav .ul .a {
+  border-radius: 30px;
+  display: block;
+  margin: 10px;
+  padding: 10px 20px;
+  text-decoration: none;
+  color: #262626;
+}
+.header .d-flex button {
+  margin: 8px;
+  font-size: 12px;
+  border-radius: 30px;
+}
+.header .d-flex input {
+  margin: 8px;
+  font-size: 12px;
+  border-radius: 30px;
+}
+.header nav .ul .a.active,
+.header nav .ul .a:hover {
+  background: #0fab84;
+  color: #fff;
+  transition: 0.5s;
+}
+@media (max-width: 1348px) {
+  .menu-toggle {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin: 10px;
+    float: right;
+    cursor: pointer;
+    text-align: center;
+    font-size: 30px;
+    color: #0fab84;
+  }
+  .menu-toggle:before {
+    content: "\f0c9";
+    font-family: fontAwesome;
+    line-height: 40px;
+  }
+  .menu-toggle.active:before {
+    content: "\f00d";
+  }
+  .header nav {
+    display: none;
+  }
+  .header nav.active {
+    display: block;
+    width: 100%;
+  }
+  .header nav.active .ul {
+    display: block;
+  }
+  .header nav.active .ul .a {
+    width: 300px;
+    margin: 0;
+  }
+}
