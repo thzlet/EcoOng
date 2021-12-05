@@ -2,7 +2,7 @@ import os
 from flask import Blueprint, render_template, request, redirect, flash, url_for, send_from_directory
 from ..noticias.entidades import Noticia
 from ecoong.models import Membro
-from flask_login import current_user
+from flask_login import current_user, login_required
 from ecoong.ext.database import db
 from ... import create_app
 from werkzeug.utils import secure_filename
@@ -39,12 +39,9 @@ def cadastrar_not():
         noticia.autor = request.form['nome']
         noticia.descricao = request.form['des']
         foto = request.files['img']
-
         data = request.form['data']
         hora = request.form['hora']
-        datahora = datetime.datetime.fromisoformat(f'{data} {hora}')
-        noticia.datahora = datahora
-        #noticia.datahora = datetime.datetime.fromisoformat(f'{data} {hora}')
+        noticia.datahora = datetime.datetime.fromisoformat(f'{data} {hora}')
 
         noticia.membro_id = Membro.query.get(current_user.id)
 
@@ -78,6 +75,69 @@ def cadastrar_not():
 def imagens(nome):
     app = create_app()
     return send_from_directory(app.config['UPLOAD_NOTICIA'], nome)
+
+
+#remover noticia
+@bp.route('/remover/<id>', methods=['GET', 'POST'])
+@login_required
+def remover_not(id):
+    noticia = Noticia.query.get(id)
+
+    app = create_app()
+    os.remove(os.path.join(app.config['UPLOAD_NOTICIA'], noticia.img_not))
+
+    db.session.delete(noticia)
+    db.session.commit()
+
+    flash('Notícia apagada!')
+
+    return redirect(url_for('membros.historico'))
+
+
+#editar noticia
+@bp.route('/atualizar/<id>', methods=['GET', 'POST'])
+@login_required
+def editar_not(id):
+    noticia = Noticia.query.get(id)
+    if request.method == 'POST':
+        noticia.titulo = request.form['titulo']
+        noticia.autor = request.form['autor']
+        noticia.data  = request.form['data']
+        descricao = request.form['des']
+        noticia.membro_id = current_user.id
+        if descricao != '':
+            noticia.descricao = descricao
+        db.session.commit()
+
+        if 'img' in request.files:
+            foto = request.files['img']
+
+            if foto:
+                if allowed_file(foto.filename):
+                    filename =  secure_filename(foto.filename)
+                    filename = filename.split('.')
+                    filename = f'noticia_{noticia.id}.{filename[1]}'
+                    noticia.img_not = filename
+
+                    app = create_app()
+                    foto.save(os.path.join(app.config['UPLOAD_NOTICIA'], filename))
+
+                    current_user.noticia.append(noticia)
+                    db.session.commit()
+
+                    flash('Notícia atualizada')
+                else:
+                    flash("Apenas extensões 'png', 'jpg', 'jpeg'!")
+                    return redirect(url_for('membros.historico'))
+        else:
+            current_user.noticia.append(noticia)
+            db.session.commit()
+
+            flash('Notícia atualizada')
+
+        return redirect(url_for('membros.historico'))
+
+    return render_template('noticias/editar_noticia.html', noticia = noticia)
 
 
 def init_app(app):
