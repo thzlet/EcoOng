@@ -34,7 +34,7 @@ def atualizar_page():
     if request.method == 'POST':
         alguem_com_o_email_desejado = Membro.query.filter_by(email=request.form['nv_email']).first()
         if alguem_com_o_email_desejado is not None and alguem_com_o_email_desejado.id != current_user.id:
-            flash('Esse email ja existe :(')
+            flash('Esse email ja existe')
         else:
             membro = Membro.query.get(current_user.id)
             membro.nome = request.form['nv_nome']
@@ -62,7 +62,7 @@ def atualizar_page():
                 db.session.add(membro)
                 db.session.commit()
 
-                flash('Atualização concluído :)')
+                flash('Atualização concluído!')
 
             if remover_foto == "remover":
                 if current_user.img_perfil != 'img_padrao.jpg':
@@ -74,7 +74,7 @@ def atualizar_page():
                     db.session.add(membro)
                     db.session.commit()
 
-                    flash('Atualização concluído :)')
+                    flash('Atualização concluído!')
 
             else:
                 db.session.add(membro)
@@ -97,6 +97,9 @@ def imagens(nome):
 def remover_page():
     membro = Membro.query.get(current_user.id)
 
+    app = create_app()
+    os.remove(os.path.join(app.config['UPLOAD_PERFIL'], membro.img_perfil))
+
     db.session.delete(membro)
     db.session.commit()
 
@@ -105,13 +108,19 @@ def remover_page():
     return redirect('/')
 
 
+#historico noticias do usuario
+@bp.route('/historico')
+def historico():
+    notc = Noticia.query.all()
+    return render_template('membros/historico.html', noticias = notc)
+
+
 #buscar informação
 @bp.route('/busca')
 def buscar_info():
     camp = Campanha.query.all()
     notc = Noticia.query.all()
     return render_template('membros/buscar_informacao.html', campanhas = camp, noticias = notc)
-
 
 
 #registrando o blueprint membros
