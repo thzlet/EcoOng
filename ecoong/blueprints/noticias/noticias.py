@@ -6,6 +6,7 @@ from flask_login import current_user
 from ecoong.ext.database import db
 from ... import create_app
 from werkzeug.utils import secure_filename
+import datetime
 
 
 bp = Blueprint('noticias', __name__, static_folder='static_not', template_folder='templates_not', url_prefix='/noticias')
@@ -35,10 +36,16 @@ def cadastrar_not():
     if request.method == 'POST':
         noticia = Noticia()
         noticia.titulo = request.form['titulo']
-        noticia.autor = request.form['autor']
-        noticia.data  = request.form['data']
+        noticia.autor = request.form['nome']
         noticia.descricao = request.form['des']
         foto = request.files['img']
+
+        data = request.form['data']
+        hora = request.form['hora']
+        datahora = datetime.datetime.fromisoformat(f'{data} {hora}')
+        noticia.datahora = datahora
+        #noticia.datahora = datetime.datetime.fromisoformat(f'{data} {hora}')
+
         noticia.membro_id = Membro.query.get(current_user.id)
 
         current_user.noticia.append(noticia)
@@ -60,11 +67,11 @@ def cadastrar_not():
 
         else:
             flash("Apenas extensões 'png', 'jpg', 'jpeg'!")
-            return redirect('/noticias/cadastrar_noticia.html')
+            return redirect(url_for('noticias.cadastrar_not'))
 
-        return redirect(url_for('noticias.noticias_page'))
 
-    return render_template('noticias/cadastrar_noticia.html')
+    now = str(datetime.datetime.utcnow()).split(' ')[0]
+    return render_template('noticias/cadastrar_noticia.html', now=now)
 
 
 @bp.get('/imagem/<nome>')

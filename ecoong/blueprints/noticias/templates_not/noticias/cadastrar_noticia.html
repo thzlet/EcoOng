@@ -2,8 +2,8 @@
 
 {% block titulo %}Cadastrar Notícia{% endblock %}
 
-{% block css %}<link rel="stylesheet" href="/static_not/noticias/css/cad_not.css">{% endblock %}
-
+{% block css %}
+<link rel="stylesheet" href="/static_not/noticias/css/cad_not.css">{% endblock %}
 {% block conteudo %}
 
 <!--FORMULARIO  DE CADASTRO-->
@@ -13,9 +13,24 @@
       <div class="left"></div>
       <div class="right">
         <h2>Cadastro de Notícias</h2>
-        <input class="field" id="" type="text" name="titulo" placeholder="Título" required>
-        <input class="field" id="" type="text" name="autor" placeholder="Autor" required>
-        <input class="field" id="" type="text" name="data" placeholder="Data" required>
+        <p class="field">{{current_user.nome}}</p>
+        <input class="field" id="" type="text" name="titulo" placeholder="Título da notícia" required>
+        <input class="field" id="" type="date" name="data" pattern="(0[1-9]|[12][0-9]|3[01])[- /.](0[1-9]|1[012])[- /.](19|20)\d\d" max="{{now}}" required>
+        <input class="field" id="" type="time" name="hora" required>
+
+        <select class="field" name="categoria">
+          <option value="1">Poluição</option>
+          <option value="2">Desmatamento</option>
+          <option value="3">Preservação</option>
+          <option value="4">Animais</option>
+          <option value="5">Água</option>
+          <option value="6">Biomas</option>
+        </select>
+        <div class="tag-container">
+            <input class="field" type="hidden" name="tags" id="tagsPreenchidas" value="">
+            <input type="text" name="tags" id="tags" placeholder="Tags">
+        </div>
+        <p>Digite uma virgula(,) após a palavra-chave.</p>
         <textarea class="field" id="" name="des" rows="5" cols="50" placeholder="Descrição da noticia" required></textarea>
         <input class="field" id="" type="file" name="img" required> <br> <br>
         <input class="env" id="enviar" type="submit" value="Cadastrar">
@@ -23,5 +38,4 @@
     </div>
   </div>
 </form>
-
 {% endblock %}
