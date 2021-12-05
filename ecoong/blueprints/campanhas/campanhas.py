@@ -1,5 +1,6 @@
 import os
 from flask import Blueprint, render_template, request, redirect, flash, url_for, send_from_directory
+from flask_login import login_required
 from ..campanhas.entidades import Campanha
 from ecoong.models import Membro
 from flask_login import current_user
@@ -37,6 +38,16 @@ def doacao_page():
 @bp.route('/agradecimento')
 def agradecimento_page():
     return render_template('campanhas/agradecimento.html')
+
+@bp.route('/dadosdoacaocard')
+@login_required
+def dadosdoacaocard_page():
+    return render_template('campanhas/dadosdoacaocard.html')
+
+@bp.route('/dadosdoacaopix')
+@login_required
+def dadosdoacaopix_page():
+    return render_template('campanhas/dadosdoacaopix.html')
 
 
 @bp.route('/cad_campanha', methods=['GET', 'POST'])

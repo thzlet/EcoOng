@@ -6,77 +6,62 @@
 
 {% block conteudo %}
 
-  <div class="planodefundo">
-    <h1>FAÇA UMA DOAÇÃO</h1>
-    <h4>Nos ajude a cuidar do Meio Ambiente!</h4>
-  </div>
+      <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      <h1 class="display-4 fw-normal text-success">Doar</h1>
+      <p class="fs-5 text-muted">Nos ajude a cuidar do Meio Ambiente!</p>
+    </div>
+  </header>
 
-  <div class="container">
-    <div class="row">
+  <main>
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
       <div class="col">
-        <div class="row justify-content-center my-5">
-          <div class="col-sm-12 col-md-10 col-lg-8 formulario ">
-            <form action="{{url_for('campanhas.agradecimento_page')}}">
-              <div class="form-row row">
-                <h3 class="text-center fs-1 my-3">DOE</h3>
-                <div class="form-group col-sm-6">
-                  <label for="inputid_membro" class="form-label mt-2">Nome de usuário:</label>
-                  <input type="text" class="form-control" placeholder="Nome completo" name="id_membro" required>
-                </div>
-                <div class="form-group col-sm-6">
-                  <label for="inputCPF" class="form-label mt-2">CPF:</label>
-                  <input type="text" class="form-control" placeholder="000.000.000-00" name="CPF" required>
-                </div>
-                <div class="form-group col-sm-6">
-                  <label for="inputAgencia" class="form-label mt-2">Agência:</label>
-                  <input type="text" class="form-control" placeholder="0000-0" name="agencia" required>
-                </div>
-                <div class="form-group col-sm-6">
-                  <label for="inputConta" class="form-label mt-2">Conta:</label>
-                  <input type="text" class="form-control" placeholder="00000000-0" name="conta" required>
-                </div>
-                <div class="form-group col-sm-6">
-                  <label for="inputBanco" class="form-label mt-2">Banco:</label>
-                  <input type="text" class="form-control" placeholder="Poupança ou Corrente" name="banco" required>
-                </div>
-                <div class="form-group col-sm-6">
-                  <label for="inputPix" class="form-label mt-2">Pix:</label>
-                  <input type="text" class="form-control" placeholder="00 000000000" name="Pix" required>
-                </div>
-                <div class="form-check px-5 pt-2 mt-2">
-                  <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
-                  <label class="form-check-label" for="flexCheckDefault">
-                    Eu li e concordo com o <a href="#" data-bs-toggle="modal" data-bs-target="#Termo">termo</a> de responsabilidade
-                </div>
-              </div>
-          </div>
-
-          <!-- Modal -->
-          <div class="container">
-            <div class="row">
-              <div class="col">
-                <div class="modal fade" id="Termo" tabindex="-1" aria-labelledby="TermoDeResponsabilidade" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="TermoDeResponsabilidade">Termo de Responsabilidade</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                      </div>
-                      <div class="modal-body">
-                        Ao clicar em aceitar o termo de responsabilidade, o usuário declara estar ciente através destes que a falsidade das informações configura crime previsto no Código Penal Brasileiro, passível de apuração na forma da Lei bem como pode ser enquadrada como Litigância de Má Fé.
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                </label>
-              </div>
-              <div class="form-group col-12 text-center">
-                <button type="submit" class="btndoar btn"><span class="mx-5">DOAR</span></button>
-              </div>
-            </div>
-            </form>
+        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><small class="text-muted fw-light">R$ 10,00</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>10 users included</li>
+              <li>2 GB of storage</li>
+              <li>Email support</li>
+              <li>Help center access</li>
+            </ul>
+            <a href="{{url_for('campanhas.dadosdoacaocard_page')}}" class="w-100 btn btn-primary btn-lg active" role="button" aria-pressed="true">Doe com cartão</a>
+            <a href="{{url_for('campanhas.dadosdoacaopix_page')}}" class="w-100 btn btn-primary btn-lg active" role="button" aria-pressed="true">Doar via Pix</a>
           </div>
         </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-secondary">
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><small class="text-muted fw-light">R$ 30,00</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>20 users included</li>
+              <li>10 GB of storage</li>
+              <li>Priority email support</li>
+              <li>Help center access</li>
+            </ul>
+            <a href="{{url_for('campanhas.dadosdoacaocard_page')}}" class="w-100 btn btn-primary btn-lg active" role="button" aria-pressed="true">Doe com cartão</a>
+            <a href="{{url_for('campanhas.dadosdoacaopix_page')}}" class="w-100 btn btn-primary btn-lg active" role="button" aria-pressed="true">Doar via Pix</a>
+
+          </div>
+        </div>
+      </div>
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm border-success">
+          <div class="card-body">
+            <h1 class="card-title pricing-card-title"><small class="text-muted fw-light">R$ 50,00</small></h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>30 users included</li>
+              <li>15 GB of storage</li>
+              <li>Phone and email support</li>
+              <li>Help center access</li>
+            </ul>
+            <a href="{{url_for('campanhas.dadosdoacaocard_page')}}" class="w-100 btn btn-primary btn-lg active" role="button" aria-pressed="true">Doe com cartão</a>
+            <a href="{{url_for('campanhas.dadosdoacaopix_page')}}" class="w-100 btn btn-primary btn-lg active" role="button" aria-pressed="true">Doar via Pix</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
 
         <div class="row g-0 bg-light position-relative my-3 rounded">
           <div class="col-md-6 mb-md-0 p-md-4">
@@ -87,8 +72,21 @@
             <p>Nós da EcoOng além de cuidar e preservar o nosso Meio Ambiente, acolhemos diversas causas diferentes. Dando vozes diferentes e também tornando possível melhorias, com você! Cuide, preserve e nos ajude para vivermos em um mundo melhor.</p>
           </div>
         </div>
-      </div>
+
+    <footer>
+    <div class="footer-content">
+      <h3>EcoOng</h3>
+      <p>Somos uma ONG que busca ajudar a preservar o Meio Ambiente!<br>
+        Nos encontre também nas redes sociais:</p>
+      <ul class="socials">
+        <li><a href="https://instagram.com/eco.ong?utm_medium=copy_link"><i class="fa fa-instagram"></i></a></li>
+        <li><a href="https://twitter.com/eco_ong2?t=S38nC3Frb7m2zhYAbASpJA&s=09"><i class="fa fa-twitter"></i></a></li>
+        <li><a href="https://github.com/leticiarosemberg/EcoOng"><i class="fa fa-github"></i></a></li>
+      </ul>
     </div>
-  </div>
+    <div class="footer-bottom">
+      <p>copyright &copy;2021 EcoOng.</span>
+    </div>
+  </footer>
 
 {% endblock %}
