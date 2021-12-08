@@ -1,6 +1,6 @@
 import os
 from flask import Blueprint, render_template, request, redirect, flash, url_for, send_from_directory
-from ..noticias.entidades import Noticia
+from ..noticias.entidades import Noticia, Tag, Categoria
 from ecoong.models import Membro
 from flask_login import current_user, login_required
 from ecoong.ext.database import db
@@ -39,14 +39,36 @@ def cadastrar_not():
         noticia.autor = request.form['nome']
         noticia.descricao = request.form['des']
         foto = request.files['img']
+
         data = request.form['data']
         hora = request.form['hora']
         noticia.datahora = datetime.datetime.fromisoformat(f'{data} {hora}')
 
-        noticia.membro_id = Membro.query.get(current_user.id)
+        noticia.membro_id = Membro.query.get(current_user.id).id
 
         current_user.noticia.append(noticia)
         db.session.commit()
+
+        categoria_usuario = request.form['categoria']
+        noticia.categoria_id = Categoria.query.filter_by(id = int(categoria_usuario)).first().id
+        db.session.commit()
+
+        tags_usuario = request.form['tags']
+        tags_usuario = tags_usuario.split(',')
+
+        for tag_usuario in tags_usuario:
+            if Tag.query.filter_by(tag=tag_usuario).first() is None:
+                nova_tag = Tag()
+                nova_tag.tag = tag_usuario
+                db.session.add(nova_tag)
+                db.session.commit()
+
+                noticia.tags.append(nova_tag)
+                db.session.commit()
+            else:
+                jatemtag = Tag.query.filter_by(tag=tag_usuario).first()
+                noticia.tags.append(jatemtag)
+                db.session.commit()
 
         if foto and allowed_file(foto.filename):
             filename =  secure_filename(foto.filename)
@@ -61,6 +83,7 @@ def cadastrar_not():
             db.session.commit()
 
             flash('Notícia publicada')
+            return redirect(url_for('noticias.noticias_page'))
 
         else:
             flash("Apenas extensões 'png', 'jpg', 'jpeg'!")
@@ -82,20 +105,28 @@ def imagens(nome):
 @login_required
 def remover_not(id):
     noticia = Noticia.query.get(id)
+    if noticia.img_not == 'img_not_padrao.png':
+        db.session.delete(noticia)
+        db.session.commit()
 
-    app = create_app()
-    os.remove(os.path.join(app.config['UPLOAD_NOTICIA'], noticia.img_not))
+        flash('Notícia apagada!')
 
-    db.session.delete(noticia)
-    db.session.commit()
+        return redirect(url_for('membros.historico'))
 
-    flash('Notícia apagada!')
+    else:
+        app = create_app()
+        os.remove(os.path.join(app.config['UPLOAD_NOTICIA'], noticia.img_not))
 
-    return redirect(url_for('membros.historico'))
+        db.session.delete(noticia)
+        db.session.commit()
+
+        flash('Notícia apagada!')
+
+        return redirect(url_for('membros.historico'))
 
 
 #editar noticia
-@bp.route('/atualizar/<id>', methods=['GET', 'POST'])
+@bp.route('/editar/<id>', methods=['GET', 'POST'])
 @login_required
 def editar_not(id):
     noticia = Noticia.query.get(id)
