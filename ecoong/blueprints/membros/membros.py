@@ -112,7 +112,8 @@ def remover_page():
 @bp.route('/historico')
 def historico():
     notc = Noticia.query.all()
-    return render_template('membros/historico.html', noticias = notc)
+    cam = Campanha.query.all()
+    return render_template('membros/historico.html', noticias = notc, campanhas = cam)
 
 
 #buscar informação

@@ -1,6 +1,13 @@
 from ecoong.ext.database import db
 from datetime import datetime
 
+
+noticiatag = db.Table('noticiatag',
+    db.Column('noticia_id', db.Integer, db.ForeignKey('noticia.id'), primary_key=True),
+    db.Column('tag_id', db.Integer, db.ForeignKey('tag.id'), primary_key=True)
+    )
+
+
 class Noticia(db.Model):
     id = db.Column(db.Integer, primary_key=True)
 
@@ -12,3 +19,21 @@ class Noticia(db.Model):
     img_not = db.Column(db.String(100), default='img_not_padrao.png')
 
     membro_id = db.Column(db.Integer, db.ForeignKey('membro.id'))
+    categoria_id = db.Column(db.Integer, db.ForeignKey('categoria.id'))
+
+    tags = db.relationship('Tag', secondary=noticiatag, backref=db.backref('noticias'))
+
+
+class Tag(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+
+    tag = db.Column(db.String(50), unique=True, nullable=False)
+
+
+class Categoria(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+
+    categoria = db.Column(db.String(50), unique=True, nullable=False)
+
+    noticia = db.relationship('Noticia', backref='categoria', lazy=True)
+

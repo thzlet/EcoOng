@@ -55,6 +55,7 @@ def cadastrar_cam():
     if request.method == 'POST':
         campanha = Campanha()
         campanha.titulo = request.form['titulo']
+        campanha.autor = request.form['autor']
         campanha.descricao = request.form['des']
         foto = request.files['img']
         campanha.membro_id = Membro.query.get(current_user.id)
@@ -89,6 +90,76 @@ def cadastrar_cam():
 def imagens(nome):
     app = create_app()
     return send_from_directory(app.config['UPLOAD_CAMPANHA'], nome)
+
+
+#remover campanha
+@bp.route('/remover/<id>', methods=['GET', 'POST'])
+@login_required
+def remover_cam(id):
+    campanha = Campanha.query.get(id)
+    if campanha.img_cam == 'img_cam_padrao.png':
+        db.session.delete(campanha)
+        db.session.commit()
+
+        flash('Campanha apagada!')
+
+        return redirect(url_for('membros.historico'))
+
+    else:
+        app = create_app()
+        os.remove(os.path.join(app.config['UPLOAD_CAMPANHA'], campanha.img_cam))
+
+        db.session.delete(campanha)
+        db.session.commit()
+
+        flash('Campanha apagada!')
+
+        return redirect(url_for('membros.historico'))
+
+
+#editar campanha
+@bp.route('/editar/<id>', methods=['GET', 'POST'])
+@login_required
+def editar_cam(id):
+    campanha = Campanha.query.get(id)
+    if request.method == 'POST':
+        campanha.titulo = request.form['titulo']
+        campanha.autor = request.form['autor']
+        descricao = request.form['des']
+        campanha.membro_id = current_user.id
+        if descricao != '':
+            campanha.descricao = descricao
+        db.session.commit()
+
+        if 'img' in request.files:
+            foto = request.files['img']
+
+            if foto:
+                if allowed_file(foto.filename):
+                    filename =  secure_filename(foto.filename)
+                    filename = filename.split('.')
+                    filename = f'campanha_{campanha.id}.{filename[1]}'
+                    campanha.img_cam = filename
+
+                    app = create_app()
+                    foto.save(os.path.join(app.config['UPLOAD_CAMPANHA'], filename))
+
+                    current_user.campanha.append(campanha)
+                    db.session.commit()
+
+                    flash('Campanha atualizada')
+                else:
+                    flash("Apenas extensões 'png', 'jpg', 'jpeg'!")
+                    return redirect(url_for('membros.historico'))
+        else:
+            current_user.campanha.append(campanha)
+            db.session.commit()
+
+            flash('Campanha atualizada')
+
+        return redirect(url_for('membros.historico'))
+
+    return render_template('campanhas/editar_campanha.html', campanha = campanha)
 
 
 def init_app(app):

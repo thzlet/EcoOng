@@ -29,7 +29,7 @@
                     <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
                         <p class="card-text">{{noticia.descricao[:95] + "..."}}</p>
                     </a><br>
-                    <p class="card-text"><small class="text-muted">{{noticia.data}} - {{noticia.autor}}</small></p>
+                    <p class="card-text"><small class="text-muted">{{noticia.datahora}} - {{noticia.autor}}</small></p>
                 </div>
 
                 <div align="center" class="d-grid gap-2 d-md-block">
@@ -67,34 +67,63 @@
 
 <br><br><br>
 
-<!-- CAMPANHAS
-<div class="container">
-  <hr>
-  <h3 align="center">Campanhas</h3>
-  <hr>
-  <div align="center" class="container">
-    <div class="row">
-      {% for campanha in campanhas %}
-      <div class="col">
-        <div class="card mb-3" style="max-width: 1000px;">
-          <div class="row g-0">
-            <div class="col-md-4">
-              <a href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}"><img id="imgcam" src="/campanhas/imagem/{{campanha.img_cam}}" class="img-fluid rounded-start" alt="..."></a>
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <a style="text-decoration:none;color:black;" href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}">
-                  <h5 align="left" class="card-title">{{campanha.titulo}}</h5>
-                  <a style="text-decoration:none;color:black;" href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}">
-                    <p align="left" class="card-text">{{campanha.descricao[:95] + "..."}}</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
+<!-- CAMPANHAS-->
+<div class="container"><br><br>
+    <hr>
+    <h3 align="center">Campanhas</h3>
+    <hr><br>
+    <div class="d-grid gap-2 d-md-block">
+        <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('campanhas.cadastrar_cam')}}" role="button">Cadastrar Campanha</a>
     </div>
-  </div>
-</div>-->
+    <br>
+    <div class="row">
+        {% for campanha in campanhas %}
+        {% if current_user.id == campanha.membro_id %}
+        <div class="col">
+            <div class="card mb-3">
+                <a href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}"><img class="card-img-top" height="200" width="200" src='/campanhas/imagem/{{campanha.img_cam}}'></a>
+                <div class="card-body">
+                    <a style="text-decoration:none;color:black;" href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}">
+                        <h5 class="card-title">{{campanha.titulo}}</h5>
+                    </a>
+                    <a style="text-decoration:none;color:black;" href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}">
+                        <p class="card-text">{{campanha.descricao[:95] + "..."}}</p>
+                    </a><br>
+                </div>
+
+                <div align="center" class="d-grid gap-2 d-md-block">
+                    <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('campanhas.editar_cam', id=campanha.id)}}" role="button">Editar</a>
+
+
+                    <!-- Button trigger modal -->
+                    <button align="center" type="button" class="btn btn-outline-danger" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#removerCampanha{{campanha.id}}">Remover </button>
+
+                    <!-- Modal -->
+                    <div class="modal fade" id="removerCampanha{{campanha.id}}" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="staticBackdropLabel">Remover Notícia</h5>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    Tem certeza que deseja remover a notícia "{{campanha.titulo}}" ?
+                                    Ela será apagada definitivamente...
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Não</button>
+                                    <a type="button" class="btn btn-outline-danger" href="{{url_for('campanhas.remover_cam', id=campanha.id)}}">Sim</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div><br>
+            </div>
+        </div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</div>
+
 
 {% endblock %}
