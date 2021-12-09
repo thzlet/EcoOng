@@ -28,7 +28,8 @@ def noticias_page():
 @bp.route('/detalhe_not/<id>')
 def detalhe_not_page(id):
     notc = Noticia.query.get(id)
-    return render_template('noticias/detalhe_noticia.html', noticia = notc)
+    cate = Categoria.query.all()
+    return render_template('noticias/detalhe_noticia.html', noticia = notc, categorias = cate)
 
 
 @bp.route('/cad_noticia', methods=['GET', 'POST'])
