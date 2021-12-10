@@ -1,3 +1,6 @@
+* {
+  font-family: "Quicksand", sans-serif;
+}
 .coll {
   display: flex;
   width: 100%;
@@ -131,7 +134,7 @@ footer {
   background: #2f4f4f;
   height: auto;
   width: 100%;
-  font-family: Times new romas;
+  font-family: "Quicksand", sans-serif;
   padding-top: 40px;
   color: #66cdaa;
 }
@@ -184,25 +187,24 @@ footer {
 }
 
 .texto h2{
-  font-family:verdana;
+  font-family: "Quicksand", sans-serif;
   font-size: 30px;
 }
 .texto{
-  font-family: serif;
+  font-family: "Quicksand", sans-serif;
   font-size: 20px;
 }
 
 .featurette-heading{
   color: #2E8B57;
-  font-family:arial black;
+  font-family: "Quicksand", sans-serif;
 }
 .lead{
-  font-family: serif;
+  font-family: "Quicksand", sans-serif;
   font-size: 25px;
 }
 .notcam{
-  color:#8FBC8F;
-  font-family:arial;
+  font-family: "Quicksand", sans-serif;
 }
 
 .coll {
@@ -230,11 +232,13 @@ footer {
   box-shadow: 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 .box > img:hover {
+  border-radius: 10px;
   width: 100%;
   height: calc(100% - 10vh);
   object-fit: cover;
 }
 .box > img {
+  border-radius: 10px;
   width: 100%;
   height: calc(100% - 10vh);
   object-fit: cover;
@@ -340,7 +344,7 @@ footer {
   background: #2f4f4f;
   height: auto;
   width: 100%;
-  font-family: Times new romas;
+  font-family: "Quicksand", sans-serif;
   padding-top: 40px;
   color: #66cdaa;
 }

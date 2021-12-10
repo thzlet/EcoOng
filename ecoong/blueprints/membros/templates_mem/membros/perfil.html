@@ -15,18 +15,18 @@
         </div>
       </div>
     </div>
-    </div>
     <div class="user-profile-body">
       <div class="user-profile-bio">
         <h3 class="titulo">{{current_user.nome}}</h3>
       </div>
       <div class="user-profile-footer">
         <ul class="data-list">
-          <li> Emaill: {{current_user.email}}</li>
-          <li>Telefone: {{current_user.telefone}}</li>
-          <li>Idade: {{current_user.idade}}</li>
+          <li><b>Email:</b> {{current_user.email}}</li>
+          <li><b>Telefone:</b> {{current_user.telefone}}</li>
+          <li><b>Idade:</b> {{current_user.idade}}</li>
         </ul>
       </div>
+     </div>
 
       <div align="center" class="d-grid gap-2 d-md-block">
         <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('membros.atualizar_page')}}" role="button">Editar Perfil</a>
@@ -45,12 +45,12 @@
           <div class="modal-dialog">
             <div class="modal-content">
               <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel">Remover Perfil</h5>
+                <h5 class="modal-title" id="staticBackdropLabel"><b>Remover Perfil</b></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
                 Tem certeza que deseja remover seu perfil?
-                você ira perder todos os seus dados armazenados ate o momento incluindo doações, noticias...
+                Você ira perder todos os seus dados armazenados até o momento incluindo doações, noticias...
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Não</button>
