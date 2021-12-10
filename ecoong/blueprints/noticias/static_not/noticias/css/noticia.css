@@ -1,3 +1,6 @@
-img {
+.fonte{
+ font-family: "Quicksand", sans-serif;
+}
+.round {
   border-radius: 10px;
 }

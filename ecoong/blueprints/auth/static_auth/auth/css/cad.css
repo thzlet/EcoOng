@@ -5,7 +5,7 @@
 }
 
 body {
-  font-family: "Poppins", sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 .login-content {
   display: flex;
@@ -57,9 +57,9 @@ body {
   outline: none;
   background: none;
   padding: 0.5rem 0.7rem;
-  font-size: 0.8rem;
+  font-size: 1.0rem;
   color: #555;
-  font-family: "poppins", sans-serif;
+  font-family: "Quicksand", sans-serif;
 }
 a.brilhaverde {
   display: block;
@@ -83,7 +83,7 @@ a.brilhaverde:hover {
   background-size: 200%;
   font-size: 1rem;
   color: #ffffff;
-  font-family: "Poppins", sans-serif;
+  font-family: "Quicksand", sans-serif;
   text-transform: uppercase;
   margin: 1rem 0;
   cursor: pointer;

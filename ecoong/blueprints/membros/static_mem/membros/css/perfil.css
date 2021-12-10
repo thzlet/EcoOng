@@ -1,5 +1,5 @@
 .user-profile {
-  font-weight: bold;
+  font-family: "Quicksand", sans-serif;
 }
 .user-profile .user-profile-body,
 .user-profile {
@@ -12,7 +12,7 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  background: linear-gradient(#00ff00, transparent);
+  background: linear-gradient(#0fab84, transparent);
   margin-bottom: 1.25rem;
 }
 .user-profile .cover {
@@ -20,7 +20,7 @@
   position: relative;
   width: 90%;
   height: 16rem;
-  background: linear-gradient(100deg, #32cd32, #00ff00);
+  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
   border-radius: 0 0 20px 20px;
 }
 .user-profile .user-profile-body {
@@ -31,7 +31,7 @@
 .user-profile .user-profile-body .titulo {
   display: block;
   width: 100%;
-  font-size: 1.75em;
+  font-size: 1.85em;
   margin-bottom: 0.5rem;
 }
 
@@ -50,6 +50,7 @@
   text-align: center;
 }
 .user-profile .data-list {
+  font-size: 1.10em;
   width: 80%;
   list-style: none;
 }
@@ -82,3 +83,4 @@
   position: relative;
   border-radius: 100%;
 }
+

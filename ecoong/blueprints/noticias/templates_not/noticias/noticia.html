@@ -7,6 +7,7 @@
 {% block conteudo %}
 
   <!-- PRIMEIRA PARTE DE NOTÍCIAS -->
+ <div class="fonte">
   <div class="container">
     <div class="row">
       <div class="col">
@@ -28,7 +29,7 @@
 
       <div class="col">
         <hr>
-        <img height="300" width="480" src="static_not/noticias/img/araraprincipal.jpg">
+        <img class="round" height="300" width="480" src="static_not/noticias/img/araraprincipal.jpg">
         <br>
         <br>
         <a style="text-decoration:none;color:black;" href="#">
@@ -277,7 +278,7 @@
 
   <!-- BOTÃO PARA CADASTRAR UMA NOVA NOTICIA -->
   {% if current_user.is_authenticated %}
-    <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('noticias.cadastrar_not')}}" role="button">Cadastrar Notícia</a>
+    <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('noticias.cadastrar_not')}}" role="button">Cadastrar Notícia</a></div>
     <br><br>
   {% endif %}
 
