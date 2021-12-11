@@ -20,6 +20,8 @@ body{
                     <p>{{campanha.descricao}}</p>
                     <a type="button" class="enviar" href="{{url_for('campanhas.doacao_page')}}" role="button">Doar</a>
                     </p>
+                    {% if current_user.is_authenticated %}
+                    {% if current_user.id == campanha.membro_id %}
                     <div align="center" class="d-grid gap-2 d-md-block">
                         <br><a type="button" class="enviar" href="{{url_for('campanhas.editar_cam', id=campanha.id)}}" role="button">Editar</a>
 
@@ -46,6 +48,8 @@ body{
                             </div>
                         </div>
                     </div><br>
+                    {% endif %}
+                    {% endif %}
                 </div>
             </div>
         </div>

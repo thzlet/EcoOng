@@ -25,14 +25,6 @@
     <header class="header">
         <a class="logo" href="{{url_for('root')}}">EcoOng</a>
         <div class="menu-toggle"></div>
-        <nav class="navbar ">
-            <div class="container-fluid">
-                <form class="d-flex" action="{{url_for('membros.buscar_info')}}">
-                    <input class="form-control me-2" type="search" placeholder="Digite aqui!" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-                </form>
-            </div>
-        </nav>
         <nav>
             <ul class="ul">
                 <li><a class="a" href="{{url_for('noticias.noticias_page')}}"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Notícias</a></li>

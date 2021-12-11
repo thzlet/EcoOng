@@ -2,7 +2,14 @@
 
 {% block titulo %}Resultado da Busca{% endblock %}
 
-{% block css %}<link rel="stylesheet" href="static_mem/membros/css/buscar_informacao.css">{% endblock %}
+{% block css %}<link rel="stylesheet" href="/static/css/buscar_informacao.css">{% endblock %}
+
+{% block busca %}
+  <form action="/busca" method="POST" class="d-flex">
+    <input class="form-control me-2" type="text" name="busca" placeholder="Digite aqui!" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+  </form>
+{% endblock %}
 
 {% block conteudo %}
 
@@ -13,7 +20,7 @@
   <h3 align="center">Noticias</h3>
   <hr>
   <div class="row">
-    {% for noticia in noticias[:3] %}
+    {% for noticia in noticias %}
     <div class="col">
       <div class="card mb-3">
         <a href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}"><img class="card-img-top" height="200" width="200" src='/noticias/imagem/{{noticia.img_not}}'></a>
@@ -41,7 +48,7 @@
   <hr>
   <div align="center" class="container">
     <div class="row">
-      {% for campanha in campanhas[:3] %}
+      {% for campanha in campanhas %}
       <div class="col">
         <div class="card mb-3" style="max-width: 1000px;">
           <div class="row g-0">

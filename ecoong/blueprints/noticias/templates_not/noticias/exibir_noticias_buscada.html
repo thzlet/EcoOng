@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Resultado da Busca{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="static_not/noticias/css/exibir_noticias_buscada.css">{% endblock %}
+
+{% block busca %}
+  <form action="{{url_for('noticias.buscar_not')}}" method="POST" class="d-flex">
+    <input class="form-control me-2" type="text" name="busca" placeholder="Digite aqui!" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+  </form>
+{% endblock %}
+
+{% block conteudo %}
+<!-- NOTICIAS -->
+<div class="container"><br><br>
+  <h1 class="notcam" align="center">Resultado da Busca </h1><br>
+  <hr>
+  <h3 align="center">Noticias</h3>
+  <hr>
+  <div class="row">
+    {% for noticia in noticias %}
+    <div class="col">
+      <div class="card mb-3">
+        <a href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}"><img class="card-img-top" height="200" width="200" src='/noticias/imagem/{{noticia.img_not}}'></a>
+        <div class="card-body">
+          <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+            <h5 class="card-title">{{noticia.titulo}}</h5>
+          </a>
+          <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+            <p class="card-text">{{noticia.descricao[:95] + "..."}}</p>
+          </a><br>
+          <p class="card-text"><small class="text-muted">{{noticia.data}} - {{noticia.autor}}</small></p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}
