@@ -6,23 +6,51 @@
 
 {% block conteudo %}
 
-      <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
-      <h1 class="display-4 fw-normal text-success">Doar</h1>
-      <p class="fs-5 text-muted">Nos ajude a cuidar do Meio Ambiente!</p>
-    </div>
-  </header>
+
+<section class="shortcuts">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card border-light">
+                        <img class="card-img-top" src="../../static_cam/campanhas/img/doacoes1.png">
+                        <div class="card-body text-center">
+                          <h2>Doe amor</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-light">
+                        <img class="card-img-top" src="../../static_cam/campanhas/img/doacoes2.png">
+                        <div class="card-body text-center">
+                            <h2>Doe esperança</h2>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card border-light">
+                        <img class="card-img-top" src="../../static_cam/campanhas/img/doacoes3.png">
+                        <div class="card-body text-center">
+                            <h2>Doe vida</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</section>
+
+<br><br><br>
 
   <main>
     <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
       <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-primary">
+        <div class="card mb-4 rounded-3 shadow-sm border-light">
           <div class="card-body">
             <h1 class="card-title pricing-card-title"><small class="text-muted fw-light">R$ 10,00</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>10 users included</li>
-              <li>2 GB of storage</li>
-              <li>Email support</li>
-              <li>Help center access</li>
+              <li>Plante até 3 árvores</li>
+              <li>Salve as tartarugas! </li>
+              <li>Limpe até 2 praias</li>
+              <li>Recicle 200 Kg de lixo</li>
             </ul>
             <a href="{{url_for('campanhas.dadosdoacaocard_page')}}" class="w-100 btn btn-primary btn-lg active" role="button" aria-pressed="true">Doe com cartão</a>
             <a href="{{url_for('campanhas.dadosdoacaopix_page')}}" class="w-100 btn btn-primary btn-lg active" role="button" aria-pressed="true">Doar via Pix</a>
@@ -30,14 +58,14 @@
         </div>
       </div>
       <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-secondary">
+        <div class="card mb-4 rounded-3 shadow-sm border-light">
           <div class="card-body">
             <h1 class="card-title pricing-card-title"><small class="text-muted fw-light">R$ 30,00</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>20 users included</li>
-              <li>10 GB of storage</li>
-              <li>Priority email support</li>
-              <li>Help center access</li>
+              <li>Plante até 12 árvores</li>
+              <li>Salve as tartarugas! </li>
+              <li>Limpe até 6 praias</li>
+              <li>Recicle meia tonelada de lixo</li>
             </ul>
             <a href="{{url_for('campanhas.dadosdoacaocard_page')}}" class="w-100 btn btn-primary btn-lg active" role="button" aria-pressed="true">Doe com cartão</a>
             <a href="{{url_for('campanhas.dadosdoacaopix_page')}}" class="w-100 btn btn-primary btn-lg active" role="button" aria-pressed="true">Doar via Pix</a>
@@ -46,14 +74,14 @@
         </div>
       </div>
       <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-success">
+        <div class="card mb-4 rounded-3 shadow-sm border-light">
           <div class="card-body">
             <h1 class="card-title pricing-card-title"><small class="text-muted fw-light">R$ 50,00</small></h1>
             <ul class="list-unstyled mt-3 mb-4">
-              <li>30 users included</li>
-              <li>15 GB of storage</li>
-              <li>Phone and email support</li>
-              <li>Help center access</li>
+              <li>Plante até 30 árvores</li>
+              <li>Salve as tartarugas! </li>
+              <li>Limpe até 12 praias</li>
+              <li>Recicle até uma tonelada de lixo</li>
             </ul>
             <a href="{{url_for('campanhas.dadosdoacaocard_page')}}" class="w-100 btn btn-primary btn-lg active" role="button" aria-pressed="true">Doe com cartão</a>
             <a href="{{url_for('campanhas.dadosdoacaopix_page')}}" class="w-100 btn btn-primary btn-lg active" role="button" aria-pressed="true">Doar via Pix</a>
@@ -63,15 +91,6 @@
     </div>
   </main>
 
-        <div class="row g-0 bg-light position-relative my-3 rounded">
-          <div class="col-md-6 mb-md-0 p-md-4">
-            <img src="https://cdn.pixabay.com/photo/2019/09/21/06/55/rare-blue-macaw-4493172_960_720.jpg" class="w-100 rounded" alt="...">
-          </div>
-          <div class="col-md-6 p-4 ps-md-0">
-            <h5 class="mt-0">Porque sua ajuda é tão importante?</h5>
-            <p>Nós da EcoOng além de cuidar e preservar o nosso Meio Ambiente, acolhemos diversas causas diferentes. Dando vozes diferentes e também tornando possível melhorias, com você! Cuide, preserve e nos ajude para vivermos em um mundo melhor.</p>
-          </div>
-        </div>
 
     <footer>
     <div class="footer-content">
