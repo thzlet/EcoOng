@@ -1,0 +1,16 @@
+img {
+  border-radius: 10px;
+}
+#imgcam {
+  border-radius: 0;
+}
+.notcam{
+  color:#000000;
+}
+h3{
+  font-size: 35px;
+  color: #000000;
+}
+h1, h3, h5, p {
+  font-family:quicksand;
+}

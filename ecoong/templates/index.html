@@ -4,6 +4,13 @@
 
 {% block css %}<link rel="stylesheet" href="/static/css/landing.css">{% endblock %}
 
+{% block busca %}
+  <form action="/busca" method="POST" class="d-flex">
+    <input class="form-control me-2" type="text" name="busca" placeholder="Digite aqui!" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+  </form>
+{% endblock %}
+
 {% block conteudo %}
 
  <!-- CARROSEL -->

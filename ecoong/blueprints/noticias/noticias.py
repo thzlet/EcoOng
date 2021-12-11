@@ -1,12 +1,13 @@
 import os
 from flask import Blueprint, render_template, request, redirect, flash, url_for, send_from_directory
+from flask_login import current_user, login_required
+from ... import create_app
 from ..noticias.entidades import Noticia, Tag, Categoria
 from ecoong.models import Membro
-from flask_login import current_user, login_required
 from ecoong.ext.database import db
-from ... import create_app
 from werkzeug.utils import secure_filename
 import datetime
+from sqlalchemy import or_
 
 
 bp = Blueprint('noticias', __name__, static_folder='static_not', template_folder='templates_not', url_prefix='/noticias')
@@ -22,14 +23,14 @@ def allowed_file(filename):
 @bp.route('/noticias')
 def noticias_page():
     notc = Noticia.query.all()
-    return render_template('noticias/noticia.html', noticias = notc)
+    cate = Categoria.query.all()
+    return render_template('noticias/noticia.html', noticias = notc, categorias = cate)
 
 
 @bp.route('/detalhe_not/<id>')
 def detalhe_not_page(id):
     notc = Noticia.query.get(id)
-    cate = Categoria.query.all()
-    return render_template('noticias/detalhe_noticia.html', noticia = notc, categorias = cate)
+    return render_template('noticias/detalhe_noticia.html', noticia = notc)
 
 
 @bp.route('/cad_noticia', methods=['GET', 'POST'])
@@ -170,6 +171,17 @@ def editar_not(id):
         return redirect(url_for('membros.historico'))
 
     return render_template('noticias/editar_noticia.html', noticia = noticia)
+
+
+#buscar noticia
+#leva o id do membro pega o nome e foto, se clicar leva pra outra pagina que exiber o historico da pessoa
+@bp.post('/busca')
+def buscar_not():
+    busca = request.form['busca']
+    search = '%{}%'.format(busca)
+    notc = Noticia.query.join(Noticia.tags).filter(or_(Noticia.titulo.like(search), Noticia.descricao.like(search), Tag.tag.like(search))).all()
+
+    return render_template('noticias/exibir_noticias_buscada.html', noticias = notc)
 
 
 def init_app(app):

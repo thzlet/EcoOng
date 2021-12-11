@@ -116,14 +116,6 @@ def historico():
     return render_template('membros/historico.html', noticias = notc, campanhas = cam)
 
 
-#buscar informação
-@bp.route('/busca')
-def buscar_info():
-    camp = Campanha.query.all()
-    notc = Noticia.query.all()
-    return render_template('membros/buscar_informacao.html', campanhas = camp, noticias = notc)
-
-
 #registrando o blueprint membros
 def init_app(app):
     app.register_blueprint(bp)

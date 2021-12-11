@@ -7,6 +7,7 @@ from flask_login import current_user
 from ecoong.ext.database import db
 from ... import create_app
 from werkzeug.utils import secure_filename
+from sqlalchemy import or_
 
 bp = Blueprint('campanhas', __name__,static_folder='static_cam', template_folder='templates_cam', url_prefix='/campanhas')
 
@@ -160,6 +161,16 @@ def editar_cam(id):
         return redirect(url_for('membros.historico'))
 
     return render_template('campanhas/editar_campanha.html', campanha = campanha)
+
+
+#buscar campanha
+@bp.post('/busca')
+def buscar_cam():
+    busca = request.form['busca']
+    search = '%{}%'.format(busca)
+    cam = Campanha.query.filter(or_(Campanha.titulo.like(search), Campanha.descricao.like(search))).all()
+
+    return render_template('campanhas/exibir_campanhas_buscada.html', campanhas = cam)
 
 
 def init_app(app):

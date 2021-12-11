@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block titulo %}Resultado da Busca{% endblock %}
+
+{% block css %}<link rel="stylesheet" href="static_not/noticias/css/exibir_noticias_buscada.css">{% endblock %}
+
+{% block busca %}
+  <form action="{{url_for('campanhas.buscar_cam')}}" method="POST" class="d-flex">
+    <input class="form-control me-2" type="text" name="busca" placeholder="Digite aqui!" aria-label="Search">
+    <button class="btn btn-outline-success" type="submit">Pesquisar</button>
+  </form>
+{% endblock %}
+
+{% block conteudo %}
+
+<!-- CAMPANHAS -->
+<div class="container"><br><br>
+  <h1 class="notcam" align="center">Resultado da Busca </h1><br>
+  <hr>
+  <h3 align="center">Campanhas</h3>
+  <hr>
+  <div class="row">
+    {% for campanha in campanhas %}
+    <div class="col">
+      <div class="card mb-3">
+        <a href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}"><img class="card-img-top" height="200" width="200" src='/campanhas/imagem/{{campanha.img_cam}}'></a>
+        <div class="card-body">
+          <a style="text-decoration:none;color:black;" href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}">
+            <h5 class="card-title">{{campanha.titulo}}</h5>
+          </a>
+          <a style="text-decoration:none;color:black;" href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}">
+            <p class="card-text">{{campanha.descricao[:95] + "..."}}</p>
+          </a><br>
+          <p class="card-text"><small class="text-muted">{{campanha.autor}}</small></p>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+{% endblock %}

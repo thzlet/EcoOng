@@ -27,10 +27,7 @@
         <div class="menu-toggle"></div>
         <nav class="navbar ">
             <div class="container-fluid">
-                <form class="d-flex" action="{{url_for('membros.buscar_info')}}">
-                    <input class="form-control me-2" type="search" placeholder="Digite aqui!" aria-label="Search">
-                    <button class="btn btn-outline-success" type="submit">Pesquisar</button>
-                </form>
+                {% block busca %}{% endblock %}
             </div>
         </nav>
         <nav>
