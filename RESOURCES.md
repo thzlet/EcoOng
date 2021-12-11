@@ -10,38 +10,37 @@
 
 3: https://pixabay.com/photos/forest-woods-nature-trees-3369950/
 
-- Card 1
-
-4: https://pixabay.com/photos/elephant-africa-mud-bath-mud-pack-1915654/
-
 - Imagens
 
-5: https://pixabay.com/pt/photos/animais-felino-jaguar-retrato-3524518/
+4: https://pixabay.com/pt/photos/animais-felino-jaguar-retrato-3524518/
 
-6: https://pixabay.com/photos/dolphin-animal-sea-ocean-203875/
+5: https://pixabay.com/photos/dolphin-animal-sea-ocean-203875/
 
-7: https://pixabay.com/photos/parrot-arara-brazil-1218241/
+6: https://pixabay.com/photos/parrot-arara-brazil-1218241/
 
-8: https://pixabay.com/photos/line-leaves-green-zoo-tree-2581314/
+7: https://pixabay.com/photos/line-leaves-green-zoo-tree-2581314/
 
 - Notícias
 
-9: https://pixabay.com/photos/forestry-logging-forest-960806/
+8: https://pixabay.com/photos/forestry-logging-forest-960806/
 
-10: https://pixabay.com/photos/budgies-birds-green-yellow-1820700/
+9: https://pixabay.com/photos/budgies-birds-green-yellow-1820700/
 
-11: https://pixabay.com/photos/koster-night-hike-halt-fire-flame-2747043/
+10: https://pixabay.com/photos/koster-night-hike-halt-fire-flame-2747043/
 
-12: https://pixabay.com/photos/water-sunlight-reflection-sunbeam-6706894/
+11: https://pixabay.com/photos/water-sunlight-reflection-sunbeam-6706894/
 
 - Últimos cards
 
-13: https://pixabay.com/pt/photos/raposa-adormecido-em-repouso-1284512/
+12: https://pixabay.com/pt/photos/raposa-adormecido-em-repouso-1284512/
 
-14: https://pixabay.com/photos/giant-otter-animal-river-mammal-6290758/
+13: https://pixabay.com/photos/giant-otter-animal-river-mammal-6290758/
 
-15: https://pixabay.com/pt/photos/araras-azuis-papagaio-arara-azul-406776/
+14: https://pixabay.com/pt/photos/araras-azuis-papagaio-arara-azul-406776/
 
+> PÁGINA DE CAMPANHAS
+
+1: https://pixabay.com/pt/photos/floresta-trilha-raios-de-sol-2942477/
 
 > PÁGINA DE CADASTRO DE CAMPANHAS
 
