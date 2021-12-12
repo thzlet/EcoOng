@@ -111,9 +111,9 @@ def remover_page():
 #historico noticias do usuario
 @bp.route('/historico')
 def historico():
-    notc = Noticia.query.all()
-    cam = Campanha.query.all()
-    return render_template('membros/historico.html', noticias = notc, campanhas = cam)
+    notc = Noticia.query.order_by(Noticia.id.desc()).all()
+    camp = Campanha.query.order_by(Campanha.id.desc()).all()
+    return render_template('membros/historico.html', noticias = notc, campanhas = camp)
 
 
 #registrando o blueprint membros
