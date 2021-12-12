@@ -5,8 +5,8 @@ from ecoong.blueprints.noticias.entidades import Noticia, Tag
 from sqlalchemy import or_
 
 def root():
-    camp = Campanha.query.all()
-    notc = Noticia.query.all()
+    camp = Campanha.query.order_by(Campanha.id.desc()).all()
+    notc = Noticia.query.order_by(Noticia.id.desc()).all()
     return render_template('index.html', campanhas = camp, noticias = notc)
 
 

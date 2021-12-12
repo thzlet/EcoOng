@@ -18,50 +18,44 @@
   <div class="container">
     <div class="row">
       <div class="col">
+      {% for noticia in cincoNoticias[:2] %}
         <hr>
-        <a style="text-decoration:none;color:black;" href="#">
-          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit.</h5>
+        <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+          <h5>{{noticia.titulo[:95]}}</h5>
         </a>
-        <a style="text-decoration:none;color:black;" href="#">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit. Praesent ut ante eu nunc dictum luctus et nec enim. Ut eleifend interdum accumsan.</p>
+        <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+          <p>{{noticia.descricao[:173] + "..."}}</p>
         </a>
-        <hr>
-        <a style="text-decoration:none;color:black;" href="#">
-          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit.</h5>
-        </a>
-        <a style="text-decoration:none;color:black;" href="#">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit. Praesent ut ante eu nunc dictum luctus et nec enim. Ut eleifend interdum accumsan consectetur adipiscing elit, fusce sollicitudin suscipit elit.</p>
-        </a>
+        {% endfor %}
       </div>
 
       <div class="col">
+        {% for noticia in cincoNoticias[2:3] %}
         <hr>
-        <img class="round" height="300" width="480" src="static_not/noticias/img/araraprincipal.jpg">
+        <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+        <img class="round" height="300" width="480" src="/noticias/imagem/{{noticia.img_not}}">
+        </a>
         <br>
         <br>
-        <a style="text-decoration:none;color:black;" href="#">
-          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit.</h5>
+        <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+          <h5>{{noticia.titulo[:95]}}</h5>
         </a>
-        <a style="text-decoration:none;color:black;" href="#">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit. Praesent ut ante eu nunc dictum luctus et nec enim. Ut eleifend interdum accumsan.</p>
+        <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+          <p>{{noticia.descricao[:173] + "..."}}</p>
         </a>
+        {% endfor %}
       </div>
 
       <div class="col">
+        {% for noticia in cincoNoticias[3:5] %}
         <hr>
-        <a style="text-decoration:none;color:black;" href="#">
-          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit.</h5>
+        <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+          <h5>{{noticia.titulo[:95]}}</h5>
         </a>
-        <a style="text-decoration:none;color:black;" href="#">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit. Praesent ut ante eu nunc dictum luctus et nec enim. Ut eleifend interdum accumsan.</p>
+        <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+          <p>{{noticia.descricao[:173] + "..."}}</p>
         </a>
-        <hr>
-        <a style="text-decoration:none;color:black;" href="#">
-          <h5>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit.</h5>
-        </a>
-        <a style="text-decoration:none;color:black;" href="#">
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce sollicitudin suscipit elit. Praesent ut ante eu nunc dictum luctus et nec enim. Ut eleifend interdum accumsan consectetur adipiscing elit, fusce sollicitudin suscipit elit.</p>
-        </a>
+        {% endfor %}
       </div>
     </div>
     <hr>
@@ -70,218 +64,131 @@
   <!-- SEGUNDA PARTE DE NOTÍCIAS-->
   <div class="container">
     <div class="row">
+      {% for noticia in noticias[:3] %}
       <div class="col">
         <div class="card mb-3">
-          <a href="#"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_um.jpg'></a>
+          <a href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}"><img class="card-img-top" height="200" width="200" src='/noticias/imagem/{{noticia.img_not}}'></a>
           <div class="card-body">
-            <a style="text-decoration:none;color:black;" href="#">
-              <h5 class="card-title">Lorem ipsum 1.</h5>
+            <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+              <h5 class="card-title">{{noticia.titulo[:60]}}</h5>
             </a>
-            <a style="text-decoration:none;color:black;" href="#">
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo.</p>
+            <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+              <p class="card-text">{{noticia.descricao[:162] + "..."}}</p>
             </a><br>
-            <p class="card-text"><small class="text-muted">EcoOng</small></p>
+            <p class="card-text"><small class="text-muted">{{noticia.autor}} - {{noticia.datahora.strftime('%d/%m/%Y %H:%M')}}</small></p>
           </div>
         </div>
-      </div>
-      <div class="col">
-        <div class="card mb-3">
-          <a href="#"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_dois.jpg'></a>
-          <div class="card-body">
-            <a style="text-decoration:none;color:black;" href="#">
-              <h5 class="card-title">Lorem ipsum 2.</h5>
-            </a>
-            <a style="text-decoration:none;color:black;" href="#">
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo.</p>
-            </a><br>
-            <p class="card-text"><small class="text-muted">EcoOng</small></p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card mb-3">
-          <a href="#"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_tres.jpg'></a>
-          <div class="card-body">
-            <a style="text-decoration:none;color:black;" href="#">
-              <h5 class="card-title">Lorem ipsum 3.</h5>
-            </a>
-            <a style="text-decoration:none;color:black;" href="#">
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo.</p>
-            </a><br>
-            <p class="card-text"><small class="text-muted">EcoOng</small></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="card mb-3">
-          <a href="#"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_quatro.jpg'></a>
-          <div class="card-body">
-            <a style="text-decoration:none;color:black;" href="#">
-              <h5 class="card-title">Lorem ipsum 4.</h5>
-              <a style="text-decoration:none;color:black;" href="#">
-                <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo risus massa, elementum sed aliquam ac, rutrum vel mauris. Etiam est tellus, eleifend sit amet mauris sit amet, semper rutrum metus. Suspendisse tincidunt diam quam, sed vestibulum ligula imperdiet eget risus massa, elementum sed aliquam ac, rutrum vel mauris. Etiam est tellus, eleifend sit amet mauris sit amet, semper rutrum metus. Suspendisse tincidunt diam quam, sed vestibulum ligula imperdiet eget.</p>
-              </a><br>
-              <p class="card-text"><small class="text-muted">EcoOng</small></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="card mb-3">
-          <a href="#"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_cinco.jpg'></a>
-          <div class="card-body">
-            <a style="text-decoration:none;color:black;" href="#">
-              <h5 class="card-title">Lorem ipsum 5.</h5>
-            </a>
-            <a style="text-decoration:none;color:black;" href="#">
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo.</p>
-            </a><br>
-            <p class="card-text"><small class="text-muted">EcoOng</small></p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card mb-3">
-          <a href="#"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_seis.jpg'></a>
-          <div class="card-body">
-            <a style="text-decoration:none;color:black;" href="#">
-              <h5 class="card-title">Lorem ipsum 6.</h5>
-            </a>
-            <a style="text-decoration:none;color:black;" href="#">
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo.</p>
-            </a><br>
-            <p class="card-text"><small class="text-muted">EcoOng</small></p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card mb-3">
-          <a href="#"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_sete.jpg'></a>
-
-          <div class="card-body">
-            <a style="text-decoration:none;color:black;" href="#">
-              <h5 class="card-title">Lorem ipsum 7.</h5>
-            </a>
-            <a style="text-decoration:none;color:black;" href="#">
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo.</p>
-            </a><br>
-            <p class="card-text"><small class="text-muted">EcoOng</small></p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="card mb-3">
-          <a href="#"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_oito.jpg'></a>
-          <div class="card-body">
-            <a style="text-decoration:none;color:black;" href="#">
-              <h5 class="card-title">Lorem ipsum 8.</h5>
-            </a>
-            <a style="text-decoration:none;color:black;" href="#">
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo.</p>
-            </a><br>
-            <p class="card-text"><small class="text-muted">EcoOng</small></p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card mb-3">
-          <a href="#"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_nove.jpg'></a>
-          <div class="card-body">
-            <a style="text-decoration:none;color:black;" href="#">
-              <h5 class="card-title">Lorem ipsum 9.</h5>
-            </a>
-            <a style="text-decoration:none;color:black;" href="#">
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Al'#'iquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo.</p>
-            </a><br>
-            <p class="card-text"><small class="text-muted">EcoOng</small></p>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card mb-3">
-          <a href="#"><img class="card-img-top" height="200" width="200" src='static_not/noticias/img/noticia_dez.jpg'></a>
-          <div class="card-body">
-            <a style="text-decoration:none;color:black;" href="#">
-              <h5 class="card-title">Lorem ipsum 10.</h5>
-            </a>
-            <a style="text-decoration:none;color:black;" href="#">
-              <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam tempor quis velit ac mollis. Cras justo leo, tincidunt et consequat at, sollicitudin maximus leo.</p>
-            </a><br>
-            <p class="card-text"><small class="text-muted">EcoOng</small></p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr>
-  </div>
-
-  <!-- TERCEIRA PARTE DE NOTÍCIAS -->
-  <div class="container">
-    <div class="row">
-      <div class="col">
-        <div class="card-news">
-          <div class="row g-0 bg-light position-relative">
-            <div class="col p-4 ps-md-6">
-              <p>Another instance of placeholder content for this other custom component.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card-news">
-          <div class="row g-0 bg-light position-relative">
-            <div class="col p-4 ps-md-6">
-              <p>Another instance of placeholder content for this other custom component.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card-news">
-          <div class="row g-0 bg-light position-relative">
-            <div class="col p-4 ps-md-6">
-              <p>Another instance of placeholder content for this other custom component.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <hr>
-  </div>
-
-
-  <!-- QUARTA PARTE DE NOTÍCIAS COM TABELA NOTICIAS-->
-  <div class="container">
-    <div class="row">
-      {% for noticia in noticias %}
-      <div class="col">
-        <a href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}"><img height="150" width="350" src="/noticias/imagem/{{noticia.img_not}}"></a>
-        <p>
-          <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
-            <h6>{{noticia.titulo}}</h6>
-          </a>
-          <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
-            <p>{{noticia.descricao[:95] + "..."}}</p>
-          </a>
       </div>
       {% endfor %}
     </div>
   </div>
-  <br><br>
+
+  <div class="container">
+    <div class="row">
+      {% for noticia in noticias[3:4] %}
+      <div class="col">
+        <div class="card mb-3">
+          <a href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}"><img class="card-img-top" height="200" width="200" src='/noticias/imagem/{{noticia.img_not}}'></a>
+          <div class="card-body">
+            <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+              <h5 class="card-title">{{noticia.titulo[:95]}}</h5>
+              <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+                <p class="card-text">{{noticia.descricao[:566] + "..."}}</p>
+              </a><br>
+              <p class="card-text"><small class="text-muted">{{noticia.autor}} - {{noticia.datahora.strftime('%d/%m/%Y %H:%M')}}</small></p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      {% for noticia in noticias[4:7] %}
+      <div class="col">
+        <div class="card mb-3">
+          <a href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}"><img class="card-img-top" height="200" width="200" src='/noticias/imagem/{{noticia.img_not}}'></a>
+          <div class="card-body">
+            <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+              <h5 class="card-title">{{noticia.titulo[:60]}}</h5>
+            </a>
+            <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+              <p class="card-text">{{noticia.descricao[:162] + "..."}}</p>
+            </a><br>
+            <p class="card-text"><small class="text-muted">{{noticia.autor}} - {{noticia.datahora.strftime('%d/%m/%Y %H:%M')}}</small></p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      {% for noticia in noticias[7:10] %}
+      <div class="col">
+        <div class="card mb-3">
+          <a href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}"><img class="card-img-top" height="200" width="200" src='/noticias/imagem/{{noticia.img_not}}'></a>
+          <div class="card-body">
+            <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+              <h5 class="card-title">{{noticia.titulo[:60]}}</h5>
+            </a>
+            <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+              <p class="card-text">{{noticia.descricao[:162] + "..."}}</p>
+            </a><br>
+            <p class="card-text"><small class="text-muted">{{noticia.autor}} - {{noticia.datahora.strftime('%d/%m/%Y %H:%M')}}</small></p>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+
+  <!-- TERCEIRA PARTE DE NOTÍCIAS -->
+  <div class="container">
+    <br><hr>
+    <div class="row">
+      {% for noticia in noticias[10:13] %}
+      <div class="col">
+        <div class="card-news">
+          <div class="row g-0 bg-light position-relative">
+            <div class="col p-4 ps-md-6">
+              <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+              <p>{{noticia.titulo[:72]}}</p><br>
+              </a>
+              <p class="card-text"><small class="text-muted">{{noticia.autor}} - {{noticia.datahora.strftime('%d/%m/%Y %H:%M')}}</small></p>
+            </div>
+          </div>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+    <hr><br>
+  </div>
+
+<!-- QUARTA PARTE DE NOTÍCIAS COM TABELA NOTICIAS-->
+<div class="container">
+  <div class="row">
+    {% for noticia in noticias[13:16] %}
+    <div class="col-lg-4 col-sm-6 col-xs-12">
+      <div class="card mb-3">
+        <href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}"><img class="card-img-top" height="200" width="200" src="/noticias/imagem/{{noticia.img_not}}"></a>
+          <div class="card-body">
+            <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+              <h5 class="card-title">{{noticia.titulo[:60]}}</h5>
+            </a>
+            <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
+              <p class="card-text">{{noticia.descricao[:162] + "..."}}</p>
+            </a><br>
+            <p class="card-text"><small class="text-muted">{{noticia.autor}} - {{noticia.datahora.strftime('%d/%m/%Y %H:%M')}}</small></p>
+          </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div><br><br>
+
 
   <!-- BOTÃO PARA CADASTRAR UMA NOVA NOTICIA -->
   {% if current_user.is_authenticated %}

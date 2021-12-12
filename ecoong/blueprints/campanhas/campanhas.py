@@ -22,7 +22,7 @@ def allowed_file(filename):
 
 @bp.route('/campanhas')
 def campanha_page():
-    camp = Campanha.query.all()
+    camp = Campanha.query.order_by(Campanha.id.desc()).all()
     return render_template('campanhas/campanha.html', campanhas = camp)
 
 
