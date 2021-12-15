@@ -2,19 +2,25 @@
 
 {% block titulo %}Editar Campanha{% endblock %}
 
-{% block css %}<link rel="stylesheet" href="#">{% endblock %}
+{% block css %}<link rel="stylesheet" href="/static_cam/campanhas/css/edit_cam.css">{% endblock %}
 
 {% block conteudo %}
 
-<!--FORMULARIO  DE EDIÇÃO-->
-
-<form action="{{url_for('campanhas.editar_cam', id=campanha.id)}}" method="post" enctype="multipart/form-data">
-    <h2>Cadastro de Notícias</h2>
-    <input id="" type="text" name="titulo" value="{{campanha.titulo}}"><br>
-    <input id="" type="text" name="autor" value="{{campanha.autor}}"><br>
-    <textarea id="" name="des" rows="5" cols="50"  placeholder="{{campanha.descricao}}" value="{{campanha.descricao}}"></textarea><br>
-    <input id="" type="file" name="img"> <br>
-    <input id="" type="submit" value="Editar"><br>
+<!--FORMULARIO DE EDIÇÃO-->
+<form class="cad" action="{{url_for('campanhas.editar_cam', id=campanha.id)}}" method="post" enctype="multipart/form-data">
+  <div class="container">
+    <div class="contact-box">
+      <div class="left"></div>
+      <div class="right">
+        <h2>Editar Campanhas</h2>
+        <input class="field" id="" type="text" name="autor" value="{{current_user.nome}}" readonly>
+        <input class="field" type="text" name="titulo" value="{{campanha.titulo}}">
+        <textarea class="field" name="des" rows="5" cols="50">{{campanha.descricao}}</textarea>
+        <input class="field" type="file" name="img"> <br> <br>
+        <input class="env" id="" type="submit" value="Editar"><br>
+      </div>
+    </div>
+  </div>
 </form>
 
 {% endblock %}

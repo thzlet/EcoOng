@@ -9,6 +9,7 @@ from ... import create_app
 from werkzeug.utils import secure_filename
 from sqlalchemy import or_
 
+
 bp = Blueprint('campanhas', __name__,static_folder='static_cam', template_folder='templates_cam', url_prefix='/campanhas')
 
 
@@ -36,14 +37,17 @@ def detalhe_cam_page(id):
 def doacao_page():
     return render_template('campanhas/doacoes.html')
 
+
 @bp.route('/agradecimento')
 def agradecimento_page():
     return render_template('campanhas/agradecimento.html')
+
 
 @bp.route('/dadosdoacaocard')
 @login_required
 def dadosdoacaocard_page():
     return render_template('campanhas/dadosdoacaocard.html')
+
 
 @bp.route('/dadosdoacaopix')
 @login_required

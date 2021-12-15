@@ -3,8 +3,8 @@ from datetime import datetime
 
 
 noticiatag = db.Table('noticiatag',
-    db.Column('noticia_id', db.Integer, db.ForeignKey('noticia.id'), primary_key=True),
-    db.Column('tag_id', db.Integer, db.ForeignKey('tag.id'), primary_key=True)
+    db.Column('noticia_id', db.Integer, db.ForeignKey('noticia.id', ondelete="cascade"), primary_key=True),
+    db.Column('tag_id', db.Integer, db.ForeignKey('tag.id', ondelete="cascade"), primary_key=True)
     )
 
 
@@ -21,7 +21,7 @@ class Noticia(db.Model):
     membro_id = db.Column(db.Integer, db.ForeignKey('membro.id'))
     categoria_id = db.Column(db.Integer, db.ForeignKey('categoria.id'))
 
-    tags = db.relationship('Tag', secondary=noticiatag, backref=db.backref('noticias'))
+    tags = db.relationship('Tag', secondary=noticiatag, backref='noticias', cascade="all, delete" )
 
 
 class Tag(db.Model):

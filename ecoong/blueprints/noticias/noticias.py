@@ -1,16 +1,17 @@
 import os
 from flask import Blueprint, render_template, request, redirect, flash, url_for, send_from_directory
-from flask_login import current_user, login_required
-from ... import create_app
 from ..noticias.entidades import Noticia, Tag, Categoria
 from ecoong.models import Membro
+from flask_login import current_user, login_required
 from ecoong.ext.database import db
+from ... import create_app
 from werkzeug.utils import secure_filename
-import datetime
+from datetime import datetime, timedelta
 from sqlalchemy import or_
 
 
 bp = Blueprint('noticias', __name__, static_folder='static_not', template_folder='templates_not', url_prefix='/noticias')
+
 
 FORMATOS_PERMITIDOS = {'png', 'jpg', 'jpeg'}
 
@@ -43,9 +44,9 @@ def cadastrar_not():
         noticia.descricao = request.form['des']
         foto = request.files['img']
 
-        data = request.form['data']
-        hora = request.form['hora']
-        noticia.datahora = datetime.datetime.fromisoformat(f'{data} {hora}')
+        diferenca = timedelta(hours=-3)
+        agora_brasil = datetime.utcnow() + diferenca
+        noticia.datahora = agora_brasil
 
         noticia.membro_id = Membro.query.get(current_user.id).id
 
@@ -58,6 +59,8 @@ def cadastrar_not():
 
         tags_usuario = request.form['tags']
         tags_usuario = tags_usuario.split(',')
+
+
 
         for tag_usuario in tags_usuario:
             if Tag.query.filter_by(tag=tag_usuario).first() is None:
@@ -93,7 +96,7 @@ def cadastrar_not():
             return redirect(url_for('noticias.cadastrar_not'))
 
 
-    now = str(datetime.datetime.utcnow()).split(' ')[0]
+    now = str(datetime.utcnow()).split(' ')[0]
     return render_template('noticias/cadastrar_noticia.html', now=now)
 
 
@@ -132,16 +135,38 @@ def remover_not(id):
 @bp.route('/editar/<id>', methods=['GET', 'POST'])
 @login_required
 def editar_not(id):
-    noticia = Noticia.query.get(id)
+
     if request.method == 'POST':
+        noticia = Noticia.query.get(id)
         noticia.titulo = request.form['titulo']
-        noticia.autor = request.form['autor']
-        noticia.data  = request.form['data']
+        noticia.autor = request.form['nome']
         descricao = request.form['des']
         noticia.membro_id = current_user.id
         if descricao != '':
             noticia.descricao = descricao
-        db.session.commit()
+
+        categoria_usuario = request.form['categoria']
+        noticia.categoria_id = Categoria.query.filter_by(id = int(categoria_usuario)).first().id
+
+        # Documentação de referência:
+        # https://docs.sqlalchemy.org/en/14/orm/basic_relationships.html#deleting-rows-from-the-many-to-many-table
+
+        for tag in noticia.tags:
+            noticia.tags.remove(tag)
+
+        tags_usuario = request.form['tags']
+        tags_usuario = tags_usuario.split(',')
+
+        for tag_usuario in tags_usuario:
+            if Tag.query.filter_by(tag=tag_usuario).first() is None:
+                nova_tag = Tag()
+                nova_tag.tag = tag_usuario
+
+                noticia.tags.append(nova_tag)
+
+            else:
+                jatemtag = Tag.query.filter_by(tag=tag_usuario).first()
+                noticia.tags.append(jatemtag)
 
         if 'img' in request.files:
             foto = request.files['img']
@@ -156,26 +181,33 @@ def editar_not(id):
                     app = create_app()
                     foto.save(os.path.join(app.config['UPLOAD_NOTICIA'], filename))
 
-                    current_user.noticia.append(noticia)
-                    db.session.commit()
-
-                    flash('Notícia atualizada')
                 else:
                     flash("Apenas extensões 'png', 'jpg', 'jpeg'!")
                     return redirect(url_for('membros.historico'))
-        else:
-            current_user.noticia.append(noticia)
-            db.session.commit()
 
-            flash('Notícia atualizada')
+        current_user.noticia.append(noticia)
+        db.session.commit()
+
+        flash('Notícia atualizada')
 
         return redirect(url_for('membros.historico'))
 
-    return render_template('noticias/editar_noticia.html', noticia = noticia)
+    noticia = Noticia.query.get(id)
+    string_tags = ''
+    for tag in noticia.tags:
+        string_tags = f'{string_tags},{tag.tag}'
+    string_tags = string_tags[1:]
+
+    categorias = Categoria.query.all()
+    for categoria in categorias:
+        if noticia.categoria_id == categoria.id:
+            id_categ = categoria.id
+            nome_categ = categoria.categoria
+
+    return render_template('noticias/editar_noticia.html', noticia = noticia, categorias = categorias, id_categ = id_categ, nome_categ = nome_categ, string_tags = string_tags)
 
 
 #buscar noticia
-#leva o id do membro pega o nome e foto, se clicar leva pra outra pagina que exiber o historico da pessoa
 @bp.post('/busca')
 def buscar_not():
     busca = request.form['busca']
