@@ -2,7 +2,7 @@
 
 {% block titulo %}Historico{% endblock %}
 
-{% block css %}<link rel="stylesheet" href="#">{% endblock %}
+{% block css %}<link rel="stylesheet" href="static_mem/membros/css/historico.css">{% endblock %}
 
 {% block conteudo %}
 
@@ -10,8 +10,8 @@
 <div class="container"><br><br>
     <h1 class="notcam" align="center">Meu Historico</h1><br>
     <hr>
-    <h3 align="center">Noticias</h3>
-    <hr><br>
+    <h4 align="center">Minhas Noticias</h4>
+    <br>
     <div class="d-grid gap-2 d-md-block">
         <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('noticias.cadastrar_not')}}" role="button">Cadastrar Notícia</a>
     </div>
@@ -19,7 +19,7 @@
     <div class="row">
         {% for noticia in noticias %}
         {% if current_user.id == noticia.membro_id %}
-        <div class="col">
+        <div class="col-lg-4 col-sm-6 col-xs-12">
             <div class="card mb-3">
                 <a href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}"><img class="card-img-top" height="200" width="200" src='/noticias/imagem/{{noticia.img_not}}'></a>
                 <div class="card-body">
@@ -29,7 +29,7 @@
                     <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
                         <p class="card-text">{{noticia.descricao[:95] + "..."}}</p>
                     </a><br>
-                    <p class="card-text"><small class="text-muted">{{noticia.datahora}} - {{noticia.autor}}</small></p>
+                    <p class="card-text"><small class="text-muted">{{noticia.data}} - {{noticia.autor}}</small></p>
                 </div>
 
                 <div align="center" class="d-grid gap-2 d-md-block">
@@ -67,11 +67,11 @@
 
 <br><br><br>
 
-<!-- CAMPANHAS-->
-<div class="container"><br><br>
+<!-- Campanhas-->
+  <div class="container"><br><br>
     <hr>
-    <h3 align="center">Campanhas</h3>
-    <hr><br>
+    <h4 align="center">Minhas Campanhas</h3>
+    <br>
     <div class="d-grid gap-2 d-md-block">
         <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('campanhas.cadastrar_cam')}}" role="button">Cadastrar Campanha</a>
     </div>
@@ -79,7 +79,7 @@
     <div class="row">
         {% for campanha in campanhas %}
         {% if current_user.id == campanha.membro_id %}
-        <div class="col">
+        <div class="col-lg-4 col-sm-6 col-xs-12">
             <div class="card mb-3">
                 <a href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}"><img class="card-img-top" height="200" width="200" src='/campanhas/imagem/{{campanha.img_cam}}'></a>
                 <div class="card-body">
@@ -120,10 +120,11 @@
                 </div><br>
             </div>
         </div>
-        {% endif %}
-        {% endfor %}
+      {% endif %}
+      {% endfor %}
     </div>
-</div>
+    </div>
+
 
 
 {% endblock %}
