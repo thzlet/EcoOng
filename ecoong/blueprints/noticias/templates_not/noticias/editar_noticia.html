@@ -2,25 +2,39 @@
 
 {% block titulo %}Editar Notícia{% endblock %}
 
-{% block css %}<link rel="stylesheet" href="#">{% endblock %}
+{% block css %}<link rel="stylesheet" href="/static_not/noticias/css/edit_not.css">{% endblock %}
 
 {% block conteudo %}
 
-<!--FORMULARIO  DE EDIÇÃO-->
-<form action="{{url_for('noticias.editar_not', id=noticia.id)}}" method="post" enctype="multipart/form-data">
-    <h2>Cadastro de Notícias</h2>
-    <input id="" type="text" name="titulo" value="{{noticia.titulo}}"><br>
-    <input id="" type="text" name="autor" value="{{noticia.autor}}"><br>
-    <input id="" type="text" name="data" value="{{noticia.datahora}}"><br>
-    <textarea id="" name="des" rows="5" cols="50"  placeholder="{{noticia.descricao}}" value="{{noticia.descricao}}"></textarea><br>
-    <input id="" type="file" name="img"> <br>
-    <input id="" type="submit" value="Editar"><br>
+<!--FORMULARIO  DE EDIÇÃO DE NOTÍCIAS-->
+<form class="cad" action="{{url_for('noticias.editar_not', id=noticia.id)}}" method="post" enctype="multipart/form-data">  <div class="container">
+    <div class="contact-box">
+      <div class="left"></div>
+      <div class="right">
+        <h2>Editar Notícias</h2>
+        <input class="field" id="" type="text" name="nome" value="{{current_user.nome}}" readonly>
+        <input class="field" id="" type="text" name="titulo" value="{{noticia.titulo}}">
+
+        <select class="field" name="categoria">
+          <option value="{{id_categ}}">{{nome_categ}}</option>
+          {% for categoria in categorias %}
+          {% if categoria.id != id_categ %}
+              <option value="{{categoria.id}}">{{categoria.categoria}}</option>
+          {% endif %}
+          {% endfor %}
+        </select>
+       <div class="tag-container">
+            <input class="field" type="hidden" name="tags" id="tagspreenchidas" value="">
+            <input type="text" name="tagspreencher" id="tagspreencher" value="{{string_tags}}" >
+        </div><!--
+        <input class="field" id="" type="text" name="tags" value="{{string_tags}}">-->
+        <p>Digite uma virgula(,) após a palavra-chave.</p>
+        <textarea class="field" id="" name="des" rows="5" cols="50">{{noticia.descricao}}</textarea>
+        <input class="field" id="" type="file" name="img"> <br> <br>
+        <input class="env" id="" type="submit" value="Editar">
+      </div>
+    </div>
+  </div>
 </form>
-<!--
-{% for x in range(1,100) %}
-{% if x%7 == 0 %}
-    {{x}} é divisível por sete.
-{% endif %}
-{% endfor %}-->
 
 {% endblock %}

@@ -13,8 +13,8 @@
       <div class="left"></div>
       <div class="right">
         <h2>Cadastrar Campanhas</h2>
+        <input class="field" type="text" name="autor" value="{{current_user.nome}}" readonly>
         <input class="field" type="text" name="titulo" placeholder="Título" required>
-        <input class="field" type="text" name="autor" placeholder="Autor" required>
         <textarea class="field" name="des" rows="5" cols="50" placeholder="Descrição da campanha" required></textarea>
         <input class="field" type="file" name="img" required> <br> <br>
         <input class="env" id="enviar" type="submit" value ="Cadastrar">

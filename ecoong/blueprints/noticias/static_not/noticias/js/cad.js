@@ -2,10 +2,21 @@ let tags = [];
 let input;
 let tagContainer;
 window.onload = function () {
-  input = document.querySelector("#tags");
+  input = document.querySelector("#tagspreencher");
   tagContainer = document.querySelector(".tag-container");
   input.addEventListener("keyup", addTags);
+  loadTags();
 };
+function loadTags() {
+    input.value.split(",").forEach((tag) => {
+      if (tag) {
+        tags.push(tag.trim());
+      }
+    });
+    updateTags();
+    input = document.querySelector("#tagspreencher");
+    input.value = "";
+}
 function addTags(event) {
   const keyPressedIsComma = event.key == ",";
   if (keyPressedIsComma) {
@@ -38,15 +49,20 @@ function createTag(tag) {
   i.setAttribute("data-id", tag);
   i.onclick = removeTag;
   span.append(i);
-  const input_das_tags = document.querySelector("#tagsPreenchidas");
+  const input_das_tags = document.querySelector("#tagspreenchidas");
   input_das_tags.value = tags;
+  input.value = "";
   return div;
 }
 function removeTag(event) {
   const buttonX = event.currentTarget;
   const id = buttonX.dataset.id;
   const index = tags.indexOf(id);
+
   tags.splice(index, 1);
+
+  const input_das_tags = document.querySelector("#tagspreenchidas");
+  input_das_tags.value = tags;
   updateTags();
 }
 function clearTags() {

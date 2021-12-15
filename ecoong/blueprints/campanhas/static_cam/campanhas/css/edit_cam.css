@@ -21,11 +21,11 @@ body {
 }
 
 .contact-box {
-  max-width: 850px;
+  max-width: 500px;
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: repeat(1fr);
   justify-content: center;
-  align-items: start;
+  align-items: center;
   text-align: center;
   background-color: #fff;
   box-shadow: 0px 0px 19px 5px rgba(0, 0, 0, 0.19);
@@ -36,7 +36,6 @@ body {
     no-repeat center;
   background-size: cover;
   height: 100%;
-  max-height: 850px;
 }
 
 .right {
@@ -116,57 +115,4 @@ textarea {
   .contact-box {
     grid-template-columns: 1fr;
   }
-}
-.tag-container {
-    border: 2px solid var(--primary-opaque);
-    border-radius: 15px;
-    display: flex;
-    flex-wrap: wrap;
-    align-content: flex-start;
-    padding: .4rem;
-    overflow-x: auto;
-}
-
-.close::after {
-    content: "✕";
-    height: 24px;
-    width: 24px;
-}
-
-.tag-container,
-.tag-container input,
-.tag-container .tag {
-  background-color: rgba(230, 230, 230, 0.6);
-}
-
-.tag-container .tag {
-    margin: .3rem;
-    padding: .4rem .4rem;
-    border-bottom: .01rem solid var(--primary);
-    border-radius: 10px;
-    font-size: 1.0rem;
-    display: flex;
-    align-items: center;
-    cursor: default;
-}
-
-.tag i {
-    font-size: 0.8rem;
-    font-style: normal;
-    margin-left: .4rem;
-    transform: translateY(0.08rem);
-}
-
-.tag-container input {
-    padding: .4rem;
-    border-radius: 15px;
-    font-size: 1.1rem;
-    border: 0;
-    outline: none;
-    flex: 1;
-}
-
-.tag-container input:focus {
-  border: 2px solid rgba(30, 85, 250, 0.47);
-  background-color: #fff;
 }
