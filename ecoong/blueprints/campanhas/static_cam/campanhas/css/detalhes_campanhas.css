@@ -9,7 +9,7 @@ body {
 }
 
 .card-news {
-  font-family: Times New Roman;
+  font-family: "Quicksand", sans-serif;
   width: 400px;
   padding: 30px;
   position: absolute;
@@ -18,6 +18,7 @@ body {
   transform: translate(-50%, -50%);
   background: rgba(0, 0, 0, 0.5);
   text-align: center;
+  border-radius: 30px;
 }
 
 .card-news h3 {
@@ -30,7 +31,7 @@ body {
   color: white;
   font-size: 17px;
 }
-.enviar {
+.btn {
   text-decoration: none;
   padding: 0.5rem 1rem;
   background: #fff;
@@ -41,6 +42,6 @@ body {
   transition: 0.4s ease-in-out;
 }
 
-.enviar:hover {
+.btn:hover {
   box-shadow: 0px 7px 10px rgba(0, 0, 0, 0.5);
 }

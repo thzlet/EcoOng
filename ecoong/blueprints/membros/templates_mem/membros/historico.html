@@ -8,11 +8,11 @@
 
 <!-- NOTICIAS-->
 <div class="container"><br><br>
-    <h1 class="notcam" align="center">Meu Historico</h1><br>
+    <h1 class="notcam" align="center">Meu Histórico</h1><br>
     <hr>
-    <h4 align="center">Minhas Noticias</h4>
+    <h4 align="center">Minhas Notícias</h4>
     <br>
-    <div class="d-grid gap-2 d-md-block">
+    <div class="d-flex justify-content-center">
         <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('noticias.cadastrar_not')}}" role="button">Cadastrar Notícia</a>
     </div>
     <br>
@@ -72,7 +72,7 @@
     <hr>
     <h4 align="center">Minhas Campanhas</h4>
     <br>
-    <div class="d-grid gap-2 d-md-block">
+    <div class="d-flex justify-content-center">
         <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('campanhas.cadastrar_cam')}}" role="button">Cadastrar Campanha</a>
     </div>
     <br>
@@ -103,11 +103,11 @@
                         <div class="modal-dialog">
                             <div class="modal-content">
                                 <div class="modal-header">
-                                    <h5 class="modal-title" id="staticBackdropLabel">Remover Notícia</h5>
+                                    <h5 class="modal-title" id="staticBackdropLabel">Remover Campanha</h5>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                 </div>
                                 <div class="modal-body">
-                                    Tem certeza que deseja remover a notícia "{{campanha.titulo}}" ?
+                                    Tem certeza que deseja remover a campanha "{{campanha.titulo}}" ?
                                     Ela será apagada definitivamente...
                                 </div>
                                 <div class="modal-footer">

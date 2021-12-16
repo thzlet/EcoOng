@@ -29,7 +29,6 @@
             <ul class="ul">
                 <li><a class="a" href="{{url_for('noticias.noticias_page')}}"><i class="fa fa-newspaper-o" aria-hidden="true"></i> Notícias</a></li>
                 <li><a class="a" href="{{url_for('campanhas.campanha_page')}}"><i class="fa fa-pie-chart" aria-hidden="true"></i> Ações</a></li>
-                <li><a class="a" href="{{url_for('campanhas.doacao_page')}}"><i class="fa fa-heart" aria-hidden="true"></i> Doe Aqui!</a></li>
                 {% if current_user.is_authenticated %}
                 <li><a class="a" href="{{url_for('membros.perfil_page')}}"><i class="fa fa-users" aria-hidden="true"></i> Perfil</a></li>
                 {% else %}
@@ -47,9 +46,9 @@
     {% with mensagens = get_flashed_messages() %}
       {% if mensagens %}
         <div class="alert alert-success text-center" role="alert">
-          {% for mensagem in mensagens %}
+            {% for mensagem in mensagens %}
             <h2>{{mensagem}}</h2>
-          {% endfor %}
+            {% endfor %}
         </div>
       {% endif %}
     {% endwith %}

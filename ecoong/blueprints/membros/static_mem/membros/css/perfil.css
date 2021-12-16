@@ -23,7 +23,8 @@
   background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
   border-radius: 0 0 20px 20px;
 }
-.user-profile .user-profile-body {
+.user-profile .user-profile-body,
+.butao {
   width: 70%;
   position: relative;
   max-width: 750px;
@@ -36,7 +37,8 @@
 }
 
 .user-profile .user-profile-footer,
-.user-profile .user-profile-bio {
+.user-profile .user-profile-bio,
+.butao {
   display: flex;
   flex-wrap: wrap;
   padding: 1.5rem 2rem;
@@ -49,8 +51,9 @@
   margin-bottom: 1.25rem;
   text-align: center;
 }
-.user-profile .data-list {
-  font-size: 1.10em;
+.user-profile .data-list,
+.butao {
+  font-size: 1.1em;
   width: 80%;
   list-style: none;
 }
@@ -58,7 +61,8 @@
   padding: 10px 0;
 }
 .user-profile .cover,
-.user-profile .user-profile-body {
+.user-profile .user-profile-body,
+.butao {
   width: 95%;
 }
 .perfil-usuario-avatar {
@@ -83,4 +87,3 @@
   position: relative;
   border-radius: 100%;
 }
-

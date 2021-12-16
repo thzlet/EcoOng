@@ -127,7 +127,7 @@ def cadastrar_not():
             current_user.noticia.append(noticia)
             db.session.commit()
 
-            flash('Notícia publicada')
+            flash('Notícia publicada!')
             return redirect(url_for('noticias.noticias_page'))
 
         else:
@@ -225,7 +225,7 @@ def editar_not(id):
         current_user.noticia.append(noticia)
         db.session.commit()
 
-        flash('Notícia atualizada')
+        flash('Notícia atualizada!')
 
         return redirect(url_for('membros.historico'))
 

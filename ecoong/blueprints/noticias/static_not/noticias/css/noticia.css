@@ -4,36 +4,3 @@ html, body {
 .round {
   border-radius: 10px;
 }
-.planodefundo {
-  background: #32be8f;
-  height: auto;
-  width: 100%;
-  padding: 20px;
-  text-align: center;
-}
-h2 {
-  font-weight: bold;
-}
-/* Solid border */
-hr.solid {
-  border-top: 3px solid #32be8f;
-}
-.image-txt-container {
-  display: flex;
-  align-items: center;
-  flex-direction: row;
-}
-.vr {
-    width: 30px;
-    color:white;
-}
-.card-img-top {
-  border-radius: 30px;
-}
-.card {
-  border-radius: 30px;
-  border-color: transparent;
-}
-.card-body {
-text-align: left;
-}

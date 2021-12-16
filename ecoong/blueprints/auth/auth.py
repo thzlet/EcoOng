@@ -37,7 +37,7 @@ def cadastro_page():
     if request.method == 'POST':
         if form.validate_on_submit():
             if Membro.query.filter_by(email=form.email.data).first() is not None:
-                flash('Esse email ja existe :(')
+                flash('Esse email já existe!')
                 return redirect(url_for('auth.cadastro_page'))
 
             membro = Membro()
@@ -51,7 +51,7 @@ def cadastro_page():
             db.session.add(membro)
             db.session.commit()
 
-            flash('Cadastro concluído :)')
+            flash('Cadastro concluído!')
 
             return redirect(url_for('auth.login_page'))
 
@@ -70,13 +70,13 @@ def login_page():
         if membro:
             if bcrypt.check_password_hash(membro.senha,verif_senha):
                 login_user(membro)
-                flash('Já pode aproveitar as nossas ferramentas ;)')
+                flash('Bem-vindo(a)!')
                 return redirect(url_for('membros.perfil_page'))
             else:
-                flash('Errou a senha :(')
+                flash('Senha Incorreta!')
                 return redirect(url_for('auth.login_page'))
         else:
-            flash('Usuário nao existe :(')
+            flash('Usuário não existe!')
             return redirect(url_for('auth.login_page'))
 
     return render_template('auth/login.html', form = form)
@@ -87,12 +87,12 @@ def login_page():
 @login_required
 def sair():
     logout_user()
-    flash('Você saiu! :(')
+    flash('Você saiu!')
     return redirect('/')
 
 
 login.login_view = '/auth/login'
-login.login_message = "Faça login para acessar essa página!"
+login.login_message = "Faça login para acessar a página!"
 
 
 def init_app(app):

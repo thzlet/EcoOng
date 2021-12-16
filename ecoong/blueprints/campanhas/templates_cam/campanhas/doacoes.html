@@ -2,110 +2,80 @@
 
 {% block titulo %}Doações{% endblock %}
 
-{% block css %}<link rel="stylesheet" href="static_cam/campanhas/css/doacoes.css">{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="static_cam/campanhas/css/doacoes.css">{% endblock %}
 
 {% block conteudo %}
 
-
-<section class="shortcuts">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card border-light">
-                        <img class="card-img-top" src="../../static_cam/campanhas/img/doacoes1.png">
-                        <div class="card-body text-center">
-                          <h2>Doe amor</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-light">
-                        <img class="card-img-top" src="../../static_cam/campanhas/img/doacoes2.png">
-                        <div class="card-body text-center">
-                            <h2>Doe esperança</h2>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-light">
-                        <img class="card-img-top" src="../../static_cam/campanhas/img/doacoes3.png">
-                        <div class="card-body text-center">
-                            <h2>Doe vida</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-</section>
-
-<br><br><br>
-
-  <main>
-    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-light">
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title"><small class="text-muted fw-light">R$ 10,00</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>Plante até 3 árvores</li>
-              <li>Salve as tartarugas! </li>
-              <li>Limpe até 2 praias</li>
-              <li>Recicle 200 Kg de lixo</li>
-            </ul>
-            <a href="{{url_for('campanhas.dadosdoacaocard_page')}}" class="w-100 btn btn-primary btn-lg active" role="button" aria-pressed="true">Doe com cartão</a>
-            <a href="{{url_for('campanhas.dadosdoacaopix_page')}}" class="w-100 btn btn-primary btn-lg active" role="button" aria-pressed="true">Doar via Pix</a>
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-light">
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title"><small class="text-muted fw-light">R$ 30,00</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>Plante até 12 árvores</li>
-              <li>Salve as tartarugas! </li>
-              <li>Limpe até 6 praias</li>
-              <li>Recicle meia tonelada de lixo</li>
-            </ul>
-            <a href="{{url_for('campanhas.dadosdoacaocard_page')}}" class="w-100 btn btn-primary btn-lg active" role="button" aria-pressed="true">Doe com cartão</a>
-            <a href="{{url_for('campanhas.dadosdoacaopix_page')}}" class="w-100 btn btn-primary btn-lg active" role="button" aria-pressed="true">Doar via Pix</a>
-
-          </div>
-        </div>
-      </div>
-      <div class="col">
-        <div class="card mb-4 rounded-3 shadow-sm border-light">
-          <div class="card-body">
-            <h1 class="card-title pricing-card-title"><small class="text-muted fw-light">R$ 50,00</small></h1>
-            <ul class="list-unstyled mt-3 mb-4">
-              <li>Plante até 30 árvores</li>
-              <li>Salve as tartarugas! </li>
-              <li>Limpe até 12 praias</li>
-              <li>Recicle até uma tonelada de lixo</li>
-            </ul>
-            <a href="{{url_for('campanhas.dadosdoacaocard_page')}}" class="w-100 btn btn-primary btn-lg active" role="button" aria-pressed="true">Doe com cartão</a>
-            <a href="{{url_for('campanhas.dadosdoacaopix_page')}}" class="w-100 btn btn-primary btn-lg active" role="button" aria-pressed="true">Doar via Pix</a>
-          </div>
+<br><br>
+<h2>Nos ajude a proteger o planeta!</h2>
+<br><br>
+<div class="container">
+  <div class="row row-cols-1 row-cols-md-3 mb-3 text-center">
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm border-light">
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title"><small class="text-muted fw-light">R$ 10,00</small></h1>
+          <p>Envolva-se com a EcoOng!</p>
+          <form class="d-flex justify-content-center" action="{{url_for('campanhas.dadosdoacaocard_page')}}">
+            <button type="submit" class="pixcard">Doar com Cartão</button>
+          </form>
         </div>
       </div>
     </div>
-  </main>
-
-
-    <footer>
-    <div class="footer-content">
-      <h3>EcoOng</h3>
-      <p>Somos uma ONG que busca ajudar a preservar o Meio Ambiente!<br>
-        Nos encontre também nas redes sociais:</p>
-      <ul class="socials">
-        <li><a href="https://instagram.com/eco.ong?utm_medium=copy_link"><i class="fa fa-instagram"></i></a></li>
-        <li><a href="https://twitter.com/eco_ong2?t=S38nC3Frb7m2zhYAbASpJA&s=09"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="https://github.com/leticiarosemberg/EcoOng"><i class="fa fa-github"></i></a></li>
-      </ul>
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm border-light">
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title"><small class="text-muted fw-light">R$ 30,00</small></h1>
+          <p>Agimos com esperança e determinação!</p>
+          <form class="d-flex justify-content-center" action="{{url_for('campanhas.dadosdoacaocard_page')}}">
+            <button type="submit" class="pixcard">Doar com Cartão</button>
+          </form>
+        </div>
+      </div>
     </div>
-    <div class="footer-bottom">
-      <p>copyright &copy;2021 EcoOng.</span>
+    <div class="col">
+      <div class="card mb-4 rounded-3 shadow-sm border-light">
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title"><small class="text-muted fw-light">R$ 50,00</small></h1>
+          <p>O planeta precisa de você!</p>
+          <form class="d-flex justify-content-center" action="{{url_for('campanhas.dadosdoacaocard_page')}}">
+            <button type="submit" class="pixcard">Doar com Cartão</button>
+          </form>
+        </div>
+      </div>
     </div>
-  </footer>
+    <h1></h1>
+    <div class="col"><br>
+      <p aling="center" class="dif">OU</p><br>
+      <div class="card mb-4 rounded-3 shadow-sm border-light">
+        <div class="card-body">
+          <h1 class="card-title pricing-card-title"><small class="text-muted fw-light">EcoPix</small></h1>
+          <p>Faça um EcoPix!</p>
+          <form class="d-flex justify-content-center" action="{{url_for('campanhas.dadosdoacaopix_page')}}">
+            <button type="submit" class="pixcard">Doar via Pix</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<br><br><br><br><br><br>
+<footer>
+  <div class="footer-content">
+    <h3>EcoOng</h3>
+    <p>Somos uma ONG que busca ajudar a preservar o Meio Ambiente!<br>
+      Nos encontre também nas redes sociais:</p>
+    <ul class="socials">
+      <li><a href="https://instagram.com/eco.ong?utm_medium=copy_link"><i class="fa fa-instagram"></i></a></li>
+      <li><a href="https://twitter.com/eco_ong2?t=S38nC3Frb7m2zhYAbASpJA&s=09"><i class="fa fa-twitter"></i></a></li>
+      <li><a href="https://github.com/leticiarosemberg/EcoOng"><i class="fa fa-github"></i></a></li>
+    </ul>
+  </div>
+  <div class="footer-bottom">
+    <p>copyright &copy;2021 EcoOng.</span>
+  </div>
+</footer>
 
 {% endblock %}
+

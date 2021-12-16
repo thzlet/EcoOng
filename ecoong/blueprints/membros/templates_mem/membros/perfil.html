@@ -2,66 +2,60 @@
 
 {% block titulo %}Perfil{% endblock %}
 
-{% block css %}<link rel="stylesheet" href="static_mem/membros/css/perfil.css">{% endblock %}
+{% block css %}
+<link rel="stylesheet" href="static_mem/membros/css/perfil.css">{% endblock %}
 
 {% block conteudo %}
 
 <!-- PERFIL DO USUÁRIO -->
-  <section class="user-profile">
-    <div class="header">
-      <div class="cover">
-        <div class="perfil-usuario-avatar">
-          <img src="/membros/imagem/{{current_user.img_perfil}}" alt="img-avatar">
-        </div>
+<section class="user-profile">
+  <div class="header">
+    <div class="cover">
+      <div class="perfil-usuario-avatar">
+        <img src="/membros/imagem/{{current_user.img_perfil}}" alt="img-avatar">
       </div>
     </div>
-    <div class="user-profile-body">
-      <div class="user-profile-bio">
-        <h3 class="titulo">{{current_user.nome}}</h3>
-      </div>
-      <div class="user-profile-footer">
-        <ul class="data-list">
-          <li><b>Email:</b> {{current_user.email}}</li>
-          <li><b>Telefone:</b> {{current_user.telefone}}</li>
-          <li><b>Idade:</b> {{current_user.idade}}</li>
-        </ul>
-      </div>
-     </div>
+  </div>
+  <div class="user-profile-body">
+    <div class="user-profile-bio">
+      <h3 class="titulo">{{current_user.nome}}</h3>
+    </div>
+    <div class="user-profile-footer">
+      <ul class="data-list">
+        <li><b>Email:</b> {{current_user.email}}</li>
+        <li><b>Telefone:</b> {{current_user.telefone}}</li>
+        <li><b>Idade:</b> {{current_user.idade}}</li>
+      </ul>
+    </div>
+  </div><br>
+  <div class="butao d-flex justify-content-center">
+    <div>
+      <a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('membros.atualizar_page')}}" role="button">Editar Perfil</a>
+      <a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('membros.historico')}}" role="button">Historico</a>
+      <a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('auth.sair')}}" role="button">Logout</a>
+      <a type="button" class="btn btn-outline-danger" class="btn btn-primary" href="{{url_for('auth.sair')}}" role="button" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Remover Perfil</a>
+    </div>
 
-      <div align="center" class="d-grid gap-2 d-md-block">
-        <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('membros.atualizar_page')}}" role="button">Editar Perfil</a>
-
-      <div align="center" class="d-grid gap-2 d-md-block">
-        <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('membros.historico')}}" role="button">Historico</a>
-
-      <div class="d-grid gap-2 d-md-block">
-        <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('auth.sair')}}" role="button">Logout</a>
-
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-outline-danger" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#staticBackdrop">Remover Perfil</button>
-
-        <!-- Modal -->
-        <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-          <div class="modal-dialog">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="staticBackdropLabel"><b>Remover Perfil</b></h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-              </div>
-              <div class="modal-body">
-                Tem certeza que deseja remover seu perfil?
-                Você ira perder todos os seus dados armazenados até o momento incluindo doações, noticias...
-              </div>
-              <div class="modal-footer">
-                <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Não</button>
-                <a type="button" class="btn btn-outline-danger" href="{{url_for('membros.remover_page')}}">Sim</a>
-              </div>
-            </div>
+    <!-- Modal -->
+    <div class="modal fade" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="staticBackdropLabel">Remover Perfil</h5>
+            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+            Tem certeza que deseja remover seu perfil?
+            Você ira perder todos os seus dados armazenados até o momento incluindo doações, noticias...
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Não</button>
+            <a type="button" class="btn btn-outline-danger" href="{{url_for('membros.remover_page')}}">Sim</a>
           </div>
         </div>
       </div>
     </div>
-    </div><br><br><br>
-  </section>
+  </div><br><br><br>
+</section>
 
 {% endblock %}

@@ -51,7 +51,7 @@ def atualizar_page():
     if request.method == 'POST':
         alguem_com_o_email_desejado = Membro.query.filter_by(email=request.form['nv_email']).first()
         if alguem_com_o_email_desejado is not None and alguem_com_o_email_desejado.id != current_user.id:
-            flash('Esse email ja existe')
+            flash('Esse email já existe!')
         else:
             membro = Membro.query.get(current_user.id)
             membro.nome = form.nome.data
@@ -73,9 +73,6 @@ def atualizar_page():
 
                 app = create_app()
                 foto.save(os.path.join(app.config['UPLOAD_PERFIL'], filename))
-            else:
-                flash("Apenas extensões 'png', 'jpg', 'jpeg'!")
-                return redirect(url_for('membros.atualizar_page'))
 
             if remover_foto == True:
                 if current_user.img_perfil != 'img_padrao.jpg':
@@ -87,7 +84,7 @@ def atualizar_page():
             db.session.add(membro)
             db.session.commit()
 
-            flash('Atualização concluído!')
+            flash('Atualização concluída!')
 
             return redirect(url_for('membros.perfil_page'))
 
@@ -119,7 +116,7 @@ def remover_page():
     db.session.delete(membro)
     db.session.commit()
 
-    flash('Sua conta foi apagada')
+    flash('Sua conta foi apagada!')
 
     return redirect('/')
 

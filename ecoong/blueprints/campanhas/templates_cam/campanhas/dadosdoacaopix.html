@@ -1,72 +1,38 @@
 {% extends 'base.html' %}
 
-{% block titulo %}Doe com Pix!{% endblock %}
+{% block titulo %}Doe com Pix{% endblock %}
 
 {% block css %}<link rel="stylesheet" href="static_cam/campanhas/css/doacoes.css">{% endblock %}
 
 {% block conteudo %}
 <body>
-<h1 class="text-center text-dark">Informações da EcoOng:</h1>
-<h4 class="text-center text-dark">CNPJ: 12.345.678/0001-12</h4>
-<h3 class="text-center">Faça já um ecopix de qualquer valor!</h3>
-<br>
-<div class="text-center">
-    <img src="https://i.imgur.com/7avaHsw.png" class="rounded" alt="QRcode">
-</div>
-<br><br><br>
-<section class="shortcuts">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card border-light">
-                        <img class="card-img-top" src="../../static_cam/campanhas/img/pix1.png">
-                        <div class="card-body text-center">
-                          <h2>Preservar</h2>
-                            <p class="card-text" data-search>Preservar o meio ambiente é preservar a vida, não apenas dos seres humanos, mas de todas as espécies existentes.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-light">
-                        <img class="card-img-top" src="../../static_cam/campanhas/img/pix2.png">
-                        <div class="card-body text-center">
-                            <h2>Seja nosso parceiro</h2>
-                            <p class="card-text" data-search>Afinal, se os recursos naturais não forem utilizados de maneira sustentável, as próximas gerações são colocadas em risco.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-light">
-                        <img class="card-img-top" src="../../static_cam/campanhas/img/pix3.png">
-                        <div class="card-body text-center">
-                            <h2>Contamos com você</h2>
-                            <p class="card-text" data-search>Contamos com você para mudarmos essa situação! Entre na luta, cuide do Meio Ambiente, do planeta e da vida.</p>
-                        </div>
-                    </div>
-                </div>
+<br><br>
+<div align="center" class="container">
+  <div class="row">
+    <div class="col">
+      <div class="row row-cols-1 row-cols-md-2 g-4 justify-content-center">
+        <div class="col">
+          <div class="card h-100">
+            <br>
+            <h5 class="card-title"><b>Use o QR Code da EcoPix para pagar!</b></h5>
+            <p class="card-text">Abra o app em que vai fazer a transferência, escaneie a imagem ou cole o código do QR Code</p>
+            <img src="/static_cam/campanhas/img/qr_code.png" class="card-img-top" alt="...">
+            <div class="card-body">
+              <h5 class="card-title"><b>Ou use a chave Pix</b></h5>
+              <hr>
+              <p class="card-text"><b>Chave Pix:</b> de647118-1f92-4e4e-b733-f5ac9d90ea2b</p>
+              <p class="card-text"><b>Nome:</b> EcoOng</p>
+              <p class="card-text"><b>Email:</b> ecoong2@gmail.com</p>
+              <p class="card-text"><b>CPF:</b> •••.000.000-••</p>
+              <p class="card-text"><b>Banco:</b> 260 - Nu Pagamentos S.A. - Instituição de Pagamento</p>
             </div>
+          </div>
         </div>
-    </section>
-
-<br><br><br>
-  <footer>
-    <div class="footer-content">
-      <h3>EcoOng</h3>
-      <p>Somos uma ONG que busca ajudar a preservar o Meio Ambiente!<br>
-        Nos encontre também nas redes sociais:</p>
-      <ul class="socials">
-        <li><a href="https://instagram.com/eco.ong?utm_medium=copy_link"><i class="fa fa-instagram"></i></a></li>
-        <li><a href="https://twitter.com/eco_ong2?t=S38nC3Frb7m2zhYAbASpJA&s=09"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="https://github.com/leticiarosemberg/EcoOng"><i class="fa fa-github"></i></a></li>
-      </ul>
+      </div>
     </div>
-    <div class="footer-bottom">
-      <p>copyright &copy;2021 EcoOng.</span>
-    </div>
-  </footer>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
+  </div>
+</div>
 
-
+<br><br><br><br><br>
 
 {% endblock %}

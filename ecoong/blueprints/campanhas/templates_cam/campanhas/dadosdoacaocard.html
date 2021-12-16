@@ -1,173 +1,86 @@
 {% extends 'base.html' %}
 
-{% block titulo %}Doe com cartão!{% endblock %}
+{% block titulo %}Doe com cartão{% endblock %}
 
 {% block css %}<link rel="stylesheet" href="static_cam/campanhas/css/doacoes.css">{% endblock %}
 
 {% block conteudo %}
 <body>
-<br>
-<section class="shortcuts">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card border-light">
-                        <img class="card-img-top" src="../../static_cam/campanhas/img/cartao1.png">
-                        <div class="card-body text-center">
-                          <h2>Quem Somos</h2>
-                            <p class="card-text" data-search>A EcoOng é uma organização sem fins lucrativos e o nosso principal objetivo é dar voz a tudo o que acontece com o Meio Ambiente!</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-light">
-                        <img class="card-img-top" src="../../static_cam/campanhas/img/cartao2.png">
-                        <div class="card-body text-center">
-                            <h2>Nossas Ações</h2>
-                            <p class="card-text" data-search>Todas as nossas ações são movidas para a conscientização ambiental em busca de um mundo melhor e você é nosso convidado nessa luta.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card border-light">
-                        <img class="card-img-top" src="../../static_cam/campanhas/img/cartao3.png">
-                        <div class="card-body text-center">
-                            <h2>Impacto da doação</h2>
-                            <p class="card-text" data-search>As doações são diretamente enviadas para as causas que mais precisam de ajuda e a sua ajuda é de muito valor. Nós da EcoOng agradecemos muito!</p>
-                        </div>
-                    </div>
-                </div>
+<div class="planodefundo">
+  <h1>FAÇA SUA DOAÇÃO</h1>
+  <h4>Nos ajude a cuidar do Meio Ambiente!</h4>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <div class="row justify-content-center my-5">
+        <div class="col-sm-12 col-md-10 col-lg-8 formulario ">
+          <form action="{{url_for('campanhas.agradecimento_page')}}">
+            <div class="form-row row">
+              <div class="form-group col-sm-6">
+                <label for="inputid_membro" class="form-label mt-2">Nome do Titular</label>
+                <input type="text" class="form-control" placeholder="Nome completo" name="id_membro" required>
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="inputCPF" class="form-label mt-2">CPF:</label>
+                <input type="text" class="form-control" placeholder="000.000.000-00" name="CPF" required>
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="inputBandeira" class="form-label mt-2">Bandeira do Cartão</label>
+                <input type="text" class="form-control" placeholder="Ex: Visa, MasterCard, etc.." name="bandeira" required>
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="inputConta" class="form-label mt-2">Número do Cartão</label>
+                <input type="text" class="form-control" placeholder="0000 0000 0000 0000" name="numero" required>
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="inputBanco" class="form-label mt-2">Banco</label>
+                <input type="text" class="form-control" placeholder="Ex: Bradesco..." name="banco" required>
+              </div>
+              <div class="form-group col-sm-6">
+                <label for="inputVencimento" class="form-label mt-2">Vencimento</label>
+                <input type="text" class="form-control" placeholder="Ex: 05/21" name="vencimento" required>
+              </div>
+              <div class="form-check px-5 pt-2 mt-2">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                <label class="form-check-label" for="flexCheckDefault">
+                  Eu li e concordo com o <a href="#" data-bs-toggle="modal" data-bs-target="#Termo">termo</a> de responsabilidade.
+              </div>
             </div>
         </div>
-</section>
-<br><br>
 
-<form action="{{url_for('campanhas.agradecimento_page')}}" class="needs-validation" novalidate>
-
-
-      <div class="form-row row">
-
-        <h3 class="text-center fs-1 my-3">Dados do Titular do cartão</h3>
-
-        <div class="form-group col-sm-6">
-          <label for="inputNome" class="form-label">Nome do Titular:</label>
-          <input type="text" class="form-control" id="inputNome" placeholder="Nome" name="nome" required>
-        </div>
-
-        <div class="form-group col-sm-6">
-          <label for="cartao" class="form-label">Número do cartão:</label>
-          <input type="text" class="form-control" id="cartao" placeholder="0000 0000 0000 0000" name="cartao" required>
-        </div>
-
-        <div class="form-group col-sm-6">
-          <label for="cpf" class="form-label mt-2">CPF:</label>
-          <input type="text" class="form-control" id="CPF" placeholder="12345678900" name="cpf" required>
-        </div>
-
-        <div class="form-group col-sm-6">
-          <label for="telefone" class="form-label mt-2">Telefone:</label>
-          <input type="text" class="form-control" id="telefone" placeholder="(00) 9 0000 0000" name="telefone" required>
-        </div>
-
-        <h3 class="text-center fs-1 mt-3">Endereço de Cobrança</h3>
-
-        <div class="form-group col-sm-3">
-          <label for="estado" class="form-label">Estado:</label>
-          <select class="form-select" aria-label="Default select example" id="estado" name="estado">
-                <option>AC</option>
-                <option>AL</option>
-                <option>AP</option>
-                <option>AM</option>
-                <option>BA</option>
-                <option>CE</option>
-                <option>DF</option>
-                <option>ES</option>
-                <option>GO</option>
-                <option>MA</option>
-                <option>MT</option>
-                <option>MS</option>
-                <option>MG</option>
-                <option>PA</option>
-                <option>PB</option>
-                <option>PR</option>
-                <option>PE</option>
-                <option>PI</option>
-                <option>RJ</option>
-                <option>RN</option>
-                <option>RS</option>
-                <option>RO</option>
-                <option>RR</option>
-                <option>SC</option>
-                <option>SE</option>
-                <option>SP</option>
-                <option>TO</option>
-          </select>
-        </div>
-
-        <div class="form-group col-sm-4">
-          <label for="bairro" class="form-label">Bairro:</label>
-          <input type="text" class="form-control" id="bairro" placeholder="" name="bairro" required>
-        </div>
-
-        <div class="form-group col-sm-4">
-          <label for="cidade" class="form-label">Cidade:</label>
-          <input type="text" class="form-control" id="cidade" placeholder="" name="cidade" required>
-        </div>
-
-        <div class="form-group col-sm-9">
-          <label for="rua" class="form-label mt-2">Rua:</label>
-          <input type="text" class="form-control" id="rua" placeholder="" name="rua" required>
-        </div>
-
-        <div class="form-group col-sm-3">
-          <label for="numero" class="form-label mt-2">Número:</label>
-          <input type="number" class="form-control" id="numero" placeholder="" name="numero" required>
-        </div>
-
-        <div class="form-check px-5 pt-2 mt-2">
-          <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
-          <label class="form-check-label" for="flexCheckDefault">
-            Eu li e concordo com o <a href="#" data-bs-toggle="modal" data-bs-target="#termo">termo</a> de responsabilidade.
-            <!-- Modal -->
-            <div class="modal fade" id="termo" tabindex="-1" aria-labelledby="termos" aria-hidden="true">
-              <div class="modal-dialog">
-                <div class="modal-content">
-                  <div class="modal-header">
-                    <h5 class="modal-title" id="termos">Termo de responsabilidade</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                  </div>
-                  <div class="modal-body">
-Ao clicar em aceitar o termo de responsabilidade, o usuário declara estar ciente através destes que a falsidade das informações configura crime previsto no Código Penal Brasileiro, passível de apuração na forma da Lei bem como pode ser enquadrada como Litigância de Má Fé.
+        <div class="container">
+          <div class="row">
+            <div class="col">
+              <!-- Modal -->
+              <div class="modal fade" id="Termo" tabindex="-1" aria-labelledby="TermoDeResponsabilidade" aria-hidden="true">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h5 class="modal-title" id="TermoDeResponsabilidade">Termo de Responsabilidade</h5>
+                      <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                      Ao clicar em aceitar o Termo de Responsabilidade, o usuário declara estar ciente, através destes, que a falsidade das informações configura crime previsto no Código Penal Brasileiro, passível de apuração na forma da Lei, bem como pode ser enquadrada como Litigância de Má Fé.
+                    </div>
                   </div>
                 </div>
               </div>
+              </label>
             </div>
-          </label>
+            <br>
+            <div class="form-group col-12 text-center d-flex justify-content-center">
+              <button type="submit" class="btndoar">DOAR</button>
+            </div>
+          </div>
+          </form>
         </div>
-
-        <div class="form-group col-12 text-center">
-          <button type="submit" class="btn my-3  btn-lg btn-dark"><span class="mx-5">DOAR</span></button>
-        </div>
-
       </div>
-
-    </form>
-
-  <footer>
-    <div class="footer-content">
-      <h3>EcoOng</h3>
-      <p>Somos uma ONG que busca ajudar a preservar o Meio Ambiente!<br>
-        Nos encontre também nas redes sociais:</p>
-      <ul class="socials">
-        <li><a href="https://instagram.com/eco.ong?utm_medium=copy_link"><i class="fa fa-instagram"></i></a></li>
-        <li><a href="https://twitter.com/eco_ong2?t=S38nC3Frb7m2zhYAbASpJA&s=09"><i class="fa fa-twitter"></i></a></li>
-        <li><a href="https://github.com/leticiarosemberg/EcoOng"><i class="fa fa-github"></i></a></li>
-      </ul>
     </div>
-    <div class="footer-bottom">
-      <p>copyright &copy;2021 EcoOng.</span>
-    </div>
-  </footer>
+  </div>
+</div>
+<br>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 </body>
 
