@@ -16,3 +16,17 @@ inputs.forEach((input) => {
   input.addEventListener("focus", addcl);
   input.addEventListener("blur", remcl);
 });
+
+const inputdivs = document.querySelectorAll('.input-div');
+
+inputdivs.forEach(function(inputdiv) {
+    const divinterna = inputdiv.getElementsByClassName('div')[0];
+    console.log(divinterna);
+    let h5 = divinterna.getElementsByTagName('h5')[0];
+    console.log(h5);
+    let input = divinterna.getElementsByTagName('input')[0];
+    if(input.value != ''){
+        h5.style.top = "-5px";
+        h5.style.fontSize = "15px";
+    }
+})

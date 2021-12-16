@@ -2,37 +2,31 @@
 
 {% block titulo %}Cadastrar Notícia{% endblock %}
 
-{% block css %}
-<link rel="stylesheet" href="/static_not/noticias/css/cad_not.css">{% endblock %}
-{% block conteudo %}
+{% block css %}<link rel="stylesheet" href="/static_not/noticias/css/cad_not.css">{% endblock %}
 
+{% block conteudo %}
 <!--FORMULARIO  DE CADASTRO-->
+{% from "_formhelpers.html" import render_field %}
 <form class="cad" action="{{url_for('noticias.cadastrar_not')}}" method="post" enctype="multipart/form-data">
-  <div class="container">
-    <div class="contact-box">
-      <div class="left"></div>
-      <div class="right">
-        <h2>Cadastro de Notícias</h2>
-        <input class="field" id="" type="text" name="nome" value="{{current_user.nome}}" readonly>
-        <input class="field" id="" type="text" name="titulo" placeholder="Título da notícia" required>
-        <select class="field" name="categoria">
-          <option value="1">Poluição</option>
-          <option value="2">Desmatamento</option>
-          <option value="3">Preservação</option>
-          <option value="4">Animais</option>
-          <option value="5">Água</option>
-          <option value="6">Biomas</option>
-        </select>
-        <div class="tag-container">
-            <input class="field" type="hidden" name="tags" id="tagspreenchidas" value="">
-            <input type="text" name="tags" id="tagspreencher" placeholder="Tags">
+    <div class="container">
+        <div class="contact-box">
+            <div class="left"></div>
+            <div class="right">
+                <h2>Cadastro de Notícias</h2>
+                {{form.csrf_token}}
+                {{ render_field(form.autor, class_="field") }}
+                {{ render_field(form.titulo, class_="field", placeholder="Título") }}
+                {{ render_field(form.categoria, class_="field") }}
+                <div class="tag-container">
+                    {{ render_field(form.hiddenTags, class_="field") }}
+                    {{ render_field(form.tags, placeholder="Tags") }}
+                </div>
+                <p>Digite uma virgula(,) após a palavra-chave.</p>
+                {{ render_field(form.descricao, class_="field", placeholder="Descrição da noticia") }}
+                {{ render_field(form.imagem, class_="field") }}<br> <br>
+                <input class="env" id="enviar" type="submit" value="Cadastrar">
+            </div>
         </div>
-        <p>Digite uma virgula(,) após a palavra-chave.</p>
-        <textarea class="field" id="" name="des" rows="5" cols="50" placeholder="Descrição da noticia" required></textarea>
-        <input class="field" id="" type="file" name="img" required> <br> <br>
-        <input class="env" id="enviar" type="submit" value="Cadastrar">
-      </div>
     </div>
-  </div>
 </form>
 {% endblock %}

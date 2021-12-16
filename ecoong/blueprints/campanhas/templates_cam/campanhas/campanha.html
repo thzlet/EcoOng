@@ -5,8 +5,10 @@
 {% block css %}<link rel="stylesheet" href="static_cam/campanhas/css/campanha.css">{% endblock %}
 
 {% block busca %}
+{% from "_formhelpers.html" import render_field %}
   <form action="{{url_for('campanhas.buscar_cam')}}" method="POST" class="d-flex">
-    <input class="form-control me-2" type="text" name="busca" placeholder="Digite aqui!" aria-label="Search">
+    {{form.csrf_token}}
+    {{ render_field(form.busca, class_="form-control me-2", placeholder="Digite aqui!") }}
     <button class="btn btn-outline-success" type="submit">Pesquisar</button>
   </form>
 {% endblock %}

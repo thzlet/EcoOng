@@ -6,63 +6,74 @@
 
 {% block conteudo %}
 
-  <div class="container">
+<div class="container">
     <div class="row">
-      <div class="col">
-        <div class="login-content">
-          <form action="{{url_for('auth.cadastro_page')}}" method="post"><br>
-            <h2 class="title">Cadastro</h2>
-            <div class="input-div one">
-              <div class="i">
-                <i class="far fa-user"></i>
-              </div>
-              <div class="div">
-                <h5>Nome</h5>
-                <input id="nome" type="text" name="nome" class="input" required>
-              </div>
+        <div class="col">
+            <div class="login-content">
+                {% from "_formhelpers.html" import render_field %}
+                <form action="{{url_for('auth.cadastro_page')}}" method="post"><br>
+                    {{form.csrf_token}}
+                    <h2 class="title">Cadastro</h2>
+                    <div class="input-div one">
+                        <div class="i">
+                            <i class="far fa-user"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Nome</h5>
+                            {{ render_field(form.nome, class_="input") }}
+                        </div>
+                    </div>
+                    <div class="input-div one">
+                        <div class="i">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Email</h5>
+                            {{ render_field(form.email, class_="input", pattern="[a-zA-Z0-9.-]+@gmail\.com") }}
+                        </div>
+                    </div>
+                    <div class="input-div one">
+                        <div class="i">
+                            <i class="fas fa-mobile"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Telefone</h5>
+                            {{ render_field(form.telefone, class_="input") }}
+                        </div>
+                    </div>
+                    <div class="input-div one">
+                        <div class="i">
+                            <i class="far fa-calendar-alt"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Idade</h5>
+                            {{ render_field(form.idade, class_="input") }}
+                        </div>
+                    </div>
+                    <div class="input-div pass">
+                        <div class="i">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Senha</h5>
+                            {{ render_field(form.senha, class_="input") }}
+                        </div>
+                    </div>
+                    <div class="input-div pass">
+                        <div class="i">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Confirmar senha</h5>
+                            {{ render_field(form.confirmar, class_="input") }}
+                        </div>
+                    </div>
+                    <a class="brilhaverde" href="{{url_for('auth.login_page')}}">Faça login aqui!</a>
+                    <input id="enviar" type="submit" class="btnn" value="Cadastrar">
+                </form>
             </div>
-            <div class="input-div one">
-              <div class="i">
-                <i class="fas fa-envelope-open-text"></i>
-              </div>
-              <div class="div">
-                <h5>Email</h5>
-                <input id="email" type="email" name="email" class="input" pattern="[a-z0-9.-]+@[a-z0-9.-]+\.[a-z.-]{3,}$" required>
-              </div>
-            </div>
-            <div class="input-div one">
-              <div class="i">
-                <i class="fas fa-mobile"></i>
-              </div>
-              <div class="div">
-                <h5>Telefone</h5>
-                <input id="tel" type="text" name="tel" class="input" required>
-              </div>
-            </div>
-            <div class="input-div one">
-              <div class="i">
-                <i class="far fa-calendar-alt"></i>
-              </div>
-              <div class="div">
-                <h5>Idade</h5>
-                <input id="idade" type="number" name="idade" class="input" required>
-              </div>
-            </div>
-            <div class="input-div pass">
-              <div class="i">
-                <i class="fas fa-lock"></i>
-              </div>
-              <div class="div">
-                <h5>Senha</h5>
-                <input id="senha" type="password" name="senha" class="input" required>
-              </div>
-            </div>
-            <a class="brilhaverde" href="{{url_for('auth.login_page')}}">Faça login aqui!</a>
-            <input id="enviar" type="submit" class="btnn" value="Cadastrar">
-          </form>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 
 {% endblock %}

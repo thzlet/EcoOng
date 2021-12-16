@@ -7,34 +7,28 @@
 {% block conteudo %}
 
 <!--FORMULARIO  DE EDIÇÃO DE NOTÍCIAS-->
-<form class="cad" action="{{url_for('noticias.editar_not', id=noticia.id)}}" method="post" enctype="multipart/form-data">  <div class="container">
-    <div class="contact-box">
-      <div class="left"></div>
-      <div class="right">
-        <h2>Editar Notícias</h2>
-        <input class="field" id="" type="text" name="nome" value="{{current_user.nome}}" readonly>
-        <input class="field" id="" type="text" name="titulo" value="{{noticia.titulo}}">
-
-        <select class="field" name="categoria">
-          <option value="{{id_categ}}">{{nome_categ}}</option>
-          {% for categoria in categorias %}
-          {% if categoria.id != id_categ %}
-              <option value="{{categoria.id}}">{{categoria.categoria}}</option>
-          {% endif %}
-          {% endfor %}
-        </select>
-       <div class="tag-container">
-            <input class="field" type="hidden" name="tags" id="tagspreenchidas" value="">
-            <input type="text" name="tagspreencher" id="tagspreencher" value="{{string_tags}}" >
-        </div><!--
-        <input class="field" id="" type="text" name="tags" value="{{string_tags}}">-->
-        <p>Digite uma virgula(,) após a palavra-chave.</p>
-        <textarea class="field" id="" name="des" rows="5" cols="50">{{noticia.descricao}}</textarea>
-        <input class="field" id="" type="file" name="img"> <br> <br>
-        <input class="env" id="" type="submit" value="Editar">
-      </div>
+{% from "_formhelpers.html" import render_field %}
+<form class="cad" action="{{url_for('noticias.editar_not', id=noticia.id)}}" method="post" enctype="multipart/form-data">
+    <div class="container">
+        <div class="contact-box">
+            <div class="left"></div>
+            <div class="right">
+                <h2>Editar Notícias</h2>
+                {{form.csrf_token}}
+                {{ render_field(form.autor, class_="field") }}
+                {{ render_field(form.titulo, class_="field", placeholder="Título") }}
+                {{ render_field(form.categoria, class_="field") }}
+                <div class="tag-container">
+                    {{ render_field(form.hiddenTags, class_="field") }}
+                    {{ render_field(form.tags) }}
+                </div>
+                <p>Digite uma virgula(,) após a palavra-chave.</p>
+                {{ render_field(form.descricao, class_="field", placeholder="Descrição da noticia") }}
+                {{ render_field(form.imagem, class_="field") }}<br> <br>
+                <input class="env" id="" type="submit" value="Editar">
+            </div>
+        </div>
     </div>
-  </div>
 </form>
 
 {% endblock %}

@@ -7,20 +7,22 @@
 {% block conteudo %}
 
 <!--FORMULARIO DE EDIÇÃO-->
+{% from "_formhelpers.html" import render_field %}
 <form class="cad" action="{{url_for('campanhas.editar_cam', id=campanha.id)}}" method="post" enctype="multipart/form-data">
-  <div class="container">
-    <div class="contact-box">
-      <div class="left"></div>
-      <div class="right">
-        <h2>Editar Campanhas</h2>
-        <input class="field" id="" type="text" name="autor" value="{{current_user.nome}}" readonly>
-        <input class="field" type="text" name="titulo" value="{{campanha.titulo}}">
-        <textarea class="field" name="des" rows="5" cols="50">{{campanha.descricao}}</textarea>
-        <input class="field" type="file" name="img"> <br> <br>
-        <input class="env" id="" type="submit" value="Editar"><br>
-      </div>
+    <div class="container">
+        <div class="contact-box">
+            <div class="left"></div>
+            <div class="right">
+                <h2>Editar Campanhas</h2>
+                {{form.csrf_token}}
+                {{ render_field(form.autor, class_="field") }}
+                {{ render_field(form.titulo, class_="field") }}
+                {{ render_field(form.descricao, class_="field") }}
+                {{ render_field(form.imagem, class_="field") }}
+                <input class="env" id="" type="submit" value="Editar"><br>
+            </div>
+        </div>
     </div>
-  </div>
 </form>
 
 {% endblock %}
