@@ -2,29 +2,45 @@
 
 {% block titulo %}Detalhe da Noticia{% endblock %}
 
-{% block css %}<link rel="stylesheet" href="/static_not/noticias/css/noticias.css">{% endblock %}
+{% block css %}<link rel="stylesheet" href="/static_not/noticias/css/noticia.css">{% endblock %}
 
 {% block conteudo %}
-    <div class="container" align="center" >
-        <h3>{{noticia.titulo}}</h3> <br>
-        <img height="200" width="300" src="/noticias/imagem/{{noticia.img_not}}"> <br>
-        <p>{{noticia.descricao}}</p>
-        Autor: {{noticia.autor}} <br>
-        Data: {{noticia.datahora.strftime('%d/%m/%Y %H:%M')}} <br>
+    <div class="planodefundo">
+        <h2 class="text-light">{{noticia.titulo}}</h2>
+    </div><br>
+
+<div class="container" align="center">
+  Por {{noticia.autor}},
+        em {{noticia.datahora.strftime('%d/%m/%Y %H:%M')}} —
         Categoria:
         {% for categoria in categorias %}
         {% if noticia.categoria_id == categoria.id %}
         {{categoria.categoria}}
         {% endif %}
         {% endfor %} <br>
+</div>
+<hr class="solid">
+<div class="container" align="center">
+                <div class="col-md-8">
+                    <div class="card">
+                        <img class="card-img-top" height="350" width="450" src="/noticias/imagem/{{noticia.img_not}}">
+                        <div class="card-body" align="left">
+                            <p>{{noticia.descricao}}</p>
+                        </div>
+                    </div>
+                </div>
+</div>
+
+    <hr class="solid">
+    <div class="container" align="center">
         Tags:
         {% for tag in noticia.tags %}
-            {{tag.tag}} <br>
+            {{tag.tag}},
         {% endfor %}
+    </div>
+    <hr class="solid">
 
-
-
-
+    <div class="container" align="center">
         {% if current_user.is_authenticated %}
         {% if current_user.id == noticia.membro_id %}
         <div class="d-grid gap-2 d-md-block">
@@ -42,12 +58,12 @@
                             <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                         </div>
                         <div class="modal-body">
-                            Tem certeza que deseja remover a notícia "{{noticia.titulo}}" ?
-                            Ela será apagada definitivamente...
+                            Deseja remover a notícia "{{noticia.titulo}}"?
+                            Essa ação não pode ser desfeita.
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Não</button>
-                            <a type="button" class="btn btn-outline-danger" href="{{url_for('noticias.remover_not', id=noticia.id)}}">Sim</a>
+                            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancelar</button>
+                            <a type="button" class="btn btn-outline-danger" href="{{url_for('noticias.remover_not', id=noticia.id)}}">Remover</a>
                         </div>
                     </div>
                 </div>
