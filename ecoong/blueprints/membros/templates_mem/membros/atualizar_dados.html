@@ -6,56 +6,60 @@
 
 {% block conteudo %}
 
-  <!-- PERFIL DO USUÁRIO -->
-  <form class="box" action="{{url_for('membros.atualizar_page')}}" method="post" enctype="multipart/form-data">
+<!-- PERFIL DO USUÁRIO -->
+{% from "_formhelpers.html" import render_field %}
+<form class="box" action="{{url_for('membros.atualizar_page')}}" method="post" enctype="multipart/form-data">
     <section class="user-profile">
-      <div class="header">
-        <div class="cover">
-          <div class="perfil-usuario-avatar">
-            <img src="/membros/imagem/{{current_user.img_perfil}}" alt="img-avatar">
-          </div>
-        </div>
-      </div>
-      <div class="user-profile-body">
-        <div class="user-profile-bio">
-          <ul align="left" class="data-list">
-            <div class="mb-3">
-              <label for="name" class="form-label"><b>Nome:</b></label>
-              <input type="text" class="form-control" name="nv_nome" placeholder="Nome" value="{{current_user.nome}}">
+        <div class="header">
+            <div class="cover">
+                <div class="perfil-usuario-avatar">
+                    <img src="/membros/imagem/{{current_user.img_perfil}}" alt="img-avatar">
+                </div>
             </div>
-          </ul>
         </div>
-        <div class="user-profile-footer">
-          <ul class="data-list">
-              <div class="mb-3">
-                <label for="imagem" class="form-label"><b>Foto de Perfil:</b></label>
-                <input type="file" class="form-control" name="nv_img">
-              </div>
-              <div class="form-check">
-                <input class="form-check-input" type="checkbox" name="remover_foto" value="remover" id="flexCheckDefault">
-                <label class="form-check-label" for="flexCheckDefault"><b>Remover Foto</b></label>
-              </div> <br>
-              <div class="mb-3">
-                <label for="emaill" class="form-label"><b>Emaill:</b></label>
-                <input type="email" class="form-control" name="nv_email" placeholder="Email" value="{{current_user.email}}">
-              </div>
-              <div class="mb-3">
-                <label for="telefone" class="form-label"><b>Telefone:</b></label>
-                <input type="text" class="form-control" name="nv_tel" placeholder="Telefone" value="{{current_user.telefone}}">
-              </div>
-              <div class="mb-3">
-                <label for="idade" class="form-label"><b>Idade:</b></label>
-                <input type="number" class="form-control" name="nv_idade" placeholder="Idade" value="{{current_user.idade}}">
-              </div>
-              <div class="mb-3 form-check">
-                <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
-                <label class="form-check-label" for="flexCheckDefault">
-                <label class="form-check-label" for="exampleCheck1"><b>Tem certeza que deseja fazer essas alterações?</b></label>
-              </div>
-              <button type="submit" value="Atualizar" class="btn btn-outline-dark" class="btn btn-primary">Atualizar</button>
-            </form>
-          </ul>
-        </div><br><br><br>
+        <div class="user-profile-body">
+            <div class="user-profile-bio">
+                <ul align="left" class="data-list">
+                    <div class="mb-3">
+                        {{form.csrf_token}}
+                        <label for="nome" class="form-label"><b>Nome:</b></label>
+                        {{ render_field(form.nome, class_="form-control") }}
+                    </div>
+                </ul>
+            </div>
+            <div class="user-profile-footer">
+                <ul class="data-list">
+                    <div class="mb-3">
+                        <label for="fotoperfil" class="form-label"><b>Foto de Perfil:</b></label>
+                        {{ render_field(form.fotoperfil, class_="form-control") }}
+                    </div>
+                    <div class="form-check">
+                        {{ render_field(form.removerfoto, class_="form-check-input")}}
+                        <label class="form-check-label" for="flexCheckDefault"><b>Remover Foto</b></label>
+                    </div> <br>
+                    <div class="mb-3">
+                        <label for="email" class="form-label"><b>Emaill:</b></label>
+                        {{ render_field(form.email, class_="form-control", pattern="[a-zA-Z0-9.-]+@gmail\.com") }}
+                    </div>
+                    <div class="mb-3">
+                        <label for="telefone" class="form-label"><b>Telefone:</b></label>
+                        {{ render_field(form.telefone, class_="form-control")}}
+                    </div>
+                    <div class="mb-3">
+                        <label for="idade" class="form-label"><b>Idade:</b></label>
+                        {{ render_field(form.idade, class_="form-control")}}
+                    </div>
+                    <div class="mb-3 form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
+                        <label class="form-check-label" for="flexCheckDefault">
+                            <label class="form-check-label" for="exampleCheck1"><b>Tem certeza que deseja fazer essas alterações?</b></label>
+                    </div>
+                    <button type="submit" value="Atualizar" class="btn btn-outline-dark" class="btn btn-primary">Atualizar</button>
+
+                </ul>
+            </div><br><br><br>
+        </div>
     </section>
+</form>
 
 {% endblock %}

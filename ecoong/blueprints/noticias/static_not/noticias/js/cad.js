@@ -4,7 +4,7 @@ let tagContainer;
 window.onload = function () {
   input = document.querySelector("#tagspreencher");
   tagContainer = document.querySelector(".tag-container");
-  input.addEventListener("keyup", addTags);
+  input.addEventListener("input", addTags);
   loadTags();
 };
 function loadTags() {
@@ -18,8 +18,7 @@ function loadTags() {
     input.value = "";
 }
 function addTags(event) {
-  const keyPressedIsComma = event.key == ",";
-  if (keyPressedIsComma) {
+  if(event.data.endsWith(',')){
     input.value.split(",").forEach((tag) => {
       if (tag) {
         tags.push(tag.trim());

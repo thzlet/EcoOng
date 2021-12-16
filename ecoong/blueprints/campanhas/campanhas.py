@@ -1,18 +1,44 @@
 import os
 from flask import Blueprint, render_template, request, redirect, flash, url_for, send_from_directory
-from flask_login import login_required
+from flask_login import login_required, current_user
+
+from flask_wtf import FlaskForm
+from wtforms import StringField, FileField, TextAreaField
+from wtforms.validators import DataRequired
+
 from ..campanhas.entidades import Campanha
 from ecoong.models import Membro
-from flask_login import current_user
+
 from ecoong.ext.database import db
 from ... import create_app
+
 from werkzeug.utils import secure_filename
+
 from sqlalchemy import or_
 
 
 bp = Blueprint('campanhas', __name__,static_folder='static_cam', template_folder='templates_cam', url_prefix='/campanhas')
 
 
+#FORMULARIOS
+class CadastroCampanhaForm(FlaskForm):
+    autor = StringField(name='autor', render_kw={'readonly':True})
+    titulo = StringField(name='titulo', validators=[DataRequired()])
+    descricao = TextAreaField(name='descricao',render_kw={'cols':'50', 'rols':'5'}, validators=[DataRequired()])
+    imagem = FileField(name='img', validators=[DataRequired()])
+
+
+class EditarCampanhaForm(FlaskForm):
+    autor = StringField(name='autor', render_kw={'readonly':True})
+    titulo = StringField(name='titulo')
+    descricao = TextAreaField(name='descricao', render_kw={'cols':'50', 'rols':'5'})
+    imagem = FileField(name='img')
+
+class BuscarCampanhaForm(FlaskForm):
+    busca = StringField(name='busca', validators=[DataRequired()])
+
+
+#FORMATO DE IMAGEM PERMITIDA
 FORMATOS_PERMITIDOS = {'png', 'jpg', 'jpeg'}
 
 
@@ -21,48 +47,58 @@ def allowed_file(filename):
            filename.rsplit('.', 1)[1].lower() in FORMATOS_PERMITIDOS
 
 
+#PAGINA DE CAMPANHAS
 @bp.route('/campanhas')
 def campanha_page():
+    form = BuscarCampanhaForm()
     camp = Campanha.query.order_by(Campanha.id.desc()).all()
-    return render_template('campanhas/campanha.html', campanhas = camp)
+    return render_template('campanhas/campanha.html', campanhas = camp, form = form)
 
 
+#DETALHE DE CAMPANHAS
 @bp.route('/detalhe_cam/<id>')
 def detalhe_cam_page(id):
     cam = Campanha.query.get(id)
     return render_template('campanhas/detalhe_campanha.html', campanha=cam)
 
 
+#PAGINA DE DOAÇOES
 @bp.route('/doacao')
 def doacao_page():
     return render_template('campanhas/doacoes.html')
 
 
+#PAGINA DE AGRADECIMENTOS
 @bp.route('/agradecimento')
 def agradecimento_page():
     return render_template('campanhas/agradecimento.html')
 
 
+#FORMULARIO DE DOAÇAO POR CARTAO
 @bp.route('/dadosdoacaocard')
 @login_required
 def dadosdoacaocard_page():
     return render_template('campanhas/dadosdoacaocard.html')
 
 
+#DOAÇAO POR PIX
 @bp.route('/dadosdoacaopix')
 @login_required
 def dadosdoacaopix_page():
     return render_template('campanhas/dadosdoacaopix.html')
 
 
+#CADASTRAR DE CAMPANHA
 @bp.route('/cad_campanha', methods=['GET', 'POST'])
+@login_required
 def cadastrar_cam():
+    form = CadastroCampanhaForm()
     if request.method == 'POST':
         campanha = Campanha()
-        campanha.titulo = request.form['titulo']
-        campanha.autor = request.form['autor']
-        campanha.descricao = request.form['des']
-        foto = request.files['img']
+        campanha.titulo = form.titulo.data
+        campanha.autor = form.autor.data
+        campanha.descricao = form.descricao.data
+        foto = form.imagem.data
         campanha.membro_id = Membro.query.get(current_user.id)
 
         current_user.campanha.append(campanha)
@@ -84,20 +120,21 @@ def cadastrar_cam():
 
         else:
             flash("Apenas extensões 'png', 'jpg', 'jpeg'!")
-            return redirect('/campanhas/cadastrar_campanha.html')
+            return redirect(url_for('campanhas.cadastrar_cam'))
 
         return redirect(url_for('campanhas.campanha_page'))
 
-    return render_template('campanhas/cadastrar_campanha.html')
+    form.autor.data = current_user.nome
+    return render_template('campanhas/cadastrar_campanha.html', form = form)
 
-
+#EXIBIR IMAGEM DA CAMPANHA
 @bp.get('/imagem/<nome>')
 def imagens(nome):
     app = create_app()
     return send_from_directory(app.config['UPLOAD_CAMPANHA'], nome)
 
 
-#remover campanha
+#REMOVER CAMPANHA
 @bp.route('/remover/<id>', methods=['GET', 'POST'])
 @login_required
 def remover_cam(id):
@@ -122,22 +159,23 @@ def remover_cam(id):
         return redirect(url_for('membros.historico'))
 
 
-#editar campanha
+#EDITAR CAMPANHA
 @bp.route('/editar/<id>', methods=['GET', 'POST'])
 @login_required
 def editar_cam(id):
+    form = EditarCampanhaForm()
     campanha = Campanha.query.get(id)
     if request.method == 'POST':
-        campanha.titulo = request.form['titulo']
-        campanha.autor = request.form['autor']
-        descricao = request.form['des']
+        campanha.titulo = form.titulo.data
+        campanha.autor = form.autor.data
+        descricao = form.descricao.data
         campanha.membro_id = current_user.id
         if descricao != '':
             campanha.descricao = descricao
         db.session.commit()
 
         if 'img' in request.files:
-            foto = request.files['img']
+            foto = form.imagem.data
 
             if foto:
                 if allowed_file(foto.filename):
@@ -149,32 +187,32 @@ def editar_cam(id):
                     app = create_app()
                     foto.save(os.path.join(app.config['UPLOAD_CAMPANHA'], filename))
 
-                    current_user.campanha.append(campanha)
-                    db.session.commit()
-
-                    flash('Campanha atualizada')
                 else:
                     flash("Apenas extensões 'png', 'jpg', 'jpeg'!")
                     return redirect(url_for('membros.historico'))
-        else:
-            current_user.campanha.append(campanha)
-            db.session.commit()
 
-            flash('Campanha atualizada')
+        current_user.campanha.append(campanha)
+        db.session.commit()
+
+        flash('Campanha atualizada')
 
         return redirect(url_for('membros.historico'))
 
-    return render_template('campanhas/editar_campanha.html', campanha = campanha)
+    form.titulo.data = campanha.titulo
+    form.autor.data = current_user.nome
+    form.descricao.data = campanha.descricao
+    return render_template('campanhas/editar_campanha.html', campanha = campanha, form = form)
 
 
-#buscar campanha
+#BUSCAR CAMPANHA
 @bp.post('/busca')
 def buscar_cam():
-    busca = request.form['busca']
+    form = BuscarCampanhaForm()
+    busca = form.busca.data
     search = '%{}%'.format(busca)
     cam = Campanha.query.filter(or_(Campanha.titulo.like(search), Campanha.descricao.like(search))).all()
 
-    return render_template('campanhas/exibir_campanhas_buscada.html', campanhas = cam)
+    return render_template('campanhas/exibir_campanhas_buscada.html', campanhas = cam, form = form)
 
 
 def init_app(app):

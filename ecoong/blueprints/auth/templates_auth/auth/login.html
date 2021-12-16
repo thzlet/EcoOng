@@ -7,37 +7,39 @@
 {% block conteudo %}
 
 <!--FORMULARIO DE LOGIN-->
-  <div class="container">
+<div class="container">
     <div class="row">
-      <div class="col">
-        <div class="login-content">
-          <form action="{{url_for('auth.login_page')}}" method="post"><br><br><br>
-            <img src='/static_auth/auth/imgs/log.svg'>
-            <h2 class="title">Login</h2>
-            <div class="input-div one">
-              <div class="i">
-                <i class="fas fa-envelope-open-text"></i>
-              </div>
-              <div class="div">
-                <h5>Email</h5>
-                <input id="email" type="email" name="email" class="input" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z.-]{3,}$" required>
-              </div>
+        <div class="col">
+            <div class="login-content">
+                {% from "_formhelpers.html" import render_field %}
+                <form action="{{url_for('auth.login_page')}}" method="post"><br><br><br>
+                    {{form.csrf_token}}
+                    <img src='/static_auth/auth/imgs/log.svg'>
+                    <h2 class="title">Login</h2>
+                    <div class="input-div one">
+                        <div class="i">
+                            <i class="fas fa-envelope-open-text"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Email</h5>
+                            {{ render_field(form.email, class_="input", pattern="[a-zA-Z0-9.-]+@gmail\.com") }}
+                        </div>
+                    </div>
+                    <div class="input-div pass">
+                        <div class="i">
+                            <i class="fas fa-lock"></i>
+                        </div>
+                        <div class="div">
+                            <h5>Senha</h5>
+                            {{ render_field(form.senha, class_="input") }}
+                        </div>
+                    </div>
+                    <a class="brilhaverde" href="{{url_for('auth.cadastro_page')}}">Cadastre-se aqui!</a>
+                    <input id="enviar" type="submit" class="btnn" value="Entrar">
+                </form>
             </div>
-            <div class="input-div pass">
-              <div class="i">
-                <i class="fas fa-lock"></i>
-              </div>
-              <div class="div">
-                <h5>Senha</h5>
-                <input id="senha" type="password" name="senha" class="input" required>
-              </div>
-            </div>
-            <a class="brilhaverde" href="{{url_for('auth.cadastro_page')}}">Cadastre-se aqui!</a>
-                <input id="enviar" type="submit" class="btnn" value="Entrar">
-          </form>
         </div>
-      </div>
     </div>
-  </div>
+</div>
 
 {% endblock %}

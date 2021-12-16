@@ -6,21 +6,23 @@
 
 {% block conteudo %}
 
-  <!--FORMULARIO DE CADASTRO-->
-   <form class="cad" action="{{url_for('campanhas.cadastrar_cam')}}" method="post" enctype="multipart/form-data">
-  <div class="container">
-    <div class="contact-box">
-      <div class="left"></div>
-      <div class="right">
-        <h2>Cadastrar Campanhas</h2>
-        <input class="field" type="text" name="autor" value="{{current_user.nome}}" readonly>
-        <input class="field" type="text" name="titulo" placeholder="Título" required>
-        <textarea class="field" name="des" rows="5" cols="50" placeholder="Descrição da campanha" required></textarea>
-        <input class="field" type="file" name="img" required> <br> <br>
-        <input class="env" id="enviar" type="submit" value ="Cadastrar">
-      </div>
+<!--FORMULARIO DE CADASTRO-->
+{% from "_formhelpers.html" import render_field %}
+<form class="cad" action="{{url_for('campanhas.cadastrar_cam')}}" method="post" enctype="multipart/form-data">
+    <div class="container">
+        <div class="contact-box">
+            <div class="left"></div>
+            <div class="right">
+                <h2>Cadastrar Campanhas</h2>
+                {{form.csrf_token}}
+                {{ render_field(form.autor, class_="field") }}
+                {{ render_field(form.titulo, class_="field", placeholder="Título") }}
+                {{ render_field(form.descricao, class_="field", placeholder="Descrição da campanha") }}
+                {{ render_field(form.imagem, class_="field") }}
+                <input class="env" id="enviar" type="submit" value="Cadastrar">
+            </div>
+        </div>
     </div>
-  </div>
 </form>
 
 {% endblock %}
