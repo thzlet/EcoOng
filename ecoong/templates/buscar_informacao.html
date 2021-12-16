@@ -14,14 +14,12 @@
 {% block conteudo %}
 
 <!-- NOTICIAS -->
+
 <div class="container"><br><br>
-  <h1 class="notcam" align="center">Resultado da Busca </h1><br>
-  <hr>
-  <h3 align="center">Noticias</h3>
-  <hr>
+  <h1 align="center">Noticias</h1><br>
   <div class="row">
     {% for noticia in noticias %}
-    <div class="col">
+    <div class="col-lg-4 col-sm-6 col-xs-12">
       <div class="card mb-3">
         <a href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}"><img class="card-img-top" height="200" width="200" src='/noticias/imagem/{{noticia.img_not}}'></a>
         <div class="card-body">
@@ -31,7 +29,7 @@
           <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
             <p class="card-text">{{noticia.descricao[:95] + "..."}}</p>
           </a><br>
-          <p class="card-text"><small class="text-muted">{{noticia.data}} - {{noticia.autor}}</small></p>
+          <p class="card-text"><small class="text-muted">{{noticia.autor}} - {{noticia.datahora.strftime('%d/%m/%Y %H:%M')}}</small></p>
         </div>
       </div>
     </div>
@@ -42,32 +40,24 @@
 <br><br><br>
 
 <!-- CAMPANHAS -->
-<div class="container">
-  <hr>
-  <h3 align="center">Campanhas</h3>
-  <hr>
-  <div align="center" class="container">
-    <div class="row">
-      {% for campanha in campanhas %}
-      <div class="col">
-        <div class="card mb-3" style="max-width: 1000px;">
-          <div class="row g-0">
-            <div class="col-md-4">
-              <a href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}"><img id="imgcam" src="/campanhas/imagem/{{campanha.img_cam}}" class="img-fluid rounded-start" alt="..."></a>
-            </div>
-            <div class="col-md-8">
-              <div class="card-body">
-                <a style="text-decoration:none;color:black;" href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}">
-                  <h5 align="left" class="card-title">{{campanha.titulo}}</h5>
-                  <a style="text-decoration:none;color:black;" href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}">
-                    <p align="left" class="card-text">{{campanha.descricao[:95] + "..."}}</p>
-              </div>
-            </div>
-          </div>
+<div class="container"><br><br>
+  <h1 align="center">Campanhas</h1><br>
+  <div class="row">
+    {% for campanha in campanhas %}
+    <div class="col-lg-4 col-sm-6 col-xs-12">
+      <div class="card mb-3">
+        <a href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}"><img class="card-img-top" height="200" width="200" src='/campanhas/imagem/{{campanha.img_cam}}'></a>
+        <div class="card-body">
+          <a style="text-decoration:none;color:black;" href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}">
+            <h5 class="card-title">{{campanha.titulo}}</h5>
+          </a>
+          <a style="text-decoration:none;color:black;" href="{{url_for('campanhas.detalhe_cam_page', id=campanha.id)}}">
+            <p class="card-text">{{campanha.descricao[:95] + "..."}}</p>
+          </a><br>
         </div>
       </div>
-      {% endfor %}
     </div>
+    {% endfor %}
   </div>
 </div>
 

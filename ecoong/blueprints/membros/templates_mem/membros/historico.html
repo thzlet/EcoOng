@@ -29,7 +29,7 @@
                     <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
                         <p class="card-text">{{noticia.descricao[:95] + "..."}}</p>
                     </a><br>
-                    <p class="card-text"><small class="text-muted">{{noticia.data}} - {{noticia.autor}}</small></p>
+                    <p class="card-text"><small class="text-muted">{{noticia.autor}} - {{noticia.datahora.strftime('%d/%m/%Y %H:%M')}}</small></p>
                 </div>
 
                 <div align="center" class="d-grid gap-2 d-md-block">
@@ -70,7 +70,7 @@
 <!-- Campanhas-->
   <div class="container"><br><br>
     <hr>
-    <h4 align="center">Minhas Campanhas</h3>
+    <h4 align="center">Minhas Campanhas</h4>
     <br>
     <div class="d-grid gap-2 d-md-block">
         <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('campanhas.cadastrar_cam')}}" role="button">Cadastrar Campanha</a>
