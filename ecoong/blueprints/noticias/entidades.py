@@ -14,7 +14,7 @@ class Noticia(db.Model):
     titulo = db.Column(db.String(100), nullable=False)
     autor = db.Column(db.String(100), nullable=False)
     datahora = db.Column(db.DateTime, nullable=False, default=datetime.utcnow)
-    descricao = db.Column(db.String(300), nullable=False)
+    descricao = db.Column(db.String(5000), nullable=False)
 
     img_not = db.Column(db.String(100), default='img_not_padrao.png')
 
