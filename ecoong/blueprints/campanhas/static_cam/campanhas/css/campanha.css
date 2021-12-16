@@ -10,7 +10,7 @@ body, html {
   filter: blur(8px);
   -webkit-filter: blur(8px);
 
-  height: 70%;
+  height: 75%;
 
   background-position: center;
   background-repeat: no-repeat;
@@ -49,6 +49,7 @@ h1 {
   width: 400px;
   height: 300px;
   padding: 2rem 1rem;
+  font-family: "Quicksand", sans-serif;
   background: #fff;
   position: relative;
   display: flex;
@@ -117,6 +118,7 @@ h1 {
 .cards .info p {
   letter-spacing: 1px;
   font-size: 15px;
+  font-family: "Quicksand", sans-serif;
   margin-top: 8px;
   margin-bottom: 20px;
 }

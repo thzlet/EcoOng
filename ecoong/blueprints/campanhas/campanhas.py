@@ -116,7 +116,7 @@ def cadastrar_cam():
             current_user.campanha.append(campanha)
             db.session.commit()
 
-            flash('campanha publicada')
+            flash('Campanha publicada!')
 
         else:
             flash("Apenas extensões 'png', 'jpg', 'jpeg'!")
@@ -194,7 +194,7 @@ def editar_cam(id):
         current_user.campanha.append(campanha)
         db.session.commit()
 
-        flash('Campanha atualizada')
+        flash('Campanha atualizada!')
 
         return redirect(url_for('membros.historico'))
 

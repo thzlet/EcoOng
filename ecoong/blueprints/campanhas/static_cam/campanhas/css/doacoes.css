@@ -1,6 +1,42 @@
 .btndoar {
-  background: #66cdaa;
-  color: white;
+  display: block;
+  width: 20%;
+  height: 40px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+  background-size: 200%;
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-family: "Quicksand", sans-serif;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.btndoar:hover {
+  background-position: right;
+}
+.pixcard {
+  display: block;
+  width: 70%;
+  height: 40px;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  background-image: linear-gradient(to right, #32be8f, #38d39f, #32be8f);
+  background-size: 200%;
+  font-size: 1.2rem;
+  color: #ffffff;
+  font-family: "Quicksand", sans-serif;
+  text-transform: uppercase;
+  margin: 1rem 0;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.pixcard:hover {
+  background-position: right;
 }
 .planodefundo {
   background: #66cdaa;
@@ -9,26 +45,41 @@
   padding: 80px 0px;
   text-align: center;
 }
-h1 {
-  font-family: fantasy;
-  color: #ffffff;
-}
-h4 {
-  color: #ffffff;
-}
 .porquerdoar {
   color: black;
 }
-h5 {
-  font-size: 25px;
-  color: #808080;
+
+.planodefundo {
+  background: #66cdaa;
+  height: auto;
+  width: 100%;
+  padding: 80px 0px;
+  text-align: center;
 }
+h1 {
+  font-family: "Quicksand", sans-serif;
+  color: white;
+}
+h2 {
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+}
+h4 {
+  font-family: "Quicksand", sans-serif;
+  text-align: center;
+  color: white;
+}
+.porquerdoar {
+  color: black;
+  font-family: "Quicksand", sans-serif;
+}
+
 footer {
   position: static;
   background: #2f4f4f;
   height: auto;
   width: 100%;
-  font-family: Times new romas;
+  font-family: "Quicksand", sans-serif;
   padding-top: 40px;
   color: #66cdaa;
 }
@@ -55,11 +106,11 @@ footer {
   list-style: none;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justicify-content:center;
   margin: 1rem 0 3rem 0;
 }
 .socials li {
-  margin: 0 25px;
+  margin: 0 30px;
 }
 .socials a i {
   color: #66cdaa;
@@ -78,4 +129,8 @@ footer {
   font-size: 20px;
   word-spacing: 2px;
   text-transform: capitalize;
+}
+.dif {
+  font-family: "Quicksand", sans-serif;
+  font-size: 2.0rem;
 }

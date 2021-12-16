@@ -16,7 +16,7 @@
 {% block conteudo %}
 
 <!--CARTÃO FINALIDADE DAS CAMPANHAS-->
-  <p>
+<br>
   <div class="campanha-bg-image"></div>
 
     <div class="campanha-bg-text">
@@ -52,8 +52,9 @@
 
   <!-- BOTÃO PARA CADASTRAR UMA NOVA CAMPANHA -->
   {% if current_user.is_authenticated %}
-    <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('campanhas.cadastrar_cam')}}" role="button">Cadastrar Campanha</a>
-    <br><br>
+  <div class="d-flex justify-content-center">
+    <br><a type="button" class="btn btn-outline-dark " class="btn btn-primary" href="{{url_for('campanhas.cadastrar_cam')}}" role="button">Cadastrar Campanha</a>
+  </div><br><br>
   {% endif %}
 
 {% endblock %}

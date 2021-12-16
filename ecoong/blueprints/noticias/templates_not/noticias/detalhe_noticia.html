@@ -2,7 +2,7 @@
 
 {% block titulo %}Detalhe da Noticia{% endblock %}
 
-{% block css %}<link rel="stylesheet" href="/static_not/noticias/css/noticia.css">{% endblock %}
+{% block css %}<link rel="stylesheet" href="/static_not/noticias/css/detalhes_not.css">{% endblock %}
 
 {% block conteudo %}
     <div class="planodefundo">
@@ -40,36 +40,4 @@
     </div>
     <hr class="solid">
 
-    <div class="container" align="center">
-        {% if current_user.is_authenticated %}
-        {% if current_user.id == noticia.membro_id %}
-        <div class="d-grid gap-2 d-md-block">
-            <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('noticias.editar_not', id=noticia.id)}}" role="button">Editar</a>
-
-            <!--Button trigger modal -->
-            <button type="button" class="btn btn-outline-danger" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#removerNoticia{{noticia.id}}">Remover </button>
-
-            <!--Modal -->
-            <div class="modal fade" id="removerNoticia{{noticia.id}}" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="staticBackdropLabel">Remover Notícia</h5>
-                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div class="modal-body">
-                            Deseja remover a notícia "{{noticia.titulo}}"?
-                            Essa ação não pode ser desfeita.
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Cancelar</button>
-                            <a type="button" class="btn btn-outline-danger" href="{{url_for('noticias.remover_not', id=noticia.id)}}">Remover</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    {% endif %}
-    {% endif %}
 {% endblock %}

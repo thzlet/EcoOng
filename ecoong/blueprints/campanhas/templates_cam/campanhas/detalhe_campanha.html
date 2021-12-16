@@ -18,38 +18,8 @@ body{
                 <div class="col p-4 ps-md-6">
                     <h3>{{campanha.titulo}}</h3>
                     <p>{{campanha.descricao}}</p>
-                    <a type="button" class="enviar" href="{{url_for('campanhas.doacao_page')}}" role="button">Doar</a>
+                    <a type="button" class="btn" href="{{url_for('campanhas.doacao_page')}}" role="button">Doar</a>
                     </p>
-                    {% if current_user.is_authenticated %}
-                    {% if current_user.id == campanha.membro_id %}
-                    <div align="center" class="d-grid gap-2 d-md-block">
-                        <br><a type="button" class="enviar" href="{{url_for('campanhas.editar_cam', id=campanha.id)}}" role="button">Editar</a>
-
-                        <!-- Button trigger modal -->
-                        <button align="center" class="enviar" type="button" data-bs-toggle="modal" data-bs-target="#removerCampanha{{campanha.id}}">Remover </button>
-
-                        <!-- Modal -->
-                        <div class="modal fade" id="removerCampanha{{campanha.id}}" tabindex="-1" data-bs-backdrop="static" data-bs-keyboard="false" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                            <div class="modal-dialog">
-                                <div class="modal-content">
-                                    <div class="modal-header">
-                                        <h5 class="modal-title" id="staticBackdropLabel">Remover Notícia</h5>
-                                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                                    </div>
-                                    <div class="modal-body">
-                                        Tem certeza que deseja remover a notícia "{{campanha.titulo}}" ?
-                                        Ela será apagada definitivamente...
-                                    </div>
-                                    <div class="modal-footer">
-                                        <button type="button" class="btn btn-outline-dark" data-bs-dismiss="modal">Não</button>
-                                        <a type="button" class="btn btn-outline-danger" href="{{url_for('campanhas.remover_cam', id=campanha.id)}}">Sim</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><br>
-                    {% endif %}
-                    {% endif %}
                 </div>
             </div>
         </div>

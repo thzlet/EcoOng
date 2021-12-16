@@ -87,27 +87,7 @@
 
   <div class="container">
     <div class="row">
-      {% for noticia in noticias[3:4] %}
-      <div class="col">
-        <div class="card mb-3">
-          <a href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}"><img class="card-img-top" height="200" width="200" src='/noticias/imagem/{{noticia.img_not}}'></a>
-          <div class="card-body">
-            <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
-              <h5 class="card-title">{{noticia.titulo[:95]}}</h5>
-              <a style="text-decoration:none;color:black;" href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}">
-                <p class="card-text">{{noticia.descricao[:566] + "..."}}</p>
-              </a><br>
-              <p class="card-text"><small class="text-muted">{{noticia.autor}} - {{noticia.datahora.strftime('%d/%m/%Y %H:%M')}}</small></p>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-  </div>
-
-  <div class="container">
-    <div class="row">
-      {% for noticia in noticias[4:7] %}
+      {% for noticia in noticias[3:6] %}
       <div class="col">
         <div class="card mb-3">
           <a href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}"><img class="card-img-top" height="200" width="200" src='/noticias/imagem/{{noticia.img_not}}'></a>
@@ -128,7 +108,7 @@
 
   <div class="container">
     <div class="row">
-      {% for noticia in noticias[7:10] %}
+      {% for noticia in noticias[6:9] %}
       <div class="col">
         <div class="card mb-3">
           <a href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}"><img class="card-img-top" height="200" width="200" src='/noticias/imagem/{{noticia.img_not}}'></a>
@@ -151,7 +131,7 @@
   <div class="container">
     <br><hr>
     <div class="row">
-      {% for noticia in noticias[10:13] %}
+      {% for noticia in noticias[9:12] %}
       <div class="col">
         <div class="card-news">
           <div class="row g-0 bg-light position-relative">
@@ -172,7 +152,7 @@
 <!-- QUARTA PARTE DE NOTÍCIAS COM TABELA NOTICIAS-->
 <div class="container">
   <div class="row">
-    {% for noticia in noticias[13:16] %}
+    {% for noticia in noticias[12:15] %}
     <div class="col-lg-4 col-sm-6 col-xs-12">
       <div class="card mb-3">
         <href="{{url_for('noticias.detalhe_not_page', id=noticia.id)}}"><img class="card-img-top" height="200" width="200" src="/noticias/imagem/{{noticia.img_not}}"></a>
@@ -194,8 +174,9 @@
 
   <!-- BOTÃO PARA CADASTRAR UMA NOVA NOTICIA -->
   {% if current_user.is_authenticated %}
+    <div class="d-flex justify-content-center">
     <br><a type="button" class="btn btn-outline-dark" class="btn btn-primary" href="{{url_for('noticias.cadastrar_not')}}" role="button">Cadastrar Notícia</a></div>
-    <br><br>
+    </div><br><br>
   {% endif %}
 
 {% endblock %}
