@@ -4,11 +4,11 @@
 
 - Carrossel
 
-1: https://pixabay.com/photos/trees-fog-street-road-lane-lush-1587301/
+1: https://unsplash.com/photos/pt7QzB4ZLWw
 
-2: https://pixabay.com/photos/moss-forest-nature-macro-plants-6649862/
+2: https://unsplash.com/photos/19SC2oaVZW0
 
-3: https://pixabay.com/photos/forest-woods-nature-trees-3369950/
+3: https://www.shopify.com.br/burst/imagens-hd/floresta-vicosa?q=natureza
 
 - Imagens
 
@@ -100,3 +100,7 @@
 11: https://www.bemparana.com.br/noticia/morte-de-golfinhos-no-litoral-do-parana-preocupa-pesquisadores#.Ya0A-FXMLcc
 
 12: https://veja.abril.com.br/agenda-verde/imposto-aumenta-protecao-na-mata-atlantica-mas-tem-impacto-limitado/
+
+13: https://www.gov.br/pt-br/noticias/meio-ambiente-e-clima/2021/12/governo-federal-divulga-resultado-das-operacoes-de-combate-a-crimes-ambientais-na-amazonia
+
+14: https://www.bbc.com/portuguese/internacional-55926800
