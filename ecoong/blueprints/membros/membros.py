@@ -106,9 +106,19 @@ def imagens(nome):
 
 #REMOVER MEMBRO
 @bp.get('/remover')
+@login_required
 def remover_page():
-    #removendo membro
     membro = Membro.query.get(current_user.id)
+    noticias = Noticia.query.all()
+    campanhas = Campanha.query.all()
+
+    for noticia in noticias:
+        if noticia.membro_id == membro.id:
+            db.session.delete(noticia)
+
+    for campanha in campanhas:
+        if campanha.membro_id == membro.id:
+            db.session.delete(campanha)
 
     app = create_app()
     os.remove(os.path.join(app.config['UPLOAD_PERFIL'], membro.img_perfil))
@@ -116,7 +126,7 @@ def remover_page():
     db.session.delete(membro)
     db.session.commit()
 
-    flash('Sua conta foi apagada!')
+    flash('Sua conta foi apagada')
 
     return redirect('/')
 

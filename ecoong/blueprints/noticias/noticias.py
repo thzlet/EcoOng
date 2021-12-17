@@ -76,6 +76,7 @@ def detalhe_not_page(id):
 
 #CADASTRAR DE NOTICIA
 @bp.route('/cad_noticia', methods=['GET', 'POST'])
+@login_required
 def cadastrar_not():
     form = CadastroNoticiaForm()
     if request.method == 'POST':
