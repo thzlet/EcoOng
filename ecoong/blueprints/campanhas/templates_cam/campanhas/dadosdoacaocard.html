@@ -5,7 +5,6 @@
 {% block css %}<link rel="stylesheet" href="static_cam/campanhas/css/doacoes.css">{% endblock %}
 
 {% block conteudo %}
-<body>
 <div class="planodefundo">
   <h1>FAÇA SUA DOAÇÃO</h1>
   <h4>Nos ajude a cuidar do Meio Ambiente!</h4>
@@ -16,31 +15,33 @@
     <div class="col">
       <div class="row justify-content-center my-5">
         <div class="col-sm-12 col-md-10 col-lg-8 formulario ">
+          {% from "_formhelpers.html" import render_field %}
           <form action="{{url_for('campanhas.agradecimento_page')}}">
+            {{form.csrf_token}}
             <div class="form-row row">
               <div class="form-group col-sm-6">
                 <label for="inputid_membro" class="form-label mt-2">Nome do Titular</label>
-                <input type="text" class="form-control" placeholder="Nome completo" name="id_membro" required>
+                {{ render_field(form.nome, class_="form-control", placeholder="Nome completo") }}
               </div>
               <div class="form-group col-sm-6">
                 <label for="inputCPF" class="form-label mt-2">CPF:</label>
-                <input type="text" class="form-control" placeholder="000.000.000-00" name="CPF" required>
+                {{ render_field(form.cpf, class_="form-control", placeholder="000.000.000-00") }}
               </div>
               <div class="form-group col-sm-6">
                 <label for="inputBandeira" class="form-label mt-2">Bandeira do Cartão</label>
-                <input type="text" class="form-control" placeholder="Ex: Visa, MasterCard, etc.." name="bandeira" required>
+                {{ render_field(form.bandeira, class_="form-control", placeholder="Ex: Visa, MasterCard, etc..") }}
               </div>
               <div class="form-group col-sm-6">
                 <label for="inputConta" class="form-label mt-2">Número do Cartão</label>
-                <input type="text" class="form-control" placeholder="0000 0000 0000 0000" name="numero" required>
+                {{ render_field(form.numero, class_="form-control", placeholder="0000 0000 0000 0000") }}
               </div>
               <div class="form-group col-sm-6">
                 <label for="inputBanco" class="form-label mt-2">Banco</label>
-                <input type="text" class="form-control" placeholder="Ex: Bradesco..." name="banco" required>
+                {{ render_field(form.banco, class_="form-control", placeholder="Ex: Bradesco...") }}
               </div>
               <div class="form-group col-sm-6">
                 <label for="inputVencimento" class="form-label mt-2">Vencimento</label>
-                <input type="text" class="form-control" placeholder="Ex: 05/21" name="vencimento" required>
+                {{ render_field(form.vencimento, class_="form-control", placeholder="Ex: 05/21") }}
               </div>
               <div class="form-check px-5 pt-2 mt-2">
                 <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" required>
@@ -81,9 +82,5 @@
   </div>
 </div>
 <br>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
-</body>
-
-
 
 {% endblock %}

@@ -34,6 +34,16 @@ class EditarCampanhaForm(FlaskForm):
     descricao = TextAreaField(name='descricao', render_kw={'cols':'50', 'rols':'5'})
     imagem = FileField(name='img')
 
+
+class DadosCartaoForm(FlaskForm):
+    nome = StringField(name='nome', validators=[DataRequired()])
+    cpf = StringField(name='cpf', validators=[DataRequired()])
+    bandeira = StringField(name='bandeira', validators=[DataRequired()])
+    numero = StringField(name='numero', validators=[DataRequired()])
+    banco = StringField(name='banco', validators=[DataRequired()])
+    vencimento = StringField(name='vencimento', validators=[DataRequired()])
+
+
 class BuscarCampanhaForm(FlaskForm):
     busca = StringField(name='busca', validators=[DataRequired()])
 
@@ -70,6 +80,7 @@ def doacao_page():
 
 #PAGINA DE AGRADECIMENTOS
 @bp.route('/agradecimento')
+@login_required
 def agradecimento_page():
     return render_template('campanhas/agradecimento.html')
 
@@ -78,7 +89,8 @@ def agradecimento_page():
 @bp.route('/dadosdoacaocard')
 @login_required
 def dadosdoacaocard_page():
-    return render_template('campanhas/dadosdoacaocard.html')
+    form = DadosCartaoForm()
+    return render_template('campanhas/dadosdoacaocard.html', form = form)
 
 
 #DOAÇAO POR PIX
