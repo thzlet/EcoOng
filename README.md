@@ -1,4 +1,5 @@
 # EcoOng
+> Projeto Integrador: site desenvolvido no Curso Técnico Concomitante em Informática, 2021 ; Instituto Federal;
 
 > 🌱 A EcoOng se trata de uma organização - fictícia - não governamental(ONG) sem fins lucrativos, cujo programa visa garantir um meio ambiente ecologicamente equilibrado para a presente e futuras gerações, garantindo assim, a perpetuidade da vida na face do planeta.
 
