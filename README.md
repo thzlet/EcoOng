@@ -1,16 +1,16 @@
 # EcoOng
-> Projeto Integrador: site desenvolvido no Curso Técnico Concomitante em Informática, 2021 ; Instituto Federal;
+> Site desenvolvido no Curso Técnico Concomitante em Informática, no ano de 2021 no Instituto Federal; O SITE JÁ NÃO ESTÁ MAIS DISPONÍVEL!
 
-> 🌱 A EcoOng se trata de uma organização - fictícia - não governamental(ONG) sem fins lucrativos, cujo programa visa garantir um meio ambiente ecologicamente equilibrado para a presente e futuras gerações, garantindo assim, a perpetuidade da vida na face do planeta.
+> 🌱 Website developed in the Concomitant Technical Course in Computer Science, in 2021 at the Federal Institute; THE WEBSITE IS NO LONGER AVAILABLE!
 
-## Desenvolvedores
+## Desenvolvedores / DEVELOPERS
 - Letícia Rosemberg
 - Cristina Araújo
 - Ângela Santiago
 - Matheus Monteiro
 - Maria Eduarda Victorino 
 
-## Linguagens utilizadas
+## Linguagens utilizadas / PROGRAMMING LANGUAGES USED
 <div style="display: inline_block"><br>
   <img align="center" alt="Eco-Python" height="35" width="35" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
   <img align="center" alt="Eco-HTML" height="35" width="35" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
