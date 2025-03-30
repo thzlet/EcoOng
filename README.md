@@ -4,11 +4,11 @@
 > 🌱 Website developed in the Concomitant Technical Course in Computer Science, in 2021 at the Federal Institute; THE WEBSITE IS NO LONGER AVAILABLE!
 
 ## Desenvolvedores / DEVELOPERS
-- Letícia Rosemberg
-- Cristina Araújo
-- Ângela Santiago
-- Matheus Monteiro
-- Maria Eduarda Victorino 
+- Letícia Sousa - Scrum Master
+- Cristina Araújo - Dev back-end
+- Ângela Santiago - UX/UI designer
+- Matheus Monteiro - Dev back-end
+- Maria Eduarda Victorino - UX/UI designer
 
 ## Linguagens utilizadas / PROGRAMMING LANGUAGES USED
 <div style="display: inline_block"><br>
