@@ -1,16 +1,16 @@
 # EcoOng
-> Site desenvolvido no Curso Técnico Concomitante em Informática, no ano de 2021 no Instituto Federal; O SITE JÁ NÃO ESTÁ MAIS DISPONÍVEL!
+> THE WEBSITE IS NO LONGER AVAILABLE!
 
-> 🌱 Website developed in the Concomitant Technical Course in Computer Science, in 2021 at the Federal Institute; THE WEBSITE IS NO LONGER AVAILABLE!
+> 🌱 This is a small project developed in Python by computer science students from the Federal Institute of Technology; 
 
-## Desenvolvedores / DEVELOPERS
+## DEVELOPERS
 - Letícia Sousa - Scrum Master
 - Cristina Araújo - Dev back-end
 - Ângela Santiago - UX/UI designer
 - Matheus Monteiro - Dev back-end
 - Maria Eduarda Victorino - UX/UI designer
 
-## Linguagens utilizadas / PROGRAMMING LANGUAGES USED
+## PROGRAMMING LANGUAGES USED
 <div style="display: inline_block"><br>
   <img align="center" alt="Eco-Python" height="35" width="35" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg">
   <img align="center" alt="Eco-HTML" height="35" width="35" src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg">
